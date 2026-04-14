@@ -11,6 +11,9 @@
 tailwind.config = {
   theme: {
     extend: {
+      screens: {
+        nav: '852px',
+      },
       colors: {
         cream: { 50:'#FFFDF7', 100:'#FFF9E8', 200:'#FFF3D1' },
         sage: { 300:'#A8C5A0', 400:'#8FB58A', 500:'#7C9A82', 600:'#5F7D65', 700:'#476150', 800:'#334538' },
@@ -71,16 +74,16 @@ tailwind.config = {
 <!-- Navigation -->
 <nav class="fixed top-0 w-full z-50 bg-cream-50/80 backdrop-blur-xl border-b border-sage-300/10">
   <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-7xl mx-auto">
-    <a href="#" class="font-display text-2xl font-semibold tracking-tight text-sage-800">Femme Vision</a>
-    <div class="hidden md:flex items-center gap-10">
+    <a href="#" class="font-display text-2xl font-semibold tracking-tight text-sage-800">Femme Vision Kinga Maryniak</a>
+    <div class="hidden nav:flex items-center gap-10">
       <a class="font-body text-sm tracking-wide text-sage-600/70 hover:text-sage-800 transition-colors" href="#uslugi">Usługi</a>
       <a class="font-body text-sm tracking-wide text-sage-600/70 hover:text-sage-800 transition-colors" href="#o-mnie">O mnie</a>
       <a class="font-body text-sm tracking-wide text-sage-600/70 hover:text-sage-800 transition-colors" href="#cennik">Cennik</a>
       <a class="font-body text-sm tracking-wide text-sage-600/70 hover:text-sage-800 transition-colors" href="#kontakt">Kontakt</a>
     </div>
-    <a class="hidden md:inline-block bg-sage-500 hover:bg-sage-600 text-cream-50 px-7 py-3 rounded-lg text-sm font-medium tracking-wider uppercase transition-all duration-300 hover:shadow-lg hover:shadow-sage-500/25" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">Konsultacja</a>
-    <!-- Mobile hamburger -->
-    <button id="menuBtn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+    <a class="hidden nav:inline-block bg-sage-500 hover:bg-sage-600 text-cream-50 px-7 py-3 rounded-lg text-sm font-medium tracking-wider uppercase transition-all duration-300 hover:shadow-lg hover:shadow-sage-500/25" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">Konsultacja</a>
+    <!-- Mobile hamburger (below nav breakpoint — inline links need more width) -->
+    <button id="menuBtn" class="flex nav:hidden flex-col gap-1.5 p-2" aria-label="Menu">
       <span class="w-6 h-0.5 bg-sage-800 transition-all duration-300" id="bar1"></span>
       <span class="w-6 h-0.5 bg-sage-800 transition-all duration-300" id="bar2"></span>
       <span class="w-4 h-0.5 bg-sage-800 transition-all duration-300" id="bar3"></span>
