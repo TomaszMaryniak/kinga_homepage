@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palettes — Kinga Homepage Versions</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f5f5f5; color: #222; padding: 2rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .subtitle { color: #666; margin-bottom: 2.5rem; }
+    .back { display: inline-block; margin-bottom: 1.5rem; color: #555; text-decoration: none; }
+    .back:hover { color: #000; }
+    .version { margin-bottom: 3rem; background: #fff; border-radius: 12px; padding: 1.5rem 2rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .version h2 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .version .fonts { font-size: 0.8rem; color: #888; margin-bottom: 1rem; }
+    .group { margin-bottom: 1rem; }
+    .group-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 0.4rem; }
+    .swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+    .swatch {
+      width: 72px; height: 56px;
+      border-radius: 8px;
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 4px;
+      font-size: 0.6rem; font-family: monospace;
+      border: 1px solid rgba(0,0,0,0.08);
+      cursor: default;
+      position: relative;
+      transition: transform 0.15s ease;
+    }
+    .swatch:hover { transform: scale(1.08); z-index: 1; }
+    .swatch span {
+      background: rgba(255,255,255,0.85);
+      padding: 1px 4px;
+      border-radius: 3px;
+      color: #333;
+      backdrop-filter: blur(4px);
+    }
+    .dark-text span { background: rgba(0,0,0,0.5); color: #fff; }
+    a.version-link { font-size: 0.8rem; color: #0066cc; text-decoration: none; }
+    a.version-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back">&larr; Back to index</a>
+  <h1>Color Palettes</h1>
+  <p class="subtitle">Extracted from each version's Tailwind config / CSS variables.</p>
+
+  <!-- v01 Szałwia -->
+  <div class="version">
+    <h2>v01 – Szałwia</h2>
+    <div class="fonts">Cormorant Garamond + DM Sans</div>
+    <a class="version-link" href="v01-szalwia/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Cream</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#FFFDF7"><span>#FFFDF7</span></div>
+        <div class="swatch" style="background:#FFF9E8"><span>#FFF9E8</span></div>
+        <div class="swatch" style="background:#FFF3D1"><span>#FFF3D1</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Sage</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#A8C5A0"><span>#A8C5A0</span></div>
+        <div class="swatch" style="background:#8FB58A"><span>#8FB58A</span></div>
+        <div class="swatch" style="background:#7C9A82"><span>#7C9A82</span></div>
+        <div class="swatch" style="background:#5F7D65"><span>#5F7D65</span></div>
+        <div class="swatch dark-text" style="background:#476150"><span>#476150</span></div>
+        <div class="swatch dark-text" style="background:#334538"><span>#334538</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- v02 Jungle -->
+  <div class="version">
+    <h2>v02 – Jungle</h2>
+    <div class="fonts">Playfair Display + Outfit</div>
+    <a class="version-link" href="v02-jungle/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Jungle</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#FFF8F0"><span>#FFF8F0</span></div>
+        <div class="swatch" style="background:#F5EDD6"><span>#F5EDD6</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Emerald</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#ECFDF5"><span>#ECFDF5</span></div>
+        <div class="swatch" style="background:#D1FAE5"><span>#D1FAE5</span></div>
+        <div class="swatch" style="background:#A7F3D0"><span>#A7F3D0</span></div>
+        <div class="swatch dark-text" style="background:#065F46"><span>#065F46</span></div>
+        <div class="swatch dark-text" style="background:#064E3B"><span>#064E3B</span></div>
+        <div class="swatch dark-text" style="background:#022C22"><span>#022C22</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Gold</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#F5D77A"><span>#F5D77A</span></div>
+        <div class="swatch" style="background:#D4A843"><span>#D4A843</span></div>
+        <div class="swatch" style="background:#C09525"><span>#C09525</span></div>
+        <div class="swatch dark-text" style="background:#A17B1A"><span>#A17B1A</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- v03 Herbarium -->
+  <div class="version">
+    <h2>v03 – Herbarium</h2>
+    <div class="fonts">EB Garamond + Lato</div>
+    <a class="version-link" href="v03-herbarium/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Ecru</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#FFF8E7"><span>#FFF8E7</span></div>
+        <div class="swatch" style="background:#FFF3D6"><span>#FFF3D6</span></div>
+        <div class="swatch" style="background:#FFE9B8"><span>#FFE9B8</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Olive</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#E8E6D8"><span>#E8E6D8</span></div>
+        <div class="swatch" style="background:#D4D2C0"><span>#D4D2C0</span></div>
+        <div class="swatch" style="background:#8B8B6E"><span>#8B8B6E</span></div>
+        <div class="swatch" style="background:#6B705C"><span>#6B705C</span></div>
+        <div class="swatch dark-text" style="background:#565A49"><span>#565A49</span></div>
+        <div class="swatch dark-text" style="background:#3F4237"><span>#3F4237</span></div>
+        <div class="swatch dark-text" style="background:#2A2C23"><span>#2A2C23</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Copper</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#D4956A"><span>#D4956A</span></div>
+        <div class="swatch" style="background:#B87333"><span>#B87333</span></div>
+        <div class="swatch dark-text" style="background:#A06028"><span>#A06028</span></div>
+        <div class="swatch dark-text" style="background:#8A4F1E"><span>#8A4F1E</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- v04 Ogród -->
+  <div class="version">
+    <h2>v04 – Ogród</h2>
+    <div class="fonts">Cormorant Garamond + DM Sans</div>
+    <a class="version-link" href="v04-ogrod/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Garden</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#FFFEF9"><span>#FFFEF9</span></div>
+        <div class="swatch" style="background:#faf2e6"><span>#faf2e6</span></div>
+        <div class="swatch" style="background:#F5E6CC"><span>#F5E6CC</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Green</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#c4dbbe"><span>#c4dbbe</span></div>
+        <div class="swatch" style="background:#A8C5A0"><span>#A8C5A0</span></div>
+        <div class="swatch" style="background:#7da574"><span>#7da574</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Rose</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#f0cdd0"><span>#f0cdd0</span></div>
+        <div class="swatch" style="background:#E8B4B8"><span>#E8B4B8</span></div>
+        <div class="swatch" style="background:#d4969b"><span>#d4969b</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Dark</div>
+      <div class="swatches">
+        <div class="swatch dark-text" style="background:#3D3D3D"><span>#3D3D3D</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- v05 Bamboo -->
+  <div class="version">
+    <h2>v05 – Bamboo</h2>
+    <div class="fonts">Noto Serif Display + Karla</div>
+    <a class="version-link" href="v05-bamboo/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Palette</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#FAFAF8"><span>#FAFAF8</span></div>
+        <div class="swatch" style="background:#E8E8E4"><span>#E8E8E4</span></div>
+        <div class="swatch" style="background:#C8D5B9"><span>#C8D5B9</span></div>
+        <div class="swatch" style="background:#8A9A7B"><span>#8A9A7B</span></div>
+        <div class="swatch dark-text" style="background:#2D2D2D"><span>#2D2D2D</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- v06 Greenhouse -->
+  <div class="version">
+    <h2>v06 – Greenhouse</h2>
+    <div class="fonts">Outfit + Plus Jakarta Sans</div>
+    <a class="version-link" href="v06-greenhouse/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Palette</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#E8F5E9"><span>#E8F5E9</span></div>
+        <div class="swatch" style="background:#D8F3DC"><span>#D8F3DC</span></div>
+        <div class="swatch" style="background:#95D5B2"><span>#95D5B2</span></div>
+        <div class="swatch dark-text" style="background:#2D6A4F"><span>#2D6A4F</span></div>
+        <div class="swatch dark-text" style="background:#1B4332"><span>#1B4332</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- v07 Terracotta -->
+  <div class="version">
+    <h2>v07 – Terracotta</h2>
+    <div class="fonts">Libre Baskerville + Raleway</div>
+    <a class="version-link" href="v07-terracotta/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Warm</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#FFFDF7"><span>#FFFDF7</span></div>
+        <div class="swatch" style="background:#FFF8F0"><span>#FFF8F0</span></div>
+        <div class="swatch" style="background:#C67C4E"><span>#C67C4E</span></div>
+        <div class="swatch dark-text" style="background:#A85D3A"><span>#A85D3A</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Olive</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#6B705C"><span>#6B705C</span></div>
+        <div class="swatch dark-text" style="background:#3F4237"><span>#3F4237</span></div>
+        <div class="swatch dark-text" style="background:#2C2418"><span>#2C2418</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- v08 Moss -->
+  <div class="version">
+    <h2>v08 – Moss</h2>
+    <div class="fonts">Crimson Pro + Manrope</div>
+    <a class="version-link" href="v08-moss/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Cream</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#F5F0E0"><span>#F5F0E0</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Gold</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#DFC17A"><span>#DFC17A</span></div>
+        <div class="swatch" style="background:#C5A55A"><span>#C5A55A</span></div>
+        <div class="swatch dark-text" style="background:#A8893E"><span>#A8893E</span></div>
+        <div class="swatch dark-text" style="background:#8B6D28"><span>#8B6D28</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Moss</div>
+      <div class="swatches">
+        <div class="swatch dark-text" style="background:#2A4A2A"><span>#2A4A2A</span></div>
+        <div class="swatch dark-text" style="background:#243824"><span>#243824</span></div>
+        <div class="swatch dark-text" style="background:#1F3A1F"><span>#1F3A1F</span></div>
+        <div class="swatch dark-text" style="background:#1A2E1A"><span>#1A2E1A</span></div>
+        <div class="swatch dark-text" style="background:#0F1F0F"><span>#0F1F0F</span></div>
+        <div class="swatch dark-text" style="background:#0A150A"><span>#0A150A</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- v09 Wildflower -->
+  <div class="version">
+    <h2>v09 – Wildflower</h2>
+    <div class="fonts">Caveat + Lora + Work Sans</div>
+    <a class="version-link" href="v09-wildflower/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Cream</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#FFFDFB"><span>#FFFDFB</span></div>
+        <div class="swatch" style="background:#FFF8F2"><span>#FFF8F2</span></div>
+        <div class="swatch" style="background:#FFF0E4"><span>#FFF0E4</span></div>
+        <div class="swatch" style="background:#FFE8D6"><span>#FFE8D6</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Lavender</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#F0EBF5"><span>#F0EBF5</span></div>
+        <div class="swatch" style="background:#E3DAF0"><span>#E3DAF0</span></div>
+        <div class="swatch" style="background:#D1C4E3"><span>#D1C4E3</span></div>
+        <div class="swatch" style="background:#B8A9C9"><span>#B8A9C9</span></div>
+        <div class="swatch" style="background:#8E7BAF"><span>#8E7BAF</span></div>
+        <div class="swatch dark-text" style="background:#5E4D80"><span>#5E4D80</span></div>
+        <div class="swatch dark-text" style="background:#3D3254"><span>#3D3254</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Honey</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#FFF8E1"><span>#FFF8E1</span></div>
+        <div class="swatch" style="background:#FFE082"><span>#FFE082</span></div>
+        <div class="swatch" style="background:#F5D060"><span>#F5D060</span></div>
+        <div class="swatch" style="background:#DAA520"><span>#DAA520</span></div>
+        <div class="swatch dark-text" style="background:#B8860B"><span>#B8860B</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Meadow</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#E8F0E8"><span>#E8F0E8</span></div>
+        <div class="swatch" style="background:#B0CCB0"><span>#B0CCB0</span></div>
+        <div class="swatch" style="background:#6B8E6B"><span>#6B8E6B</span></div>
+        <div class="swatch dark-text" style="background:#3A5A3A"><span>#3A5A3A</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- v10 Eucalyptus -->
+  <div class="version">
+    <h2>v10 – Eucalyptus</h2>
+    <div class="fonts">DM Serif Display + Figtree</div>
+    <a class="version-link" href="v10-eucalyptus/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Palette</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#F9FAF8"><span>#F9FAF8</span></div>
+        <div class="swatch" style="background:#E8EBE6"><span>#E8EBE6</span></div>
+        <div class="swatch" style="background:#D4A574"><span>#D4A574</span></div>
+        <div class="swatch" style="background:#B8895A"><span>#B8895A</span></div>
+        <div class="swatch" style="background:#8B9D83"><span>#8B9D83</span></div>
+        <div class="swatch dark-text" style="background:#6B7F63"><span>#6B7F63</span></div>
+        <div class="swatch dark-text" style="background:#2B2B2B"><span>#2B2B2B</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- v11 Velvet -->
+  <div class="version">
+    <h2>v11 – Velvet</h2>
+    <div class="fonts">Fraunces + Sora</div>
+    <a class="version-link" href="v11-velvet/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Core</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#FEFAF6"><span>#FEFAF6</span></div>
+        <div class="swatch" style="background:#F0E8DE"><span>#F0E8DE</span></div>
+        <div class="swatch" style="background:#D4A69A"><span>#D4A69A</span></div>
+        <div class="swatch" style="background:#DFC48B"><span>#DFC48B</span></div>
+        <div class="swatch" style="background:#C8A55C"><span>#C8A55C</span></div>
+        <div class="swatch" style="background:#A8A29E"><span>#A8A29E</span></div>
+        <div class="swatch" style="background:#78716C"><span>#78716C</span></div>
+        <div class="swatch dark-text" style="background:#3D3530"><span>#3D3530</span></div>
+        <div class="swatch dark-text" style="background:#292524"><span>#292524</span></div>
+        <div class="swatch dark-text" style="background:#1C1917"><span>#1C1917</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template -->
+  <div class="version">
+    <h2>Template (Material 3 style)</h2>
+    <div class="fonts">Noto Serif + Manrope</div>
+    <a class="version-link" href="template/index.html">View page &rarr;</a>
+    <div class="group" style="margin-top:1rem">
+      <div class="group-label">Surface</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#ffffff"><span>#ffffff</span></div>
+        <div class="swatch" style="background:#fcf9f5"><span>#fcf9f5</span></div>
+        <div class="swatch" style="background:#f6f3ee"><span>#f6f3ee</span></div>
+        <div class="swatch" style="background:#f0eee8"><span>#f0eee8</span></div>
+        <div class="swatch" style="background:#eae8e1"><span>#eae8e1</span></div>
+        <div class="swatch" style="background:#e4e3da"><span>#e4e3da</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Primary / Secondary</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#e4e2e1"><span>#e4e2e1</span></div>
+        <div class="swatch" style="background:#e1e3e3"><span>#e1e3e3</span></div>
+        <div class="swatch" style="background:#5f5e5e"><span>#5f5e5e</span></div>
+        <div class="swatch" style="background:#5c6060"><span>#5c6060</span></div>
+        <div class="swatch dark-text" style="background:#32332d"><span>#32332d</span></div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="group-label">Tertiary (Green)</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#d4f0dc"><span>#d4f0dc</span></div>
+        <div class="swatch" style="background:#c0e0ca"><span>#c0e0ca</span></div>
+        <div class="swatch" style="background:#4a7258"><span>#4a7258</span></div>
+        <div class="swatch dark-text" style="background:#3a5c44"><span>#3a5c44</span></div>
+        <div class="swatch dark-text" style="background:#2c4535"><span>#2c4535</span></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
