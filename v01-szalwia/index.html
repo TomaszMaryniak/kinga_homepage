@@ -323,18 +323,22 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto items-start">
           <div
-            class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+            onclick="if(window.innerWidth < 768) { this.querySelector('.tile-desc').classList.toggle('line-clamp-2'); this.querySelector('.tile-effect').classList.toggle('hidden'); this.querySelector('.read-more').classList.toggle('hidden'); }"
+            class="cursor-pointer fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
             <span
               class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span
                 class="material-symbols-outlined text-2xl text-sage-500">diamond</span></span>
             <h3 class="font-display text-2xl mb-4 text-sage-800">Kwalifikacja i umawianie konsultacji</h3>
             <p
-              class="tile-desc line-clamp-2 group-hover:line-clamp-none text-base font-light leading-relaxed text-sage-600 mb-8 transition-all duration-300">
+              class="tile-desc line-clamp-2 md:group-hover:line-clamp-none text-base font-light leading-relaxed text-sage-600 mb-2 transition-all duration-300">
               Przejmuję pełną opiekę nad Twoimi zapytaniami (DM na Instagramie, e-maile, formularze). Weryfikuję, czy
               potencjalny klient pasuje do Twojej oferty i jest gotowy na inwestycję. Zapełniam Twój kalendarz osobami
               „ogrzanymi".
             </p>
-            <div class="tile-effect hidden group-hover:block mt-auto bg-sage-300/15 p-6 rounded-xl">
+            <div class="read-more md:group-hover:hidden flex items-center gap-1 text-sm font-medium text-sage-500 mb-6">
+              Czytaj więcej <span class="material-symbols-outlined text-base">expand_more</span>
+            </div>
+            <div class="tile-effect hidden md:group-hover:block mt-auto bg-sage-300/15 p-6 rounded-xl">
               <p class="text-xs font-medium uppercase tracking-widest text-sage-500 mb-2">Efekt dla Ciebie</p>
               <p class="text-sm font-light leading-relaxed text-sage-600">
                 Nie tracisz czasu na rozmowy z przypadkowymi osobami. Od razu widzisz, ile wartościowych konsultacji
@@ -343,18 +347,22 @@
             </div>
           </div>
           <div
-            class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+            onclick="if(window.innerWidth < 768) { this.querySelector('.tile-desc').classList.toggle('line-clamp-2'); this.querySelector('.tile-effect').classList.toggle('hidden'); this.querySelector('.read-more').classList.toggle('hidden'); }"
+            class="cursor-pointer fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
             <span
               class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span
                 class="material-symbols-outlined text-2xl text-sage-500">autorenew</span></span>
             <h3 class="font-display text-2xl mb-4 text-sage-800">Systematyczny Follow-up i Opieka</h3>
             <p
-              class="tile-desc line-clamp-2 group-hover:line-clamp-none text-base font-light leading-relaxed text-sage-600 mb-8 transition-all duration-300">
+              class="tile-desc line-clamp-2 md:group-hover:line-clamp-none text-base font-light leading-relaxed text-sage-600 mb-2 transition-all duration-300">
               Wprowadzam procedury kontaktu (wiadomości, przypomnienia, struktura zadań), dzięki którym domykamy
               sprzedaż tam, gdzie klient potrzebował chwili na zastanowienie. Pilnuję, by każdy czuł się zaopiekowany od
               pierwszej sekundy.
             </p>
-            <div class="tile-effect hidden group-hover:block mt-auto bg-sage-300/15 p-6 rounded-xl">
+            <div class="read-more md:group-hover:hidden flex items-center gap-1 text-sm font-medium text-sage-500 mb-6">
+              Czytaj więcej <span class="material-symbols-outlined text-base">expand_more</span>
+            </div>
+            <div class="tile-effect hidden md:group-hover:block mt-auto bg-sage-300/15 p-6 rounded-xl">
               <p class="text-xs font-medium uppercase tracking-widest text-sage-500 mb-2">Efekt dla Ciebie</p>
               <p class="text-sm font-light leading-relaxed text-sage-600">
                 Klienci, którzy „mieli się odezwać", faktycznie wracają i kupują. Twój biznes działa profesjonalnie, a
@@ -363,17 +371,21 @@
             </div>
           </div>
           <div
-            class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+            onclick="if(window.innerWidth < 768) { this.querySelector('.tile-desc').classList.toggle('line-clamp-2'); this.querySelector('.tile-effect').classList.toggle('hidden'); this.querySelector('.read-more').classList.toggle('hidden'); }"
+            class="cursor-pointer fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
             <span
               class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span
                 class="material-symbols-outlined text-2xl text-sage-500">tune</span></span>
             <h3 class="font-display text-2xl mb-4 text-sage-800">Optymalizacja Procesów i Baza Wiedzy</h3>
             <p
-              class="tile-desc line-clamp-2 group-hover:line-clamp-none text-base font-light leading-relaxed text-sage-600 mb-8 transition-all duration-300">
+              class="tile-desc line-clamp-2 md:group-hover:line-clamp-none text-base font-light leading-relaxed text-sage-600 mb-2 transition-all duration-300">
               Porządkuję sposób pracy: notatki, zadania dla zespołu, komunikację. Zbieram i analizuję powtarzające się
               obiekcje, blokady i pytania Twojej grupy docelowej.
             </p>
-            <div class="tile-effect hidden group-hover:block mt-auto bg-sage-300/15 p-6 rounded-xl">
+            <div class="read-more md:group-hover:hidden flex items-center gap-1 text-sm font-medium text-sage-500 mb-6">
+              Czytaj więcej <span class="material-symbols-outlined text-base">expand_more</span>
+            </div>
+            <div class="tile-effect hidden md:group-hover:block mt-auto bg-sage-300/15 p-6 rounded-xl">
               <p class="text-xs font-medium uppercase tracking-widest text-sage-500 mb-2">Efekt dla Ciebie</p>
               <p class="text-sm font-light leading-relaxed text-sage-600">
                 Zyskujesz absolutny spokój i jasne zasady. Wiesz, co się dzieje, ale nie musisz wszystkiego pilnować.
@@ -382,17 +394,21 @@
             </div>
           </div>
           <div
-            class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+            onclick="if(window.innerWidth < 768) { this.querySelector('.tile-desc').classList.toggle('line-clamp-2'); this.querySelector('.tile-effect').classList.toggle('hidden'); this.querySelector('.read-more').classList.toggle('hidden'); }"
+            class="cursor-pointer fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
             <span
               class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span
                 class="material-symbols-outlined text-2xl text-sage-500">campaign</span></span>
             <h3 class="font-display text-2xl mb-4 text-sage-800">Wsparcie Kampanii i Sprzedaży Po-Webinarowej</h3>
             <p
-              class="tile-desc line-clamp-2 group-hover:line-clamp-none text-base font-light leading-relaxed text-sage-600 mb-8 transition-all duration-300">
+              class="tile-desc line-clamp-2 md:group-hover:line-clamp-none text-base font-light leading-relaxed text-sage-600 mb-2 transition-all duration-300">
               Webinar świetnie buduje zaufanie, ale przy usługach high-ticket to człowiek domyka sprzedaż! Obsługuję
               pytania podczas okienek sprzedażowych, usuwam bariery decyzyjne w DM-ach i odzyskuję „porzucone koszyki".
             </p>
-            <div class="tile-effect hidden group-hover:block mt-auto bg-sage-300/15 p-6 rounded-xl">
+            <div class="read-more md:group-hover:hidden flex items-center gap-1 text-sm font-medium text-sage-500 mb-6">
+              Czytaj więcej <span class="material-symbols-outlined text-base">expand_more</span>
+            </div>
+            <div class="tile-effect hidden md:group-hover:block mt-auto bg-sage-300/15 p-6 rounded-xl">
               <p class="text-xs font-medium uppercase tracking-widest text-sage-500 mb-2">Efekt dla Ciebie</p>
               <p class="text-sm font-light leading-relaxed text-sage-600">
                 Zmaksymalizowane zyski z każdej przeprowadzonej kampanii i pełne wsparcie w najbardziej intensywnym
