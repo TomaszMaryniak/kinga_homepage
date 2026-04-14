@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Femme Vision Kinga Maryniak | OBM & SDR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        moss: { 50:'#2A4A2A', 100:'#243824', 200:'#1F3A1F', 300:'#1A2E1A', 400:'#0F1F0F', 500:'#0A150A' },
+        gold: { 300:'#DFC17A', 400:'#C5A55A', 500:'#A8893E', 600:'#8B6D28' },
+        cream: { 50:'#F5F0E0', 100:'#F5F0E0CC', 200:'#F5F0E099', 300:'#F5F0E066' },
+      },
+      fontFamily: {
+        display: ['"Crimson Pro"', 'serif'],
+        body: ['"Manrope"', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; background: #0F1F0F; color: #F5F0E0; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* Sticky nav — hidden initially, appears on scroll */
+.sticky-nav { transform: translateY(-100%); transition: transform 0.4s ease, opacity 0.4s ease; opacity: 0; }
+.sticky-nav.show { transform: translateY(0); opacity: 1; }
+
+/* Parallax sections */
+.parallax-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 768px) {
+  .parallax-bg { background-attachment: scroll; }
+}
+
+/* Gold glow */
+.gold-glow { box-shadow: 0 0 20px rgba(197,165,90,0.15), 0 0 40px rgba(197,165,90,0.05); }
+.gold-glow-hover:hover { box-shadow: 0 0 30px rgba(197,165,90,0.25), 0 0 60px rgba(197,165,90,0.1); }
+.gold-text-glow { text-shadow: 0 0 20px rgba(197,165,90,0.3); }
+
+/* SVG moss background pattern */
+.moss-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200' fill='none'%3E%3Cpath d='M40 180 C30 160 25 140 30 120 C35 100 45 90 40 70 C38 55 30 45 35 30' stroke='%231A2E1A' stroke-width='1.5' opacity='0.3' fill='none'/%3E%3Cpath d='M35 120 C20 115 10 105 15 95' stroke='%231A2E1A' stroke-width='1' opacity='0.2' fill='none'/%3E%3Cpath d='M35 120 C50 118 60 110 55 100' stroke='%231A2E1A' stroke-width='1' opacity='0.2' fill='none'/%3E%3Cpath d='M38 90 C25 85 15 75 20 65' stroke='%231A2E1A' stroke-width='0.8' opacity='0.15' fill='none'/%3E%3Cpath d='M38 90 C50 88 60 80 55 70' stroke='%231A2E1A' stroke-width='0.8' opacity='0.15' fill='none'/%3E%3Cpath d='M160 190 C155 170 150 150 155 130 C160 110 170 100 165 80 C163 65 155 50 160 35' stroke='%231A2E1A' stroke-width='1.5' opacity='0.25' fill='none'/%3E%3Cpath d='M155 130 C140 125 130 115 135 105' stroke='%231A2E1A' stroke-width='1' opacity='0.18' fill='none'/%3E%3Cpath d='M155 130 C170 128 180 120 175 110' stroke='%231A2E1A' stroke-width='1' opacity='0.18' fill='none'/%3E%3Ccircle cx='100' cy='100' r='30' stroke='%23C5A55A' stroke-width='0.3' opacity='0.04' fill='none'/%3E%3Ccircle cx='100' cy='100' r='50' stroke='%23C5A55A' stroke-width='0.2' opacity='0.03' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Fern SVG decorative pattern */
+.fern-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300' fill='none'%3E%3Cpath d='M150 280 C145 250 140 220 142 190 C144 160 150 140 148 110 C146 85 140 65 145 40 C148 25 155 15 150 5' stroke='%23243824' stroke-width='2' opacity='0.2' fill='none'/%3E%3Cpath d='M142 190 C120 185 100 170 110 155' stroke='%23243824' stroke-width='1.2' opacity='0.15' fill='none'/%3E%3Cpath d='M142 190 C165 188 185 175 175 160' stroke='%23243824' stroke-width='1.2' opacity='0.15' fill='none'/%3E%3Cpath d='M148 140 C125 135 105 120 115 105' stroke='%23243824' stroke-width='1' opacity='0.12' fill='none'/%3E%3Cpath d='M148 140 C170 138 190 125 180 110' stroke='%23243824' stroke-width='1' opacity='0.12' fill='none'/%3E%3Cpath d='M147 100 C130 95 115 82 122 70' stroke='%23243824' stroke-width='0.8' opacity='0.1' fill='none'/%3E%3Cpath d='M147 100 C165 98 178 85 170 72' stroke='%23243824' stroke-width='0.8' opacity='0.1' fill='none'/%3E%3Cpath d='M146 65 C135 60 125 50 130 40' stroke='%23243824' stroke-width='0.6' opacity='0.08' fill='none'/%3E%3Cpath d='M146 65 C158 63 168 53 162 43' stroke='%23243824' stroke-width='0.6' opacity='0.08' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Full-screen overlay menu */
+#fullscreenMenu { transition: opacity 0.5s ease, visibility 0.5s ease; }
+#fullscreenMenu.open { opacity: 1; visibility: visible; }
+#fullscreenMenu.closed { opacity: 0; visibility: hidden; }
+
+/* Contact form styling */
+input, textarea { background: transparent; }
+input:focus, textarea:focus { outline: none; }
+
+/* Parallax floating elements */
+.parallax-float {
+  transition: transform 0.1s linear;
+}
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- Sticky Navigation — hidden initially, appears on scroll -->
+<nav id="stickyNav" class="fixed top-0 w-full z-50 sticky-nav bg-moss-400/90 backdrop-blur-xl border-b border-gold-400/20">
+  <div class="flex justify-between items-center px-6 md:px-12 py-3 max-w-7xl mx-auto">
+    <a href="#" class="font-display text-xl font-medium text-cream-50 italic">Femme Vision</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-sm text-cream-100 hover:text-gold-400 transition-colors" href="#uslugi">Uslugi</a>
+      <a class="text-sm text-cream-100 hover:text-gold-400 transition-colors" href="#o-mnie">O mnie</a>
+      <a class="text-sm text-cream-100 hover:text-gold-400 transition-colors" href="#cennik">Cennik</a>
+      <a class="text-sm text-cream-100 hover:text-gold-400 transition-colors" href="#kontakt">Kontakt</a>
+    </div>
+    <a class="hidden md:inline-block bg-gold-400 hover:bg-gold-300 text-moss-400 px-6 py-2 rounded text-xs font-bold tracking-wider uppercase transition-all duration-300 gold-glow-hover" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">Konsultacja</a>
+    <button id="menuOpenBtn" class="md:hidden p-2" aria-label="Menu">
+      <span class="material-symbols-outlined text-2xl text-cream-50">menu</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Full-screen overlay menu (mobile) -->
+<div id="fullscreenMenu" class="fixed inset-0 z-[60] bg-moss-400/98 backdrop-blur-lg flex flex-col items-center justify-center closed">
+  <button id="menuCloseBtn" class="absolute top-6 right-6 text-cream-50">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <div class="flex flex-col items-center gap-8">
+    <a class="font-display text-4xl text-cream-50 hover:text-gold-400 transition-colors italic" href="#uslugi" onclick="closeFullMenu()">Uslugi</a>
+    <a class="font-display text-4xl text-cream-50 hover:text-gold-400 transition-colors italic" href="#o-mnie" onclick="closeFullMenu()">O mnie</a>
+    <a class="font-display text-4xl text-cream-50 hover:text-gold-400 transition-colors italic" href="#cennik" onclick="closeFullMenu()">Cennik</a>
+    <a class="font-display text-4xl text-cream-50 hover:text-gold-400 transition-colors italic" href="#kontakt" onclick="closeFullMenu()">Kontakt</a>
+    <a class="bg-gold-400 text-moss-400 px-10 py-4 rounded text-sm font-bold tracking-widest uppercase mt-4 gold-glow" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">Konsultacja</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ========== HERO ========== -->
+<section class="min-h-screen px-6 md:px-12 py-20 relative overflow-hidden bg-moss-300 moss-pattern" id="hero">
+  <!-- Decorative SVG fern — top right -->
+  <svg class="absolute top-0 right-0 w-64 md:w-96 h-auto opacity-10 parallax-float" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M350 600 C340 550 330 500 335 450 C340 400 355 370 350 320 C345 280 330 250 340 200 C348 160 360 130 350 90 C342 60 325 40 335 10" stroke="#C5A55A" stroke-width="1.5" opacity="0.3"/>
+    <path d="M335 450 C300 440 270 410 285 390" stroke="#C5A55A" stroke-width="1" opacity="0.2"/>
+    <path d="M335 450 C370 445 395 420 380 400" stroke="#C5A55A" stroke-width="1" opacity="0.2"/>
+    <path d="M350 320 C315 310 285 280 300 260" stroke="#C5A55A" stroke-width="0.8" opacity="0.15"/>
+    <path d="M350 320 C380 315 400 290 385 270" stroke="#C5A55A" stroke-width="0.8" opacity="0.15"/>
+    <path d="M340 200 C310 190 285 165 300 145" stroke="#C5A55A" stroke-width="0.6" opacity="0.12"/>
+    <path d="M340 200 C365 195 385 170 370 155" stroke="#C5A55A" stroke-width="0.6" opacity="0.12"/>
+  </svg>
+  <!-- Decorative SVG fern — bottom left -->
+  <svg class="absolute bottom-0 left-0 w-48 md:w-72 h-auto opacity-10 parallax-float" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 500 C45 450 40 400 45 350 C50 300 60 270 55 220 C52 180 42 155 50 110 C55 80 65 55 58 25" stroke="#1F3A1F" stroke-width="2" opacity="0.4"/>
+    <path d="M45 350 C25 342 10 315 20 300" stroke="#1F3A1F" stroke-width="1.2" opacity="0.3"/>
+    <path d="M45 350 C65 345 80 325 72 310" stroke="#1F3A1F" stroke-width="1.2" opacity="0.3"/>
+    <path d="M55 220 C35 212 18 190 28 175" stroke="#1F3A1F" stroke-width="1" opacity="0.25"/>
+    <path d="M55 220 C75 215 90 195 82 180" stroke="#1F3A1F" stroke-width="1" opacity="0.25"/>
+  </svg>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[85vh] relative z-10">
+    <div class="lg:col-span-7 fade-in">
+      <p class="text-xs tracking-[0.4em] uppercase text-gold-400 mb-8 font-bold gold-text-glow">Wirtualna Asystentka &middot; OBM &middot; SDR</p>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] mb-8 text-cream-50">
+        Odzyskaj czas, uporządkuj procesy i prowadź swoją markę z lekkością, <em class="text-gold-400 gold-text-glow">o&nbsp;której zawsze marzyłaś.</em>
+      </h1>
+      <p class="text-xl font-light leading-relaxed text-cream-100 max-w-2xl mb-12">
+        Czy Twój system obsługi klienta rośnie tak szybko, jak Twój biznes?
+      </p>
+      <a class="inline-block bg-gold-400 hover:bg-gold-300 text-moss-400 px-10 py-5 rounded text-sm font-bold tracking-[0.15em] uppercase transition-all duration-300 gold-glow gold-glow-hover" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
+        Umów się na bezpłatną rozmowę wstępną
+      </a>
+    </div>
+    <div class="lg:col-span-5 fade-in">
+      <div class="aspect-[3/4] rounded-lg overflow-hidden shadow-2xl border-2 border-gold-400/20 rotate-1 hover:rotate-0 transition-transform duration-700 gold-glow">
+        <img class="w-full h-full object-cover" alt="Kinga Maryniak" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOSVYubJZDfiDPlkScuvXf2XTtd6449_UOjM30wQdRVbd-bm26gDRosQ0y4KFzug_bz6-ym0gP0ZMftoQ4GjdNbXR-T0apfhTTYm5dQIOIZh0Tz-6YY02pZmlZbjwXbsy1Js-gPe7iXz0SWOQx51713NX-1oy-BGfN7Ab9WxfwGo8sBHJondKnwxqybwZVuXx9YQvf0AfAOt7y9zoFdJ8eKvFe9G4ltAWV1oIPiPh6iC41ZGYfYOlBITOho7z9T8BuGlf10vQxIAY"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROBLEM ========== -->
+<section id="problem" class="py-28 px-6 md:px-12 bg-moss-400 relative fern-pattern">
+  <!-- Parallax decorative background -->
+  <div class="absolute inset-0 parallax-bg" style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Ccircle cx='300' cy='300' r='250' stroke='%23C5A55A' stroke-width='0.3' fill='none' opacity='0.04'/%3E%3Ccircle cx='300' cy='300' r='200' stroke='%23C5A55A' stroke-width='0.2' fill='none' opacity='0.03'/%3E%3Ccircle cx='300' cy='300' r='150' stroke='%23C5A55A' stroke-width='0.2' fill='none' opacity='0.02'/%3E%3C/svg%3E&quot;);"></div>
+
+  <div class="max-w-4xl mx-auto text-center mb-16 fade-in relative z-10">
+    <h2 class="font-display text-4xl md:text-5xl mb-8 text-cream-50">Znasz to uczucie?</h2>
+    <p class="text-xl font-light leading-relaxed text-cream-100">
+      Budujesz wspaniałą markę, tworzysz świetne produkty, ale na zapleczu powoli zaczyna brakować Ci tchu...
+    </p>
+  </div>
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-6 mb-16 relative z-10">
+    <div class="md:col-span-3 fade-in bg-moss-200/60 backdrop-blur-sm p-8 rounded-lg border-l-2 border-gold-400/40 hover:border-gold-400 transition-all duration-500 hover:bg-moss-200/80">
+      <span class="material-symbols-outlined text-xl text-gold-400 mb-3 block">mail_outline</span>
+      <p class="text-lg font-light text-cream-100 leading-relaxed">Wpadają zapytania od klientów, ale nie zawsze masz przestrzeń, żeby odpisać na czas?</p>
+    </div>
+    <div class="md:col-span-2 md:mt-12 fade-in bg-moss-200/60 backdrop-blur-sm p-8 rounded-lg border-l-2 border-gold-400/40 hover:border-gold-400 transition-all duration-500 hover:bg-moss-200/80">
+      <span class="material-symbols-outlined text-xl text-gold-400 mb-3 block">trending_down</span>
+      <p class="text-lg font-light text-cream-100 leading-relaxed">Odkładasz follow-upy i czujesz, że przez to uciekają Ci klientki, tracisz sprzedaż i tym samym pieniądze?</p>
+    </div>
+    <div class="md:col-span-2 fade-in bg-moss-200/60 backdrop-blur-sm p-8 rounded-lg border-l-2 border-gold-400/40 hover:border-gold-400 transition-all duration-500 hover:bg-moss-200/80">
+      <span class="material-symbols-outlined text-xl text-gold-400 mb-3 block">help_outline</span>
+      <p class="text-lg font-light text-cream-100 leading-relaxed">Zastanawiasz się, czy na pewno odpisałaś na każdą wiadomość i czy wszystko jest dopięte na ostatni guzik?</p>
+    </div>
+    <div class="md:col-span-3 md:-mt-6 fade-in bg-moss-200/60 backdrop-blur-sm p-8 rounded-lg border-l-2 border-gold-400/40 hover:border-gold-400 transition-all duration-500 hover:bg-moss-200/80">
+      <span class="material-symbols-outlined text-xl text-gold-400 mb-3 block">shuffle</span>
+      <p class="text-lg font-light text-cream-100 leading-relaxed">Twoja sprzedaż dzieje się „przy okazji", a nie w uporządkowanym, powtarzalnym procesie?</p>
+    </div>
+    <div class="md:col-span-3 md:col-start-2 fade-in bg-moss-200/60 backdrop-blur-sm p-8 rounded-lg border-l-2 border-gold-400/40 hover:border-gold-400 transition-all duration-500 hover:bg-moss-200/80">
+      <span class="material-symbols-outlined text-xl text-gold-400 mb-3 block">hourglass_top</span>
+      <p class="text-lg font-light text-cream-100 leading-relaxed">Masz poczucie, że więcej czasu spędzasz na ogarnianiu bieżących tematów w DM i mailach, niż na strategicznym rozwijaniu biznesu?</p>
+    </div>
+  </div>
+  <div class="max-w-3xl mx-auto text-center fade-in relative z-10">
+    <p class="text-lg font-light text-cream-200 leading-relaxed mb-10">
+      Czy to brzmi znajomo? Jeśli chociaż na część tych pytań odpowiedziałaś „tak", to znaczy, że jesteś w idealnym miejscu.
+    </p>
+    <p class="font-display text-3xl md:text-4xl italic text-gold-400 gold-text-glow">
+      Odpocznij. Zdejmij to z siebie. Pomogę Ci.
+    </p>
+  </div>
+</section>
+
+<!-- ========== O MNIE ========== -->
+<section id="o-mnie" class="py-28 px-6 md:px-12 bg-moss-300 moss-pattern relative">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
+    <div class="lg:col-span-4 lg:sticky lg:top-28 fade-in">
+      <div class="aspect-[3/4] rounded-lg overflow-hidden shadow-2xl border-2 border-gold-400/20 -rotate-1 gold-glow">
+        <img class="w-full h-full object-cover" alt="Kinga Maryniak -- portret" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfSb9QD4qVKlI1G-lLWEzgi2RM8LQAvDNReymxjLznxcLmmmpM9hHutaMKYe0doT0yJ0H5LSKQGaJu2XyhDCqzWRrx7FCIMRtVRlzeFDEHBIRicnOQb9LBb7sT_NMujmITKMKOVBhJD62FIvsfAblvGERvxgEcZFDj7Mxx57v5kKP6zgJLuDAIBftjFb2cxoOzp9HazdI6awKP5pl23LjvPmVQWbT1lQm_iqRTZc-TC7aJroLsXDLYjcSO3hkOBA1Q22HTGUnFNeM"/>
+      </div>
+    </div>
+    <div class="lg:col-span-7 lg:col-start-6 fade-in">
+      <h2 class="font-display text-5xl mb-10 text-cream-50 italic">Cześć, jestem Kinga!</h2>
+      <div class="space-y-8">
+        <p class="text-xl leading-relaxed font-light text-cream-100">
+          Pomagam mentorkom, trenerkom i właścicielkom marek osobistych odzyskać czas i uporządkować procesy sprzedażowe.
+        </p>
+        <p class="text-xl leading-relaxed font-light text-cream-100">
+          Działam jako Twój SDR (Sales Development Representative) oraz OBM (Online Business Manager). Co to oznacza w praktyce? Nie tylko przejmuję na siebie kontakt z klientem, ale buduję i usprawniam systemy pracy. Sprawiam, że żadne zapytanie od klientki nie zostaje bez odpowiedzi, follow-upy domykają sprzedaż, a Ty włączasz się w procesy tylko tam, gdzie to naprawdę konieczne. Moim celem jest stworzenie dla Ciebie przestrzeni, w której odzyskasz czas na to, co w swoim biznesie kochasz najbardziej.
+        </p>
+        <div class="bg-moss-200/60 border-l-2 border-gold-400 p-8 rounded-r-lg">
+          <h3 class="font-display text-2xl mb-4 text-gold-300 italic">Wsparcie oparte na empatii i precyzji</h3>
+          <p class="text-lg leading-relaxed font-light text-cream-100">
+            Jestem entuzjastką organizacji. Wierzę, że każdy kreatywny biznes potrzebuje solidnych fundamentów, by móc wzlecieć. Moje „supermoce" to nie tylko perfekcyjna znajomość Trello czy Asany, ale przede wszystkim umiejętność słuchania i wyłapywania tego, czego potrzebują Twoi klienci oraz co w Twojej firmie wymaga natychmiastowego odciążenia.
+          </p>
+        </div>
+        <p class="text-xl leading-relaxed font-light text-cream-100">
+          Zanim zajęłam się wspieraniem biznesów online, pracowałam jako HR Coordinator. To właśnie tam nauczyłam się, jak łączyć świat twardych procesów z ludzkim podejściem, empatią i zrozumieniem drugiej osoby.
+        </p>
+        <div class="bg-moss-50/30 p-8 rounded-lg border border-gold-400/15">
+          <p class="font-display text-xl italic leading-relaxed text-cream-100">
+            Prywatnie? Biegam. Biegi długodystansowe nauczyły mnie, że w biznesie -- tak samo jak w sporcie -- liczy się żelazna konsekwencja, dyscyplina, odpowiednie rozłożenie sił i długofalowa strategia. Nie jestem sprinterką. Jestem Twoją partnerką na długie dystanse.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== USLUGI SDR ========== -->
+<section id="uslugi" class="py-28 bg-moss-400 px-6 md:px-12 fern-pattern relative">
+  <!-- Parallax SVG background -->
+  <div class="absolute inset-0 parallax-bg" style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cpath d='M700 50 C680 100 650 200 660 300 C670 400 700 450 690 550 C680 620 650 680 660 750' stroke='%23243824' stroke-width='1' fill='none' opacity='0.15'/%3E%3Cpath d='M100 750 C110 700 130 600 125 500 C120 400 100 350 110 250 C118 180 140 120 130 50' stroke='%23243824' stroke-width='1' fill='none' opacity='0.15'/%3E%3C/svg%3E&quot;);"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="max-w-4xl mx-auto text-center mb-16 fade-in">
+      <h2 class="font-display text-4xl md:text-5xl mb-6 text-cream-50">Obsługa klienta i wsparcie sprzedaży premium</h2>
+      <p class="font-display text-2xl italic text-gold-400 mb-6 gold-text-glow">Zamiast leadów -- klienci idealni</p>
+      <p class="text-xl font-light leading-relaxed text-cream-100">
+        Moja praca to nie jest zwykłe „odpisywanie na wiadomości". To kompleksowe zarządzanie ścieżką Twojego klienta: od pierwszego kontaktu, poprzez pomoc w podjęciu decyzji o zakupie, formalności zakupowe, aż po kompleksową obsługę premium.
+      </p>
+    </div>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-7 gap-8">
+      <div class="md:col-span-4 fade-in bg-moss-200/50 backdrop-blur-sm p-10 rounded-lg border border-gold-400/10 hover:border-gold-400/30 transition-all duration-500 group flex flex-col">
+        <div class="w-12 h-12 rounded-lg bg-gold-400/10 flex items-center justify-center mb-6 group-hover:bg-gold-400/20 transition-colors group-hover:shadow-[0_0_15px_rgba(197,165,90,0.15)]">
+          <span class="material-symbols-outlined text-xl text-gold-400">diamond</span>
+        </div>
+        <h3 class="font-display text-2xl mb-4 text-cream-50 italic">Kwalifikacja i umawianie konsultacji</h3>
+        <p class="text-base font-light leading-relaxed text-cream-100 mb-8">
+          Przejmuję pełną opiekę nad Twoimi zapytaniami (DM na Instagramie, e-maile, formularze). Weryfikuję, czy potencjalny klient pasuje do Twojej oferty i jest gotowy na inwestycję. Zapełniam Twój kalendarz osobami „ogrzanymi".
+        </p>
+        <div class="mt-auto bg-gold-400/5 p-5 rounded-lg border-l-2 border-gold-400/30">
+          <p class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-2">Efekt dla Ciebie</p>
+          <p class="text-sm font-light leading-relaxed text-cream-200">Nie tracisz czasu na rozmowy z przypadkowymi osobami. Od razu widzisz, ile wartościowych konsultacji masz zaplanowanych na dany tydzień. Trafiają do Ciebie tylko konkrety.</p>
+        </div>
+      </div>
+      <div class="md:col-span-3 md:mt-16 fade-in bg-moss-200/50 backdrop-blur-sm p-10 rounded-lg border border-gold-400/10 hover:border-gold-400/30 transition-all duration-500 group flex flex-col">
+        <div class="w-12 h-12 rounded-lg bg-gold-400/10 flex items-center justify-center mb-6 group-hover:bg-gold-400/20 transition-colors group-hover:shadow-[0_0_15px_rgba(197,165,90,0.15)]">
+          <span class="material-symbols-outlined text-xl text-gold-400">autorenew</span>
+        </div>
+        <h3 class="font-display text-2xl mb-4 text-cream-50 italic">Systematyczny Follow-up i Opieka</h3>
+        <p class="text-base font-light leading-relaxed text-cream-100 mb-8">
+          Wprowadzam procedury kontaktu (wiadomości, przypomnienia, struktura zadań), dzięki którym domykamy sprzedaż tam, gdzie klient potrzebował chwili na zastanowienie.
+        </p>
+        <div class="mt-auto bg-gold-400/5 p-5 rounded-lg border-l-2 border-gold-400/30">
+          <p class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-2">Efekt dla Ciebie</p>
+          <p class="text-sm font-light leading-relaxed text-cream-200">Klienci, którzy „mieli się odezwać", faktycznie wracają i kupują. Twój biznes działa profesjonalnie.</p>
+        </div>
+      </div>
+      <div class="md:col-span-3 fade-in bg-moss-200/50 backdrop-blur-sm p-10 rounded-lg border border-gold-400/10 hover:border-gold-400/30 transition-all duration-500 group flex flex-col">
+        <div class="w-12 h-12 rounded-lg bg-gold-400/10 flex items-center justify-center mb-6 group-hover:bg-gold-400/20 transition-colors group-hover:shadow-[0_0_15px_rgba(197,165,90,0.15)]">
+          <span class="material-symbols-outlined text-xl text-gold-400">settings_suggest</span>
+        </div>
+        <h3 class="font-display text-2xl mb-4 text-cream-50 italic">Optymalizacja Procesów i Baza Wiedzy</h3>
+        <p class="text-base font-light leading-relaxed text-cream-100 mb-8">
+          Porządkuję sposób pracy: notatki, zadania dla zespołu, komunikację. Zbieram i analizuję powtarzające się obiekcje, blokady i pytania Twojej grupy docelowej.
+        </p>
+        <div class="mt-auto bg-gold-400/5 p-5 rounded-lg border-l-2 border-gold-400/30">
+          <p class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-2">Efekt dla Ciebie</p>
+          <p class="text-sm font-light leading-relaxed text-cream-200">Zyskujesz absolutny spokój i jasne zasady. Wiesz, co się dzieje, ale nie musisz wszystkiego pilnować.</p>
+        </div>
+      </div>
+      <div class="md:col-span-4 md:-mt-10 fade-in bg-moss-200/50 backdrop-blur-sm p-10 rounded-lg border border-gold-400/10 hover:border-gold-400/30 transition-all duration-500 group flex flex-col">
+        <div class="w-12 h-12 rounded-lg bg-gold-400/10 flex items-center justify-center mb-6 group-hover:bg-gold-400/20 transition-colors group-hover:shadow-[0_0_15px_rgba(197,165,90,0.15)]">
+          <span class="material-symbols-outlined text-xl text-gold-400">trending_up</span>
+        </div>
+        <h3 class="font-display text-2xl mb-4 text-cream-50 italic">Wsparcie Kampanii i Sprzedaży Po-Webinarowej</h3>
+        <p class="text-base font-light leading-relaxed text-cream-100 mb-8">
+          Webinar świetnie buduje zaufanie, ale przy usługach high-ticket to człowiek domyka sprzedaż! Obsługuję pytania podczas okienek sprzedażowych, usuwam bariery decyzyjne w DM-ach i odzyskuję „porzucone koszyki".
+        </p>
+        <div class="mt-auto bg-gold-400/5 p-5 rounded-lg border-l-2 border-gold-400/30">
+          <p class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-2">Efekt dla Ciebie</p>
+          <p class="text-sm font-light leading-relaxed text-cream-200">Zmaksymalizowane zyski z każdej przeprowadzonej kampanii i pełne wsparcie w najbardziej intensywnym czasie.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== OBM ========== -->
+<section class="py-28 px-6 md:px-12 bg-moss-300 moss-pattern relative">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+    <div class="lg:col-span-5 fade-in">
+      <div class="bg-moss-50/40 backdrop-blur-sm text-cream-50 p-12 md:p-16 rounded-lg shadow-2xl relative overflow-hidden border-t-2 border-gold-400 gold-glow">
+        <p class="tracking-[0.2em] uppercase text-gold-300 mb-6 text-sm font-bold">Online Business Manager</p>
+        <h2 class="font-display text-4xl md:text-5xl mb-6 italic text-cream-50">Twoja prawa ręka</h2>
+        <p class="text-lg font-light leading-relaxed text-cream-200">Twój biznes rośnie tak szybko, że zaplecze nie nadąża?</p>
+      </div>
+    </div>
+    <div class="lg:col-span-7 fade-in">
+      <p class="text-xl font-light leading-relaxed text-cream-100 mb-10">
+        Wiesz, że to ten moment. Nie chcesz już dłużej dźwigać wszystkiego na swoich barkach. Czujesz, że by iść naprzód i rozwijać potencjał swojego biznesu, potrzebujesz „prawej ręki" -- kogoś, kto zna psychologię klienta, ale także doskonale wie, jak od środka naoliwić tryby Twojej marki online.
+      </p>
+      <h3 class="font-display text-2xl mb-8 text-cream-50 italic">Jako Twoja Online Business Manager (OBM) przejmę:</h3>
+      <div class="space-y-6">
+        <div class="flex items-start gap-5 p-4 rounded-lg hover:bg-moss-200/30 transition-colors">
+          <span class="material-symbols-outlined text-xl text-gold-400 mt-1 shrink-0">account_tree</span>
+          <div>
+            <p class="text-lg font-semibold text-cream-50 mb-1">Projektowanie i porządkowanie procesów</p>
+            <p class="text-base font-light text-cream-200">Abyś przestała gasić pożary, a zaczęła zarządzać swoim imperium i z sukcesem je skalować.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5 p-4 rounded-lg hover:bg-moss-200/30 transition-colors">
+          <span class="material-symbols-outlined text-xl text-gold-400 mt-1 shrink-0">calendar_month</span>
+          <div>
+            <p class="text-lg font-semibold text-cream-50 mb-1">Kompleksowa koordynacja projektów</p>
+            <p class="text-base font-light text-cream-200">Od harmonogramu premier, po opiekę nad Twoimi programami high-ticket.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5 p-4 rounded-lg hover:bg-moss-200/30 transition-colors">
+          <span class="material-symbols-outlined text-xl text-gold-400 mt-1 shrink-0">task_alt</span>
+          <div>
+            <p class="text-lg font-semibold text-cream-50 mb-1">Zarządzanie realizacją zadań</p>
+            <p class="text-base font-light text-cream-200">Pilnuję terminów i dbam o idealny przepływ informacji w zespole.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5 p-4 rounded-lg hover:bg-moss-200/30 transition-colors">
+          <span class="material-symbols-outlined text-xl text-gold-400 mt-1 shrink-0">workspace_premium</span>
+          <div>
+            <p class="text-lg font-semibold text-cream-50 mb-1">Organizacja opieki nad klientem</p>
+            <p class="text-base font-light text-cream-200">Ustawiam zaplecze tak, by klient od pierwszego kontaktu z marką czuł jakość premium na każdym możliwym kroku.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== OPINIE ========== -->
+<section id="opinie" class="py-28 bg-moss-400 px-6 md:px-12 fern-pattern relative">
+  <div class="max-w-4xl mx-auto text-center mb-16 fade-in relative z-10">
+    <h2 class="font-display text-4xl md:text-5xl mb-8 text-cream-50">Dlaczego warto mi zaufać?</h2>
+    <p class="text-xl font-light leading-relaxed text-cream-100">
+      Szukam długofalowych współprac, ponieważ uwielbiam widzieć, jak moja praca przynosi mierzalne efekty biznesowe. To mnie napędza! Moja praca to nie koszt -- to inwestycja, która realnie się zwraca.
+    </p>
+  </div>
+  <div class="max-w-4xl mx-auto mb-16 fade-in relative z-10">
+    <div class="bg-gold-400/8 p-12 md:p-16 rounded-lg text-center border border-gold-400/20 gold-glow">
+      <p class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-6">Studium przypadku</p>
+      <p class="font-display text-2xl md:text-3xl leading-relaxed text-cream-50">
+        W ramach zaledwie <strong>20-godzinnej współpracy</strong> i dzięki poukładanemu procesowi weryfikacji klientów, pomogłam mojej klientce pozyskać <strong>3 nowe sprzedaże</strong> programu High-Ticket, co przełożyło się na łączny przychód w wysokości <strong class="text-gold-400 gold-text-glow">45&nbsp;000&nbsp;zł</strong>.
+      </p>
+    </div>
+  </div>
+  <div class="max-w-4xl mx-auto fade-in relative z-10">
+    <p class="font-display text-2xl text-center mb-12 text-cream-50 italic">Sprawdź, co mówią moje klientki:</p>
+    <div class="bg-moss-200/50 backdrop-blur-sm p-10 md:p-14 rounded-lg relative border border-gold-400/10">
+      <span class="material-symbols-outlined text-6xl text-gold-400/15 absolute -top-6 left-8">format_quote</span>
+      <div class="space-y-6 text-lg font-light leading-relaxed text-cream-100">
+        <p>Współpraca z Kingą od samego początku była naprawdę świetna. Kinga dołączyła do mojego zespołu jako osoba odpowiedzialna za obsługę klienta (...) od początku zależało mi na bardzo wysokiej jakości kontaktu.</p>
+        <p class="bg-gold-400/8 border-l-2 border-gold-400 p-6 rounded-r-lg text-xl font-normal text-cream-50">
+          Dzięki niej jako osoba prowadząca biznes mam ogromne poczucie zaufania i spokoju, wiedząc, że moi klienci są w naprawdę dobrych rękach.
+        </p>
+        <p>To, co szczególnie cenię we współpracy z Kingą, to jej wysoka empatia połączona z dużą zadaniowością i odpowiedzialnością. Zawsze jest uważna na potrzeby klientów, a jednocześnie bardzo konkretna i skuteczna w działaniu.</p>
+        <p>Z pełnym przekonaniem polecam współpracę z Kingą każdemu, kto chce mieć poczucie, że jego biznes, a przede wszystkim klienci, są otoczeni profesjonalną i troskliwą opieką.</p>
+      </div>
+      <div class="mt-8 pt-8 border-t border-gold-400/10">
+        <p class="font-semibold text-cream-50 text-lg">Kamila Surma</p>
+        <p class="text-cream-300 font-light">@kamilasurma</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CENNIK ========== -->
+<section id="cennik" class="py-28 px-6 md:px-12 bg-moss-300 moss-pattern relative">
+  <!-- Parallax background -->
+  <div class="absolute inset-0 parallax-bg" style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath d='M200 0 L200 400' stroke='%23C5A55A' stroke-width='0.2' opacity='0.03'/%3E%3Cpath d='M0 200 L400 200' stroke='%23C5A55A' stroke-width='0.2' opacity='0.03'/%3E%3Crect x='100' y='100' width='200' height='200' stroke='%23C5A55A' stroke-width='0.2' opacity='0.03' fill='none'/%3E%3C/svg%3E&quot;);"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="max-w-4xl mx-auto text-center mb-16 fade-in">
+      <h2 class="font-display text-4xl md:text-5xl mb-6 text-cream-50">Inwestycja w Twój spokój</h2>
+      <p class="text-xl font-light text-cream-100">Ile to kosztuje? Wybierz pakiet dopasowany do obecnej skali Twojego biznesu.</p>
+    </div>
+    <div class="max-w-5xl mx-auto mb-16 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-8 text-center">Wsparcie SDR / Obsługa Klienta Premium</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="border border-gold-400/15 p-10 rounded-lg flex flex-col justify-between hover:border-gold-400/40 transition-all duration-500 bg-moss-200/40 backdrop-blur-sm hover:bg-moss-200/60">
+          <div>
+            <h4 class="font-semibold text-lg mb-4 text-cream-50">Pakiet 10 godzin</h4>
+            <p class="font-display text-4xl mb-2 text-cream-50">950 zł</p>
+            <p class="text-sm text-cream-300 font-light">netto</p>
+          </div>
+        </div>
+        <div class="bg-moss-200/60 backdrop-blur-sm p-10 rounded-lg flex flex-col justify-between border-2 border-gold-400 relative gold-glow">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold-400 text-moss-400 text-[10px] px-4 py-1 rounded-sm uppercase tracking-widest font-bold">Bestseller</span>
+          <div>
+            <h4 class="font-semibold text-lg mb-4 text-cream-50">Pakiet 20 godzin</h4>
+            <p class="font-display text-4xl mb-2 text-gold-400 gold-text-glow">1 800 zł</p>
+            <p class="text-sm text-cream-300 font-light">netto</p>
+          </div>
+        </div>
+        <div class="border border-gold-400/15 p-10 rounded-lg flex flex-col justify-between hover:border-gold-400/40 transition-all duration-500 bg-moss-200/40 backdrop-blur-sm hover:bg-moss-200/60">
+          <div>
+            <h4 class="font-semibold text-lg mb-4 text-cream-50">Pakiet 40 godzin</h4>
+            <p class="font-display text-4xl mb-2 text-cream-50">3 400 zł</p>
+            <p class="text-sm text-cream-300 font-light">netto</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-8 text-center">Wsparcie Online Business Manager (OBM)</p>
+      <div class="max-w-md mx-auto">
+        <div class="bg-gold-400/8 p-10 rounded-lg text-center border border-gold-400/20">
+          <h4 class="font-semibold text-lg mb-4 text-cream-50">Indywidualna wycena</h4>
+          <p class="font-display text-3xl mb-2 text-cream-50">od 1 500 zł</p>
+          <p class="text-sm text-cream-300 font-light">netto / w zależności od zakresu projektów</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-sm text-cream-300 font-light mt-12">Wystawiam faktury VAT</p>
+  </div>
+</section>
+
+<!-- ========== CTA + CONTACT ========== -->
+<section id="kontakt" class="py-32 bg-moss-400 px-6 md:px-12 relative fern-pattern">
+  <div class="max-w-4xl mx-auto fade-in relative z-10 text-center">
+    <h2 class="font-display text-4xl md:text-6xl mb-6 italic text-cream-50">Poczuj ulgę i zrób miejsce na rozwój</h2>
+    <p class="text-xl font-light text-cream-200 mb-16 max-w-2xl mx-auto">
+      Jeśli czujesz, że to jest to, czego od dawna potrzebujesz w swoim biznesie -- nie odkładaj tego na później.
+    </p>
+    <div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <div class="flex flex-col items-center text-center">
+        <span class="w-12 h-12 rounded-lg bg-gold-400 text-moss-400 flex items-center justify-center font-bold text-lg mb-4 gold-glow">1</span>
+        <p class="text-base font-light text-cream-200 leading-relaxed">Umów się na krótką, niezobowiązującą rozmowę wideo.</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <span class="w-12 h-12 rounded-lg bg-gold-400 text-moss-400 flex items-center justify-center font-bold text-lg mb-4 gold-glow">2</span>
+        <p class="text-base font-light text-cream-200 leading-relaxed">Poznajmy się. Sprawdzimy, czy nadajemy na tych samych falach.</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <span class="w-12 h-12 rounded-lg bg-gold-400 text-moss-400 flex items-center justify-center font-bold text-lg mb-4 gold-glow">3</span>
+        <p class="text-base font-light text-cream-200 leading-relaxed">Stwórzmy plan, jak mogę uwolnić Twój czas i wesprzeć Twój biznes.</p>
+      </div>
+    </div>
+    <a class="inline-flex items-center gap-4 bg-gold-400 hover:bg-gold-300 text-moss-400 px-14 py-6 rounded-lg text-lg font-bold tracking-widest uppercase transition-all duration-500 gold-glow gold-glow-hover mb-20" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
+      Umów się na bezpłatną rozmowę wstępną
+      <span class="material-symbols-outlined">calendar_today</span>
+    </a>
+
+    <!-- Contact Form -->
+    <div class="max-w-xl mx-auto">
+      <h3 class="font-display text-3xl italic text-cream-50 mb-8">Napisz do mnie</h3>
+      <form id="contactForm" class="space-y-6 text-left" onsubmit="handleSubmit(event)">
+        <div>
+          <label for="name" class="block text-sm font-medium text-cream-200 mb-2">Imię</label>
+          <input type="text" id="name" name="name" required
+            class="w-full px-5 py-4 rounded-lg bg-moss-200/50 border border-gold-400/15 text-cream-50 placeholder-cream-300 focus:border-gold-400/50 focus:ring-1 focus:ring-gold-400/30 transition-all"
+            placeholder="Twoje imię"/>
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-cream-200 mb-2">Email</label>
+          <input type="email" id="email" name="email" required
+            class="w-full px-5 py-4 rounded-lg bg-moss-200/50 border border-gold-400/15 text-cream-50 placeholder-cream-300 focus:border-gold-400/50 focus:ring-1 focus:ring-gold-400/30 transition-all"
+            placeholder="twoj@email.com"/>
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-cream-200 mb-2">Wiadomość</label>
+          <textarea id="message" name="message" rows="5" required
+            class="w-full px-5 py-4 rounded-lg bg-moss-200/50 border border-gold-400/15 text-cream-50 placeholder-cream-300 focus:border-gold-400/50 focus:ring-1 focus:ring-gold-400/30 transition-all resize-none"
+            placeholder="Napisz, jak mogę Ci pomóc..."></textarea>
+        </div>
+        <button type="submit"
+          class="w-full bg-gold-400 hover:bg-gold-300 text-moss-400 px-8 py-4 rounded-lg text-sm font-bold tracking-wider uppercase transition-all duration-300 gold-glow gold-glow-hover">
+          Wyślij wiadomość
+        </button>
+        <p id="formSuccess" class="hidden text-center text-gold-300 font-display text-lg italic mt-4">Dziękuję! Wiadomość została wysłana.</p>
+      </form>
+    </div>
+
+    <!-- Social links -->
+    <div class="mt-16 flex flex-col sm:flex-row gap-6 items-center justify-center">
+      <a class="flex items-center gap-2 text-cream-200 hover:text-gold-400 transition-colors" href="#">
+        <span class="material-symbols-outlined text-lg">photo_camera</span>
+        <span class="text-sm font-light">Instagram</span>
+      </a>
+      <a class="flex items-center gap-2 text-cream-200 hover:text-gold-400 transition-colors" href="#">
+        <span class="material-symbols-outlined text-lg">mail</span>
+        <span class="text-sm font-light">Email</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="w-full py-14 px-6 md:px-12 bg-moss-500 border-t border-gold-400/10">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-7xl mx-auto">
+    <div class="flex flex-col gap-3 text-center md:text-left">
+      <span class="font-display text-xl italic text-cream-50">Femme Vision Kinga Maryniak</span>
+      <p class="text-sm font-light text-cream-300">&copy; 2025 Femme Vision Kinga Maryniak. Wszelkie prawa zastrzeżone.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-6 items-center">
+      <span class="text-sm font-light text-cream-300">Bądźmy w kontakcie:</span>
+      <a class="text-sm font-light text-cream-200 hover:text-gold-400 transition-colors" href="#">Instagram</a>
+      <a class="text-sm font-light text-cream-200 hover:text-gold-400 transition-colors" href="#">Email</a>
+    </div>
+    <div class="flex gap-8">
+      <a class="text-sm font-light text-cream-300 hover:text-cream-50 transition-colors" href="#">Polityka prywatności</a>
+      <a class="text-sm font-light text-cream-300 hover:text-cream-50 transition-colors" href="#">Regulamin</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Sticky nav — show after scrolling past hero
+const stickyNav = document.getElementById('stickyNav');
+const heroSection = document.getElementById('hero');
+function updateNav() {
+  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+  if (window.scrollY > heroBottom - 100) {
+    stickyNav.classList.add('show');
+  } else {
+    stickyNav.classList.remove('show');
+  }
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+
+// Full-screen menu
+const openBtn = document.getElementById('menuOpenBtn');
+const closeBtn = document.getElementById('menuCloseBtn');
+const fullMenu = document.getElementById('fullscreenMenu');
+function closeFullMenu() { fullMenu.classList.remove('open'); fullMenu.classList.add('closed'); }
+openBtn.addEventListener('click', () => { fullMenu.classList.remove('closed'); fullMenu.classList.add('open'); });
+closeBtn.addEventListener('click', closeFullMenu);
+
+// Fade-in on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Parallax effect on decorative SVG elements
+const parallaxElements = document.querySelectorAll('.parallax-float');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  parallaxElements.forEach((el, i) => {
+    const speed = 0.15 + (i * 0.05);
+    el.style.transform = `translateY(${scrollY * speed}px)`;
+  });
+}, { passive: true });
+
+// Contact form handler (frontend only)
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  // Simulate submission
+  form.querySelectorAll('input, textarea, button').forEach(el => el.disabled = true);
+  success.classList.remove('hidden');
+  setTimeout(() => {
+    form.reset();
+    form.querySelectorAll('input, textarea, button').forEach(el => el.disabled = false);
+    success.classList.add('hidden');
+  }, 4000);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O mnie — Femme Vision Kinga Maryniak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'euc': '#8B9D83',
+                        'euc-deep': '#6B7F63',
+                        'euc-off': '#F9FAF8',
+                        'euc-wood': '#D4A574',
+                        'euc-wood-dark': '#B8895A',
+                        'euc-dark': '#2B2B2B',
+                        'euc-light': '#E8EBE6',
+                    },
+                    fontFamily: {
+                        'serif': ['"DM Serif Display"', 'serif'],
+                        'sans': ['"Figtree"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .mobile-menu.open { max-height: 400px; }
+    </style>
+</head>
+<body class="bg-white text-euc-dark font-sans antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm z-50 border-b border-euc-light">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-serif text-xl text-euc-deep tracking-wide">Femme Vision</a>
+            <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-euc-dark/70">
+                <li><a href="index.html" class="hover:text-euc-deep transition">Start</a></li>
+                <li><a href="uslugi.html" class="hover:text-euc-deep transition">Usługi</a></li>
+                <li><a href="o-mnie.html" class="hover:text-euc-deep transition text-euc-deep">O mnie</a></li>
+                <li><a href="kontakt.html" class="hover:text-euc-deep transition">Kontakt</a></li>
+                <li><a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" class="ml-2 px-5 py-2 bg-euc text-white rounded-full text-sm hover:bg-euc-deep transition">Umów rozmowę</a></li>
+            </ul>
+            <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+                <span class="block w-6 h-0.5 bg-euc-dark transition-all"></span>
+                <span class="block w-6 h-0.5 bg-euc-dark transition-all"></span>
+                <span class="block w-6 h-0.5 bg-euc-dark transition-all"></span>
+            </button>
+        </div>
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t border-euc-light">
+            <ul class="flex flex-col gap-1 px-6 py-4 text-sm font-medium text-euc-dark/70">
+                <li><a href="index.html" class="block py-2 hover:text-euc-deep transition">Start</a></li>
+                <li><a href="uslugi.html" class="block py-2 hover:text-euc-deep transition">Usługi</a></li>
+                <li><a href="o-mnie.html" class="block py-2 text-euc-deep">O mnie</a></li>
+                <li><a href="kontakt.html" class="block py-2 hover:text-euc-deep transition">Kontakt</a></li>
+                <li><a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" class="inline-block mt-2 px-5 py-2 bg-euc text-white rounded-full text-sm hover:bg-euc-deep transition">Umów rozmowę</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ABOUT -->
+    <section class="relative pt-28 md:pt-36 pb-20 md:pb-28 bg-euc-off overflow-hidden">
+        <svg class="absolute top-20 right-0 w-56 md:w-80 opacity-[0.09]" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="200" y1="0" x2="200" y2="600" stroke="#8B9D83" stroke-width="2"/>
+            <ellipse cx="160" cy="80" rx="30" ry="18" transform="rotate(-30 160 80)" fill="#8B9D83"/>
+            <ellipse cx="240" cy="130" rx="30" ry="18" transform="rotate(30 240 130)" fill="#8B9D83"/>
+            <ellipse cx="155" cy="190" rx="28" ry="16" transform="rotate(-25 155 190)" fill="#8B9D83"/>
+            <ellipse cx="245" cy="250" rx="32" ry="17" transform="rotate(25 245 250)" fill="#8B9D83"/>
+            <ellipse cx="158" cy="310" rx="26" ry="15" transform="rotate(-30 158 310)" fill="#8B9D83"/>
+            <ellipse cx="242" cy="370" rx="28" ry="16" transform="rotate(28 242 370)" fill="#8B9D83"/>
+        </svg>
+
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-5 gap-12 md:gap-16 items-start relative z-10">
+            <div class="md:col-span-2 fade-in">
+                <div class="sticky top-28">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl shadow-euc/10 mb-6">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfSb9QD4qVKlI1G-lLWEzgi2RM8LQAvDNReymxjLznxcLmmmpM9hHutaMKYe0doT0yJ0H5LSKQGaJu2XyhDCqzWRrx7FCIMRtVRlzeFDEHBIRicnOQb9LBb7sT_NMujmITKMKOVBhJD62FIvsfAblvGERvxgEcZFDj7Mxx57v5kKP6zgJLuDAIBftjFb2cxoOzp9HazdI6awKP5pl23LjvPmVQWbT1lQm_iqRTZc-TC7aJroLsXDLYjcSO3hkOBA1Q22HTGUnFNeM" alt="Kinga Maryniak" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="p-5 rounded-xl bg-white border border-euc-light">
+                        <p class="font-serif text-lg text-euc-deep mb-1">Kinga Maryniak</p>
+                        <p class="text-sm text-euc-dark/60">OBM · SDR · Wirtualna Asystentka</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 fade-in">
+                <p class="text-sm font-semibold tracking-[0.2em] uppercase text-euc mb-4">O mnie</p>
+                <h1 class="font-serif text-4xl md:text-5xl text-euc-dark leading-tight mb-10">
+                    Cześć, jestem <span class="text-euc-deep italic">Kinga!</span> ☕
+                </h1>
+
+                <div class="space-y-6 text-euc-dark/80 leading-relaxed">
+                    <p class="text-lg">
+                        Pomagam mentorkom, trenerkom i właścicielkom marek osobistych odzyskać czas i uporządkować procesy sprzedażowe.
+                    </p>
+                    <p>
+                        Działam jako Twój SDR (Sales Development Representative) oraz OBM (Online Business Manager). Co to oznacza w praktyce? Nie tylko przejmuję na siebie kontakt z klientem, ale buduję i usprawniam systemy pracy. Sprawiam, że żadne zapytanie od klientki nie zostaje bez odpowiedzi, follow-upy domykają sprzedaż, a Ty włączasz się w procesy tylko tam, gdzie to naprawdę konieczne. Moim celem jest stworzenie dla Ciebie przestrzeni, w której odzyskasz czas na to, co w swoim biznesie kochasz najbardziej.
+                    </p>
+
+                    <div class="p-6 md:p-8 rounded-2xl bg-euc/5 border-l-4 border-euc my-8">
+                        <h2 class="font-serif text-2xl text-euc-deep mb-4">Wsparcie oparte na empatii i precyzji</h2>
+                        <p>
+                            Jestem entuzjastką organizacji. Wierzę, że każdy kreatywny biznes potrzebuje solidnych fundamentów, by móc wzlecieć. Moje „supermoce" to nie tylko perfekcyjna znajomość Trello czy Asany, ale przede wszystkim umiejętność słuchania i wyłapywania tego, czego potrzebują Twoi klienci oraz co w Twojej firmie wymaga natychmiastowego odciążenia.
+                        </p>
+                    </div>
+
+                    <p>
+                        Zanim zajęłam się wspieraniem biznesów online, pracowałam jako HR Coordinator. To właśnie tam nauczyłam się, jak łączyć świat twardych procesów z ludzkim podejściem, empatią i zrozumieniem drugiej osoby.
+                    </p>
+
+                    <div class="p-6 md:p-8 rounded-2xl bg-euc-wood/10 border border-euc-wood/30 my-8">
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-euc-wood-dark text-3xl mt-0.5 shrink-0">directions_run</span>
+                            <p class="font-serif italic text-lg text-euc-dark/90">
+                                Prywatnie? Biegam. Biegi długodystansowe nauczyły mnie, że w biznesie – tak samo jak w sporcie – liczy się żelazna konsekwencja, dyscyplina, odpowiednie rozłożenie sił i długofalowa strategia. <strong class="not-italic text-euc-wood-dark">Nie jestem sprinterką. Jestem Twoją partnerką na długie dystanse.</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS / CASE STUDY -->
+    <section class="py-20 md:py-28 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <p class="text-sm font-semibold tracking-[0.2em] uppercase text-euc mb-4">Opinie i wyniki</p>
+                <h2 class="font-serif text-3xl md:text-5xl text-euc-dark leading-tight mb-6">Dlaczego warto mi <span class="text-euc-deep italic">zaufać</span>?</h2>
+                <p class="text-lg text-euc-dark/70 leading-relaxed max-w-2xl mx-auto">
+                    Szukam długofalowych współprac, ponieważ uwielbiam widzieć, jak moja praca przynosi mierzalne efekty biznesowe. To mnie napędza! Moja praca to nie koszt – to inwestycja, która realnie się zwraca.
+                </p>
+            </div>
+
+            <!-- Case study -->
+            <div class="fade-in mb-16">
+                <div class="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-euc-off to-euc/10 border border-euc/20 relative overflow-hidden">
+                    <span class="absolute top-6 right-6 material-symbols-outlined text-euc/20 text-7xl">show_chart</span>
+                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-euc-wood-dark mb-4">Studium przypadku</p>
+                    <p class="font-serif text-2xl md:text-3xl text-euc-dark leading-snug mb-6">
+                        W ramach zaledwie <span class="text-euc-deep">20-godzinnej</span> współpracy pomogłam klientce pozyskać <span class="text-euc-deep">3 nowe sprzedaże</span> programu High-Ticket.
+                    </p>
+                    <div class="inline-flex items-baseline gap-3 p-4 rounded-xl bg-white border border-euc-wood/30">
+                        <span class="text-xs uppercase tracking-wider text-euc-dark/50">Łączny przychód</span>
+                        <span class="font-serif text-3xl md:text-4xl text-euc-wood-dark">45 000 zł</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial -->
+            <div class="fade-in">
+                <p class="font-serif italic text-center text-xl text-euc-deep mb-10">Sprawdź, co mówią moje klientki o współpracy ze mną:</p>
+                <div class="p-8 md:p-12 rounded-2xl bg-euc-off border border-euc-light relative">
+                    <span class="material-symbols-outlined text-6xl text-euc/15 absolute top-4 left-6">format_quote</span>
+                    <div class="space-y-5 text-euc-dark/80 leading-relaxed relative z-10">
+                        <p>Współpraca z Kingą od samego początku była naprawdę świetna. Kinga dołączyła do mojego zespołu jako osoba odpowiedzialna za obsługę klienta (...) od początku zależało mi na bardzo wysokiej jakości kontaktu.</p>
+                        <p class="p-5 rounded-xl bg-white border-l-4 border-euc-wood font-medium text-euc-dark text-lg">
+                            Dzięki niej jako osoba prowadząca biznes mam ogromne poczucie zaufania i spokoju, wiedząc, że moi klienci są w naprawdę dobrych rękach.
+                        </p>
+                        <p>To, co szczególnie cenię we współpracy z Kingą, to jej wysoka empatia połączona z dużą zadaniowością i odpowiedzialnością. Zawsze jest uważna na potrzeby klientów, a jednocześnie bardzo konkretna i skuteczna w działaniu.</p>
+                        <p>Z pełnym przekonaniem polecam współpracę z Kingą każdemu, kto chce mieć poczucie, że jego biznes, a przede wszystkim klienci, są otoczeni profesjonalną i troskliwą opieką.</p>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-euc-light flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-euc/15 flex items-center justify-center text-euc-deep font-serif text-xl">K</div>
+                        <div>
+                            <p class="font-semibold text-euc-dark">Kamila Surma</p>
+                            <p class="text-sm text-euc-dark/50">@kamilasurma</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 md:py-24 bg-euc-off">
+        <div class="max-w-3xl mx-auto px-6 text-center fade-in">
+            <h2 class="font-serif text-3xl md:text-4xl text-euc-dark mb-6">Chcesz współpracować?</h2>
+            <p class="text-euc-dark/60 mb-10 text-lg leading-relaxed">Sprawdź pakiety lub umów się od razu na bezpłatną rozmowę wideo.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="kontakt.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-euc text-euc-deep rounded-full text-base font-medium hover:bg-euc hover:text-white transition">
+                    <span class="material-symbols-outlined text-xl">sell</span>
+                    Zobacz cennik
+                </a>
+                <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-euc text-white rounded-full text-base font-medium hover:bg-euc-deep transition shadow-lg shadow-euc/20">
+                    <span class="material-symbols-outlined text-xl">calendar_month</span>
+                    Umów darmową rozmowę
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-euc-dark text-white/60">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-serif text-lg text-white/90 mb-1">Femme Vision Kinga Maryniak</p>
+                    <p class="text-sm">&copy; 2025 Wszelkie prawa zastrzeżone.</p>
+                </div>
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="#" class="hover:text-white transition flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">photo_camera</span>Instagram</a>
+                    <a href="#" class="hover:text-white transition flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">mail</span>Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

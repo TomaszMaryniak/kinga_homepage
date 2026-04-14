@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Femme Vision Kinga Maryniak | OBM &amp; SDR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        dark: '#1B4332',
+        mid: '#2D6A4F',
+        mint: '#95D5B2',
+        lmint: '#D8F3DC',
+        pale: '#E8F5E9',
+      },
+      fontFamily: {
+        heading: ['"Outfit"', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: #1B4332; color: #E8F5E9; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.glass-strong {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255,255,255,0.22);
+}
+.glass-light {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Fade-in on scroll */
+.fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* Side drawer */
+#sideDrawer { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+#sideDrawer.open { transform: translateX(0); }
+#drawerOverlay { opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; }
+#drawerOverlay.open { opacity: 1; visibility: visible; }
+
+/* Soft glow */
+.glow-mint { box-shadow: 0 0 60px rgba(149,213,178,0.15), 0 0 120px rgba(149,213,178,0.08); }
+.glow-mint-sm { box-shadow: 0 0 30px rgba(149,213,178,0.12); }
+
+/* Section transitions */
+.section-dark { background: #1B4332; }
+.section-mid { background: #2D6A4F; }
+.section-gradient { background: linear-gradient(180deg, #1B4332 0%, #2D6A4F 100%); }
+.section-gradient-rev { background: linear-gradient(180deg, #2D6A4F 0%, #1B4332 100%); }
+</style>
+</head>
+<body class="overflow-x-hidden selection:bg-mint/30 selection:text-white">
+
+<!-- ========== SVG LEAF DEFS ========== -->
+<svg class="hidden" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Monstera leaf -->
+    <symbol id="monstera" viewBox="0 0 400 500">
+      <path d="M200 10 C140 60 40 120 30 220 C20 320 80 420 200 490 C320 420 380 320 370 220 C360 120 260 60 200 10Z" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+      <path d="M200 10 L200 490" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+      <path d="M200 120 C160 140 100 180 90 220" stroke="currentColor" stroke-width="1.5" opacity="0.3" fill="none"/>
+      <path d="M200 120 C240 140 300 180 310 220" stroke="currentColor" stroke-width="1.5" opacity="0.3" fill="none"/>
+      <path d="M200 220 C150 250 80 280 70 320" stroke="currentColor" stroke-width="1.5" opacity="0.3" fill="none"/>
+      <path d="M200 220 C250 250 320 280 330 320" stroke="currentColor" stroke-width="1.5" opacity="0.3" fill="none"/>
+      <path d="M200 320 C170 350 120 380 110 400" stroke="currentColor" stroke-width="1.5" opacity="0.3" fill="none"/>
+      <path d="M200 320 C230 350 280 380 290 400" stroke="currentColor" stroke-width="1.5" opacity="0.3" fill="none"/>
+      <!-- Holes -->
+      <ellipse cx="150" cy="200" rx="25" ry="35" fill="currentColor" opacity="0.08"/>
+      <ellipse cx="250" cy="200" rx="25" ry="35" fill="currentColor" opacity="0.08"/>
+      <ellipse cx="140" cy="310" rx="20" ry="28" fill="currentColor" opacity="0.06"/>
+      <ellipse cx="260" cy="310" rx="20" ry="28" fill="currentColor" opacity="0.06"/>
+    </symbol>
+    <!-- Fern frond -->
+    <symbol id="fern" viewBox="0 0 200 600">
+      <path d="M100 0 C100 0 100 600 100 600" stroke="currentColor" stroke-width="1.5" opacity="0.4" fill="none"/>
+      <path d="M100 40 C70 50 30 80 20 100" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 40 C130 50 170 80 180 100" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 100 C65 115 25 145 15 170" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 100 C135 115 175 145 185 170" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 170 C60 190 20 225 10 255" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 170 C140 190 180 225 190 255" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 250 C60 270 25 305 15 335" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 250 C140 270 175 305 185 335" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 340 C65 360 35 390 25 415" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 340 C135 360 165 390 175 415" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 430 C75 445 50 465 42 485" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <path d="M100 430 C125 445 150 465 158 485" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+      <!-- Leaflets -->
+      <path d="M20 100 C30 85 55 60 100 40" fill="currentColor" opacity="0.06"/>
+      <path d="M180 100 C170 85 145 60 100 40" fill="currentColor" opacity="0.06"/>
+      <path d="M15 170 C30 150 60 125 100 100" fill="currentColor" opacity="0.05"/>
+      <path d="M185 170 C170 150 140 125 100 100" fill="currentColor" opacity="0.05"/>
+      <path d="M10 255 C25 230 55 200 100 170" fill="currentColor" opacity="0.05"/>
+      <path d="M190 255 C175 230 145 200 100 170" fill="currentColor" opacity="0.05"/>
+    </symbol>
+    <!-- Palm leaf -->
+    <symbol id="palm" viewBox="0 0 300 500">
+      <path d="M150 500 L150 200 C150 200 80 100 20 30" stroke="currentColor" stroke-width="1.5" opacity="0.35" fill="none"/>
+      <path d="M150 200 C150 200 220 100 280 30" stroke="currentColor" stroke-width="1.5" opacity="0.35" fill="none"/>
+      <path d="M150 200 C150 200 60 130 10 80" stroke="currentColor" stroke-width="1" opacity="0.25" fill="none"/>
+      <path d="M150 200 C150 200 240 130 290 80" stroke="currentColor" stroke-width="1" opacity="0.25" fill="none"/>
+      <path d="M150 200 C150 200 90 150 50 120" stroke="currentColor" stroke-width="1" opacity="0.2" fill="none"/>
+      <path d="M150 200 C150 200 210 150 250 120" stroke="currentColor" stroke-width="1" opacity="0.2" fill="none"/>
+      <path d="M20 30 C60 70 120 160 150 200 C150 200 80 100 20 30Z" fill="currentColor" opacity="0.06"/>
+      <path d="M280 30 C240 70 180 160 150 200 C150 200 220 100 280 30Z" fill="currentColor" opacity="0.06"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+  <div class="flex justify-between items-center px-6 md:px-12 py-4 max-w-7xl mx-auto">
+    <a href="#" class="font-heading text-xl font-semibold text-white tracking-wide">Femme Vision</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-sm text-pale/70 hover:text-mint transition-colors font-medium" href="#uslugi">Uslugi</a>
+      <a class="text-sm text-pale/70 hover:text-mint transition-colors font-medium" href="#o-mnie">O mnie</a>
+      <a class="text-sm text-pale/70 hover:text-mint transition-colors font-medium" href="#cennik">Cennik</a>
+      <a class="text-sm text-pale/70 hover:text-mint transition-colors font-medium" href="#kontakt">Kontakt</a>
+    </div>
+    <a class="hidden md:inline-block bg-mint hover:bg-lmint text-dark px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-mint/20" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">Konsultacja</a>
+    <button id="menuOpenBtn" class="md:hidden p-2" aria-label="Menu">
+      <span class="material-symbols-outlined text-2xl text-white">menu</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Side Drawer (mobile) -->
+<div id="drawerOverlay" class="fixed inset-0 z-[55] bg-black/50 backdrop-blur-sm"></div>
+<div id="sideDrawer" class="fixed top-0 right-0 h-full w-72 z-[60] glass-strong flex flex-col p-8 pt-20">
+  <button id="menuCloseBtn" class="absolute top-5 right-5 text-white">
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <div class="flex flex-col gap-6">
+    <a class="font-heading text-2xl text-white hover:text-mint transition-colors" href="#uslugi" onclick="closeDrawer()">Uslugi</a>
+    <a class="font-heading text-2xl text-white hover:text-mint transition-colors" href="#o-mnie" onclick="closeDrawer()">O mnie</a>
+    <a class="font-heading text-2xl text-white hover:text-mint transition-colors" href="#cennik" onclick="closeDrawer()">Cennik</a>
+    <a class="font-heading text-2xl text-white hover:text-mint transition-colors" href="#kontakt" onclick="closeDrawer()">Kontakt</a>
+    <a class="mt-4 bg-mint text-dark px-8 py-3 rounded-full text-sm font-semibold tracking-wide text-center" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">Konsultacja</a>
+  </div>
+</div>
+
+<main class="pt-16">
+
+<!-- ========== HERO ========== -->
+<section class="min-h-screen section-dark relative overflow-hidden px-6 md:px-12 py-20 flex items-center">
+  <!-- Background leaves -->
+  <svg class="absolute -left-20 top-10 w-[400px] h-[500px] text-mint/30 pointer-events-none" aria-hidden="true"><use href="#monstera"/></svg>
+  <svg class="absolute right-[-60px] bottom-[-40px] w-[350px] h-[600px] text-lmint/20 pointer-events-none rotate-12"><use href="#fern"/></svg>
+  <svg class="absolute left-1/2 top-[-80px] w-[300px] h-[500px] text-mint/15 pointer-events-none -rotate-6"><use href="#palm"/></svg>
+  <!-- Gradient glow -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-mint/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-1/4 right-1/3 w-80 h-80 bg-lmint/8 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10 w-full">
+    <div class="lg:col-span-7 fade-in">
+      <p class="text-xs tracking-[0.35em] uppercase text-mint mb-6 font-semibold">Wirtualna Asystentka &middot; OBM &middot; SDR</p>
+      <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-8 text-white font-bold">
+        Odzyskaj czas, uporządkuj procesy i prowadź swoją markę z lekkością, <span class="text-mint">o&nbsp;której zawsze marzyłaś.</span>
+      </h1>
+      <p class="text-xl font-light leading-relaxed text-pale/70 max-w-2xl mb-10">
+        Czy Twój system obsługi klienta rośnie tak szybko, jak Twój biznes?
+      </p>
+      <a class="inline-flex items-center gap-3 bg-mint hover:bg-lmint text-dark px-10 py-4 rounded-full text-sm font-bold tracking-wide uppercase transition-all duration-300 hover:shadow-xl hover:shadow-mint/25 glow-mint-sm" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
+        Umów się na bezpłatną rozmowę wstępną
+        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+      </a>
+    </div>
+    <div class="lg:col-span-5 fade-in">
+      <div class="glass-strong rounded-3xl p-3 glow-mint relative">
+        <svg class="absolute -right-16 -top-16 w-[250px] h-[350px] text-mint/20 pointer-events-none rotate-45 -z-10" aria-hidden="true"><use href="#fern"/></svg>
+        <img class="w-full aspect-[3/4] object-cover rounded-2xl" alt="Kinga w jasnym biurze" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOSVYubJZDfiDPlkScuvXf2XTtd6449_UOjM30wQdRVbd-bm26gDRosQ0y4KFzug_bz6-ym0gP0ZMftoQ4GjdNbXR-T0apfhTTYm5dQIOIZh0Tz-6YY02pZmlZbjwXbsy1Js-gPe7iXz0SWOQx51713NX-1oy-BGfN7Ab9WxfwGo8sBHJondKnwxqybwZVuXx9YQvf0AfAOt7y9zoFdJ8eKvFe9G4ltAWV1oIPiPh6iC41ZGYfYOlBITOho7z9T8BuGlf10vQxIAY"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROBLEM ========== -->
+<section class="section-gradient relative overflow-hidden py-28 px-6 md:px-12">
+  <svg class="absolute right-[-80px] top-20 w-[380px] h-[480px] text-lmint/15 pointer-events-none -rotate-12" aria-hidden="true"><use href="#monstera"/></svg>
+  <svg class="absolute left-[-40px] bottom-[-60px] w-[200px] h-[500px] text-mint/10 pointer-events-none rotate-6"><use href="#fern"/></svg>
+  <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-dark to-transparent pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto text-center mb-16 fade-in relative z-10">
+    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-white">Znasz to uczucie?</h2>
+    <p class="text-xl font-light leading-relaxed text-pale/60">
+      Budujesz wspaniałą markę, tworzysz świetne produkty, ale na zapleczu powoli zaczyna brakować Ci tchu...
+    </p>
+  </div>
+
+  <div class="max-w-3xl mx-auto space-y-5 mb-16 relative z-10">
+    <div class="glass rounded-2xl p-7 flex items-start gap-5 fade-in hover:bg-white/15 transition-all duration-500 group">
+      <span class="material-symbols-outlined text-2xl text-mint mt-1 shrink-0 group-hover:scale-110 transition-transform">mail</span>
+      <p class="text-lg font-light text-pale/80 leading-relaxed">Wpadają zapytania od klientów, ale nie zawsze masz przestrzeń, żeby odpisać na czas?</p>
+    </div>
+    <div class="glass rounded-2xl p-7 flex items-start gap-5 fade-in hover:bg-white/15 transition-all duration-500 group">
+      <span class="material-symbols-outlined text-2xl text-mint mt-1 shrink-0 group-hover:scale-110 transition-transform">trending_down</span>
+      <p class="text-lg font-light text-pale/80 leading-relaxed">Odkładasz follow-upy i czujesz, że przez to uciekają Ci klientki, tracisz sprzedaż i tym samym pieniądze?</p>
+    </div>
+    <div class="glass rounded-2xl p-7 flex items-start gap-5 fade-in hover:bg-white/15 transition-all duration-500 group">
+      <span class="material-symbols-outlined text-2xl text-mint mt-1 shrink-0 group-hover:scale-110 transition-transform">help</span>
+      <p class="text-lg font-light text-pale/80 leading-relaxed">Zastanawiasz się, czy na pewno odpisałaś na każdą wiadomość i czy wszystko jest dopięte na ostatni guzik?</p>
+    </div>
+    <div class="glass rounded-2xl p-7 flex items-start gap-5 fade-in hover:bg-white/15 transition-all duration-500 group">
+      <span class="material-symbols-outlined text-2xl text-mint mt-1 shrink-0 group-hover:scale-110 transition-transform">shuffle</span>
+      <p class="text-lg font-light text-pale/80 leading-relaxed">Twoja sprzedaż dzieje się „przy okazji", a nie w uporządkowanym, powtarzalnym procesie?</p>
+    </div>
+    <div class="glass rounded-2xl p-7 flex items-start gap-5 fade-in hover:bg-white/15 transition-all duration-500 group">
+      <span class="material-symbols-outlined text-2xl text-mint mt-1 shrink-0 group-hover:scale-110 transition-transform">hourglass_top</span>
+      <p class="text-lg font-light text-pale/80 leading-relaxed">Masz poczucie, że więcej czasu spędzasz na ogarnianiu bieżących tematów w DM i mailach, niż na strategicznym rozwijaniu biznesu?</p>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto text-center fade-in relative z-10">
+    <p class="text-lg font-light text-pale/50 leading-relaxed mb-10">
+      Czy to brzmi znajomo? Jeśli chociaż na część tych pytań odpowiedziałaś „tak", to znaczy, że jesteś w idealnym miejscu.
+    </p>
+    <p class="font-heading text-3xl md:text-4xl font-semibold text-mint">
+      Odpocznij. Zdejmij to z siebie. Pomogę Ci.
+    </p>
+  </div>
+</section>
+
+<!-- ========== O MNIE ========== -->
+<section id="o-mnie" class="section-dark relative overflow-hidden py-28 px-6 md:px-12">
+  <svg class="absolute left-[-60px] top-40 w-[350px] h-[450px] text-mint/15 pointer-events-none rotate-[-15deg]" aria-hidden="true"><use href="#monstera"/></svg>
+  <svg class="absolute right-[-30px] bottom-20 w-[180px] h-[500px] text-lmint/12 pointer-events-none rotate-[20deg]"><use href="#fern"/></svg>
+  <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-mint/8 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
+    <div class="lg:col-span-5 lg:sticky lg:top-28 fade-in">
+      <div class="glass-strong rounded-3xl p-3 glow-mint-sm">
+        <img class="w-full aspect-[3/4] object-cover rounded-2xl" alt="Kinga — portret" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfSb9QD4qVKlI1G-lLWEzgi2RM8LQAvDNReymxjLznxcLmmmpM9hHutaMKYe0doT0yJ0H5LSKQGaJu2XyhDCqzWRrx7FCIMRtVRlzeFDEHBIRicnOQb9LBb7sT_NMujmITKMKOVBhJD62FIvsfAblvGERvxgEcZFDj7Mxx57v5kKP6zgJLuDAIBftjFb2cxoOzp9HazdI6awKP5pl23LjvPmVQWbT1lQm_iqRTZc-TC7aJroLsXDLYjcSO3hkOBA1Q22HTGUnFNeM"/>
+      </div>
+    </div>
+    <div class="lg:col-span-7 fade-in">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold mb-10 text-white">Cześć, jestem Kinga!</h2>
+      <div class="space-y-8">
+        <p class="text-xl leading-relaxed font-light text-pale/70">
+          Pomagam mentorkom, trenerkom i właścicielkom marek osobistych odzyskać czas i uporządkować procesy sprzedażowe.
+        </p>
+        <p class="text-xl leading-relaxed font-light text-pale/70">
+          Działam jako Twój SDR (Sales Development Representative) oraz OBM (Online Business Manager). Co to oznacza w praktyce? Nie tylko przejmuję na siebie kontakt z klientem, ale buduję i usprawniam systemy pracy. Sprawiam, że żadne zapytanie od klientki nie zostaje bez odpowiedzi, follow-upy domykają sprzedaż, a Ty włączasz się w procesy tylko tam, gdzie to naprawdę konieczne. Moim celem jest stworzenie dla Ciebie przestrzeni, w której odzyskasz czas na to, co w swoim biznesie kochasz najbardziej.
+        </p>
+
+        <div class="glass rounded-2xl p-8 border-l-4 border-mint">
+          <h3 class="font-heading text-2xl font-semibold mb-4 text-mint">Wsparcie oparte na empatii i precyzji</h3>
+          <p class="text-lg leading-relaxed font-light text-pale/70">
+            Jestem entuzjastką organizacji. Wierzę, że każdy kreatywny biznes potrzebuje solidnych fundamentów, by móc wzlecieć. Moje „supermoce" to nie tylko perfekcyjna znajomość Trello czy Asany, ale przede wszystkim umiejętność słuchania i wyłapywania tego, czego potrzebują Twoi klienci oraz co w Twojej firmie wymaga natychmiastowego odciążenia.
+          </p>
+        </div>
+
+        <p class="text-xl leading-relaxed font-light text-pale/70">
+          Zanim zajęłam się wspieraniem biznesów online, pracowałam jako HR Coordinator. To właśnie tam nauczyłam się, jak łączyć świat twardych procesów z ludzkim podejściem, empatią i zrozumieniem drugiej osoby.
+        </p>
+
+        <div class="glass-light rounded-2xl p-8">
+          <p class="font-heading text-xl italic leading-relaxed text-lmint">
+            Prywatnie? Biegam. Biegi długodystansowe nauczyły mnie, że w biznesie – tak samo jak w sporcie – liczy się żelazna konsekwencja, dyscyplina, odpowiednie rozłożenie sił i długofalowa strategia. Nie jestem sprinterką. Jestem Twoją partnerką na długie dystanse.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SDR SERVICES ========== -->
+<section id="uslugi" class="section-mid relative overflow-hidden py-28 px-6 md:px-12">
+  <svg class="absolute left-[-50px] top-[-30px] w-[380px] h-[480px] text-lmint/12 pointer-events-none rotate-[10deg]" aria-hidden="true"><use href="#monstera"/></svg>
+  <svg class="absolute right-[-50px] bottom-[-50px] w-[250px] h-[550px] text-mint/10 pointer-events-none -rotate-[8deg]"><use href="#fern"/></svg>
+  <div class="absolute bottom-0 left-1/3 w-80 h-80 bg-mint/8 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="max-w-4xl mx-auto text-center mb-16 fade-in">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4 text-white">Obsługa klienta i wsparcie sprzedaży premium</h2>
+      <p class="font-heading text-2xl text-mint mb-6">Zamiast leadów – klienci idealni</p>
+      <p class="text-xl font-light leading-relaxed text-pale/60">
+        Moja praca to nie jest zwykłe „odpisywanie na wiadomości". To kompleksowe zarządzanie ścieżką Twojego klienta: od pierwszego kontaktu, poprzez pomoc w podjęciu decyzji o zakupie, formalności zakupowe, aż po kompleksową obsługę premium.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <!-- Kwalifikacja -->
+      <div class="glass-strong rounded-2xl p-8 md:p-10 flex flex-col fade-in hover:bg-white/20 transition-all duration-500 glow-mint-sm group relative overflow-hidden">
+        <svg class="absolute -right-12 -bottom-12 w-[200px] h-[260px] text-mint/10 pointer-events-none rotate-[30deg] group-hover:text-mint/20 transition-colors duration-500"><use href="#monstera"/></svg>
+        <div class="w-14 h-14 rounded-xl bg-mint/20 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-2xl text-mint">diamond</span>
+        </div>
+        <h3 class="font-heading text-2xl font-semibold mb-4 text-white">Kwalifikacja i umawianie konsultacji</h3>
+        <p class="text-base font-light leading-relaxed text-pale/70 mb-8">
+          Przejmuję pełną opiekę nad Twoimi zapytaniami (DM na Instagramie, e-maile, formularze). Weryfikuję, czy potencjalny klient pasuje do Twojej oferty i jest gotowy na inwestycję. Zapełniam Twój kalendarz osobami „ogrzanymi".
+        </p>
+        <div class="mt-auto glass-light rounded-xl p-5 border-l-2 border-mint/40 relative z-10">
+          <p class="text-xs font-bold uppercase tracking-widest text-mint mb-2">Efekt dla Ciebie</p>
+          <p class="text-sm font-light leading-relaxed text-pale/60">Nie tracisz czasu na rozmowy z przypadkowymi osobami. Od razu widzisz, ile wartościowych konsultacji masz zaplanowanych na dany tydzień. Trafiają do Ciebie tylko konkrety.</p>
+        </div>
+      </div>
+
+      <!-- Follow-up -->
+      <div class="glass-strong rounded-2xl p-8 md:p-10 flex flex-col fade-in hover:bg-white/20 transition-all duration-500 glow-mint-sm group relative overflow-hidden">
+        <svg class="absolute -left-10 -top-10 w-[160px] h-[400px] text-lmint/8 pointer-events-none rotate-[-20deg] group-hover:text-lmint/15 transition-colors duration-500"><use href="#fern"/></svg>
+        <div class="w-14 h-14 rounded-xl bg-mint/20 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-2xl text-mint">autorenew</span>
+        </div>
+        <h3 class="font-heading text-2xl font-semibold mb-4 text-white">Systematyczny Follow-up i Opieka</h3>
+        <p class="text-base font-light leading-relaxed text-pale/70 mb-8">
+          Wprowadzam procedury kontaktu (wiadomości, przypomnienia, struktura zadań), dzięki którym domykamy sprzedaż tam, gdzie klient potrzebował chwili na zastanowienie. Pilnuję, by każdy czuł się zaopiekowany od pierwszej sekundy.
+        </p>
+        <div class="mt-auto glass-light rounded-xl p-5 border-l-2 border-mint/40 relative z-10">
+          <p class="text-xs font-bold uppercase tracking-widest text-mint mb-2">Efekt dla Ciebie</p>
+          <p class="text-sm font-light leading-relaxed text-pale/60">Klienci, którzy „mieli się odezwać", faktycznie wracają i kupują. Twój biznes działa profesjonalnie, a odbiorcy czują jakość premium – bez chaosu i niedopowiedzeń.</p>
+        </div>
+      </div>
+
+      <!-- Optymalizacja -->
+      <div class="glass-strong rounded-2xl p-8 md:p-10 flex flex-col fade-in hover:bg-white/20 transition-all duration-500 glow-mint-sm group relative overflow-hidden">
+        <svg class="absolute -right-8 -top-8 w-[180px] h-[300px] text-mint/8 pointer-events-none rotate-[45deg] group-hover:text-mint/15 transition-colors duration-500"><use href="#palm"/></svg>
+        <div class="w-14 h-14 rounded-xl bg-mint/20 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-2xl text-mint">settings_suggest</span>
+        </div>
+        <h3 class="font-heading text-2xl font-semibold mb-4 text-white">Optymalizacja Procesów i Baza Wiedzy</h3>
+        <p class="text-base font-light leading-relaxed text-pale/70 mb-8">
+          Porządkuję sposób pracy: notatki, zadania dla zespołu, komunikację. Zbieram i analizuję powtarzające się obiekcje, blokady i pytania Twojej grupy docelowej.
+        </p>
+        <div class="mt-auto glass-light rounded-xl p-5 border-l-2 border-mint/40 relative z-10">
+          <p class="text-xs font-bold uppercase tracking-widest text-mint mb-2">Efekt dla Ciebie</p>
+          <p class="text-sm font-light leading-relaxed text-pale/60">Zyskujesz absolutny spokój i jasne zasady. Wiesz, co się dzieje, ale nie musisz wszystkiego pilnować. Dokładnie wiesz też, co poprawić w ofercie, by sprzedawać jeszcze łatwiej.</p>
+        </div>
+      </div>
+
+      <!-- Kampanie -->
+      <div class="glass-strong rounded-2xl p-8 md:p-10 flex flex-col fade-in hover:bg-white/20 transition-all duration-500 glow-mint-sm group relative overflow-hidden">
+        <svg class="absolute -left-12 -bottom-12 w-[200px] h-[260px] text-lmint/8 pointer-events-none rotate-[-30deg] group-hover:text-lmint/15 transition-colors duration-500"><use href="#monstera"/></svg>
+        <div class="w-14 h-14 rounded-xl bg-mint/20 flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-2xl text-mint">trending_up</span>
+        </div>
+        <h3 class="font-heading text-2xl font-semibold mb-4 text-white">Wsparcie Kampanii i Sprzedaży Po-Webinarowej</h3>
+        <p class="text-base font-light leading-relaxed text-pale/70 mb-8">
+          Webinar świetnie buduje zaufanie, ale przy usługach high-ticket to człowiek domyka sprzedaż! Obsługuję pytania podczas okienek sprzedażowych, usuwam bariery decyzyjne w DM-ach i odzyskuję „porzucone koszyki".
+        </p>
+        <div class="mt-auto glass-light rounded-xl p-5 border-l-2 border-mint/40 relative z-10">
+          <p class="text-xs font-bold uppercase tracking-widest text-mint mb-2">Efekt dla Ciebie</p>
+          <p class="text-sm font-light leading-relaxed text-pale/60">Zmaksymalizowane zyski z każdej przeprowadzonej kampanii i pełne wsparcie w najbardziej intensywnym czasie.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== OBM ========== -->
+<section class="section-gradient-rev relative overflow-hidden py-28 px-6 md:px-12">
+  <svg class="absolute right-[-40px] top-10 w-[300px] h-[400px] text-mint/12 pointer-events-none rotate-[15deg]" aria-hidden="true"><use href="#monstera"/></svg>
+  <svg class="absolute left-[-20px] bottom-[-30px] w-[160px] h-[440px] text-lmint/10 pointer-events-none rotate-[-10deg]"><use href="#fern"/></svg>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+    <div class="lg:col-span-5 fade-in">
+      <div class="glass-strong rounded-2xl p-10 md:p-14 glow-mint relative overflow-hidden">
+        <svg class="absolute right-[-20px] bottom-[-20px] w-[180px] h-[240px] text-mint/15 pointer-events-none rotate-[25deg]"><use href="#palm"/></svg>
+        <p class="tracking-[0.2em] uppercase text-mint mb-6 text-sm font-bold relative z-10">Online Business Manager</p>
+        <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-white relative z-10">Twoja prawa ręka</h2>
+        <p class="text-lg font-light leading-relaxed text-pale/60 relative z-10">Twój biznes rośnie tak szybko, że zaplecze nie nadąża?</p>
+      </div>
+    </div>
+    <div class="lg:col-span-7 fade-in">
+      <p class="text-xl font-light leading-relaxed text-pale/70 mb-10">
+        Wiesz, że to ten moment. Nie chcesz już dłużej dźwigać wszystkiego na swoich barkach. Czujesz, że by iść naprzód i rozwijać potencjał swojego biznesu, potrzebujesz „prawej ręki" – kogoś, kto zna psychologię klienta, ale także doskonale wie, jak od środka naoliwić tryby Twojej marki online.
+      </p>
+      <h3 class="font-heading text-2xl font-semibold mb-8 text-white">Jako Twoja Online Business Manager (OBM) przejmę:</h3>
+      <div class="space-y-5">
+        <div class="glass rounded-xl p-5 flex items-start gap-5 hover:bg-white/15 transition-all duration-300">
+          <span class="material-symbols-outlined text-xl text-mint mt-1 shrink-0">account_tree</span>
+          <div>
+            <p class="text-lg font-semibold text-white mb-1">Projektowanie i porządkowanie procesów</p>
+            <p class="text-base font-light text-pale/60">Abyś przestała gasić pożary, a zaczęła zarządzać swoim imperium i z sukcesem je skalować.</p>
+          </div>
+        </div>
+        <div class="glass rounded-xl p-5 flex items-start gap-5 hover:bg-white/15 transition-all duration-300">
+          <span class="material-symbols-outlined text-xl text-mint mt-1 shrink-0">calendar_month</span>
+          <div>
+            <p class="text-lg font-semibold text-white mb-1">Kompleksowa koordynacja projektów</p>
+            <p class="text-base font-light text-pale/60">Od harmonogramu premier, po opiekę nad Twoimi programami high-ticket.</p>
+          </div>
+        </div>
+        <div class="glass rounded-xl p-5 flex items-start gap-5 hover:bg-white/15 transition-all duration-300">
+          <span class="material-symbols-outlined text-xl text-mint mt-1 shrink-0">task_alt</span>
+          <div>
+            <p class="text-lg font-semibold text-white mb-1">Zarządzanie realizacją zadań</p>
+            <p class="text-base font-light text-pale/60">Pilnuję terminów i dbam o idealny przepływ informacji w zespole.</p>
+          </div>
+        </div>
+        <div class="glass rounded-xl p-5 flex items-start gap-5 hover:bg-white/15 transition-all duration-300">
+          <span class="material-symbols-outlined text-xl text-mint mt-1 shrink-0">workspace_premium</span>
+          <div>
+            <p class="text-lg font-semibold text-white mb-1">Organizacja opieki nad klientem</p>
+            <p class="text-base font-light text-pale/60">Ustawiam zaplecze tak, by klient od pierwszego kontaktu z marką czuł jakość premium na każdym możliwym kroku.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section id="opinie" class="section-dark relative overflow-hidden py-28 px-6 md:px-12">
+  <svg class="absolute left-[-40px] top-20 w-[280px] h-[360px] text-mint/12 pointer-events-none rotate-[-10deg]" aria-hidden="true"><use href="#monstera"/></svg>
+  <svg class="absolute right-[-30px] bottom-10 w-[180px] h-[480px] text-lmint/10 pointer-events-none rotate-[5deg]"><use href="#fern"/></svg>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-mint/6 rounded-full blur-[150px] pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto relative z-10">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-white">Dlaczego warto mi zaufać?</h2>
+      <p class="text-xl font-light leading-relaxed text-pale/60">
+        Szukam długofalowych współprac, ponieważ uwielbiam widzieć, jak moja praca przynosi mierzalne efekty biznesowe. To mnie napędza! Moja praca to nie koszt – to inwestycja, która realnie się zwraca.
+      </p>
+    </div>
+
+    <!-- Case study -->
+    <div class="glass-strong rounded-2xl p-10 md:p-14 text-center mb-14 fade-in glow-mint relative overflow-hidden">
+      <svg class="absolute -left-10 -bottom-10 w-[200px] h-[260px] text-mint/10 pointer-events-none rotate-[-20deg]"><use href="#monstera"/></svg>
+      <p class="text-xs font-bold uppercase tracking-widest text-mint mb-6 relative z-10">Studium przypadku</p>
+      <p class="font-heading text-xl md:text-2xl leading-relaxed text-white relative z-10">
+        W ramach zaledwie <strong class="text-lmint">20-godzinnej współpracy</strong> i dzięki poukładanemu procesowi weryfikacji klientów, pomogłam mojej klientce pozyskać <strong class="text-lmint">3 nowe sprzedaże</strong> programu High-Ticket, co przełożyło się na łączny przychód w wysokości <strong class="text-mint text-3xl">45&nbsp;000&nbsp;zł</strong>.
+      </p>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="fade-in">
+      <p class="font-heading text-2xl text-center mb-10 text-white">Sprawdź, co mówią moje klientki:</p>
+      <div class="glass rounded-2xl p-8 md:p-12 relative overflow-hidden">
+        <span class="material-symbols-outlined text-7xl text-mint/15 absolute -top-2 left-6">format_quote</span>
+        <div class="space-y-6 text-lg font-light leading-relaxed text-pale/70 relative z-10">
+          <p>Współpraca z Kingą od samego początku była naprawdę świetna. Kinga dołączyła do mojego zespołu jako osoba odpowiedzialna za obsługę klienta (...) od początku zależało mi na bardzo wysokiej jakości kontaktu.</p>
+          <div class="glass-strong rounded-xl p-6 border-l-4 border-mint">
+            <p class="text-xl font-normal text-white">
+              Dzięki niej jako osoba prowadząca biznes mam ogromne poczucie zaufania i spokoju, wiedząc, że moi klienci są w naprawdę dobrych rękach.
+            </p>
+          </div>
+          <p>To, co szczególnie cenię we współpracy z Kingą, to jej wysoka empatia połączona z dużą zadaniowością i odpowiedzialnością. Zawsze jest uważna na potrzeby klientów, a jednocześnie bardzo konkretna i skuteczna w działaniu.</p>
+          <p>Z pełnym przekonaniem polecam współpracę z Kingą każdemu, kto chce mieć poczucie, że jego biznes, a przede wszystkim klienci, są otoczeni profesjonalną i troskliwą opieką.</p>
+        </div>
+        <div class="mt-8 pt-8 border-t border-white/10 relative z-10">
+          <p class="font-bold text-white text-lg">Kamila Surma</p>
+          <p class="text-pale/40 font-light">@kamilasurma</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRICING ========== -->
+<section id="cennik" class="section-mid relative overflow-hidden py-28 px-6 md:px-12">
+  <svg class="absolute right-[-60px] top-[-20px] w-[340px] h-[440px] text-lmint/10 pointer-events-none rotate-[12deg]" aria-hidden="true"><use href="#monstera"/></svg>
+  <svg class="absolute left-[-30px] bottom-[-40px] w-[200px] h-[500px] text-mint/8 pointer-events-none rotate-[-6deg]"><use href="#fern"/></svg>
+  <div class="absolute top-0 right-0 w-96 h-96 bg-mint/6 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="max-w-4xl mx-auto text-center mb-16 fade-in">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4 text-white">Inwestycja w Twój spokój</h2>
+      <p class="text-xl font-light text-pale/60">Ile to kosztuje? Wybierz pakiet dopasowany do obecnej skali Twojego biznesu.</p>
+    </div>
+
+    <!-- SDR pricing -->
+    <div class="max-w-5xl mx-auto mb-16 fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-mint mb-8 text-center">Wsparcie SDR / Obsługa Klienta Premium</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-8 text-center hover:bg-white/15 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <h4 class="font-semibold text-lg mb-4 text-white">Pakiet 10 godzin</h4>
+            <p class="font-heading text-4xl font-bold mb-2 text-white">950 zł</p>
+            <p class="text-sm text-pale/40 font-light">netto</p>
+          </div>
+        </div>
+        <div class="glass-strong rounded-2xl p-8 text-center relative glow-mint flex flex-col justify-between border-2 border-mint/40">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-mint text-dark text-[10px] px-4 py-1 rounded-full uppercase tracking-widest font-bold">Bestseller</span>
+          <div>
+            <h4 class="font-semibold text-lg mb-4 text-white">Pakiet 20 godzin</h4>
+            <p class="font-heading text-4xl font-bold mb-2 text-mint">1 800 zł</p>
+            <p class="text-sm text-pale/40 font-light">netto</p>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-8 text-center hover:bg-white/15 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <h4 class="font-semibold text-lg mb-4 text-white">Pakiet 40 godzin</h4>
+            <p class="font-heading text-4xl font-bold mb-2 text-white">3 400 zł</p>
+            <p class="text-sm text-pale/40 font-light">netto</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OBM pricing -->
+    <div class="max-w-5xl mx-auto fade-in">
+      <p class="text-xs font-bold uppercase tracking-widest text-mint mb-8 text-center">Wsparcie Online Business Manager (OBM)</p>
+      <div class="max-w-md mx-auto">
+        <div class="glass-strong rounded-2xl p-10 text-center glow-mint-sm">
+          <h4 class="font-semibold text-lg mb-4 text-white">Indywidualna wycena</h4>
+          <p class="font-heading text-3xl font-bold mb-2 text-white">od 1 500 zł</p>
+          <p class="text-sm text-pale/40 font-light">netto / w zależności od zakresu projektów</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-sm text-pale/30 font-light mt-12">Wystawiam faktury VAT</p>
+  </div>
+</section>
+
+<!-- ========== CTA + CONTACT FORM ========== -->
+<section id="kontakt" class="section-dark relative overflow-hidden py-28 px-6 md:px-12">
+  <svg class="absolute left-[-60px] top-[-20px] w-[380px] h-[480px] text-mint/10 pointer-events-none rotate-[-5deg]" aria-hidden="true"><use href="#monstera"/></svg>
+  <svg class="absolute right-[-40px] top-1/3 w-[200px] h-[520px] text-lmint/8 pointer-events-none rotate-[15deg]"><use href="#fern"/></svg>
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-mint/6 rounded-full blur-[150px] pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto relative z-10">
+    <div class="text-center fade-in mb-16">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-white">Poczuj ulgę i zrób miejsce na rozwój</h2>
+      <p class="text-xl font-light text-pale/60 mb-14 max-w-2xl mx-auto">
+        Jeśli czujesz, że to jest to, czego od dawna potrzebujesz w swoim biznesie – nie odkładaj tego na później.
+      </p>
+
+      <!-- 3 steps -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+        <div class="glass rounded-2xl p-6 flex flex-col items-center text-center">
+          <span class="w-12 h-12 rounded-full bg-mint text-dark flex items-center justify-center font-bold text-lg mb-4">1</span>
+          <p class="text-base font-light text-pale/70 leading-relaxed">Umów się na krótką, niezobowiązującą rozmowę wideo.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 flex flex-col items-center text-center">
+          <span class="w-12 h-12 rounded-full bg-mint text-dark flex items-center justify-center font-bold text-lg mb-4">2</span>
+          <p class="text-base font-light text-pale/70 leading-relaxed">Poznajmy się. Sprawdzimy, czy nadajemy na tych samych falach.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 flex flex-col items-center text-center">
+          <span class="w-12 h-12 rounded-full bg-mint text-dark flex items-center justify-center font-bold text-lg mb-4">3</span>
+          <p class="text-base font-light text-pale/70 leading-relaxed">Stwórzmy plan, jak mogę uwolnić Twój czas i wesprzeć Twój biznes.</p>
+        </div>
+      </div>
+
+      <a class="inline-flex items-center gap-3 bg-mint hover:bg-lmint text-dark px-12 py-5 rounded-full text-lg font-bold tracking-wide uppercase transition-all duration-500 hover:shadow-2xl hover:shadow-mint/25 glow-mint" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
+        Umów się na bezpłatną rozmowę wstępną
+        <span class="material-symbols-outlined">calendar_today</span>
+      </a>
+    </div>
+
+    <!-- Contact form -->
+    <div class="glass-strong rounded-3xl p-8 md:p-12 max-w-2xl mx-auto fade-in glow-mint-sm relative overflow-hidden">
+      <svg class="absolute -right-12 -bottom-12 w-[180px] h-[230px] text-mint/10 pointer-events-none rotate-[20deg]"><use href="#monstera"/></svg>
+      <h3 class="font-heading text-2xl font-semibold text-white mb-2 text-center relative z-10">Napisz do mnie</h3>
+      <p class="text-pale/50 text-center mb-8 font-light relative z-10">Odpowiem najszybciej jak to możliwe.</p>
+      <form class="space-y-5 relative z-10" onsubmit="event.preventDefault(); this.querySelector('.form-success').classList.remove('hidden'); this.querySelector('button[type=submit]').disabled = true;">
+        <div>
+          <label class="block text-sm font-medium text-pale/70 mb-2" for="contact-name">Imię</label>
+          <input class="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-3 text-white placeholder-pale/30 focus:outline-none focus:ring-2 focus:ring-mint/50 focus:border-mint/50 transition-all" type="text" id="contact-name" name="name" placeholder="Twoje imię" required/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-pale/70 mb-2" for="contact-email">Email</label>
+          <input class="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-3 text-white placeholder-pale/30 focus:outline-none focus:ring-2 focus:ring-mint/50 focus:border-mint/50 transition-all" type="email" id="contact-email" name="email" placeholder="twoj@email.pl" required/>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-pale/70 mb-2" for="contact-message">Wiadomość</label>
+          <textarea class="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-3 text-white placeholder-pale/30 focus:outline-none focus:ring-2 focus:ring-mint/50 focus:border-mint/50 transition-all resize-none" id="contact-message" name="message" rows="5" placeholder="O czym chcesz porozmawiać?" required></textarea>
+        </div>
+        <button type="submit" class="w-full bg-mint hover:bg-lmint text-dark py-4 rounded-xl font-bold tracking-wide uppercase transition-all duration-300 hover:shadow-lg hover:shadow-mint/20 disabled:opacity-50 disabled:cursor-not-allowed">
+          Wyślij wiadomość
+        </button>
+        <p class="form-success hidden text-center text-mint font-medium pt-2">Dziękuję! Wiadomość została wysłana.</p>
+      </form>
+    </div>
+
+    <!-- Social links -->
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mt-12 fade-in">
+      <a class="glass rounded-full px-6 py-3 flex items-center gap-3 text-pale/60 hover:text-mint hover:bg-white/15 transition-all" href="#">
+        <span class="material-symbols-outlined text-lg">photo_camera</span> Instagram
+      </a>
+      <a class="glass rounded-full px-6 py-3 flex items-center gap-3 text-pale/60 hover:text-mint hover:bg-white/15 transition-all" href="#">
+        <span class="material-symbols-outlined text-lg">mail</span> Email
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="w-full py-12 px-6 md:px-12 bg-[#122b21] border-t border-white/5">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+    <div class="flex flex-col gap-2 text-center md:text-left">
+      <span class="font-heading text-lg font-semibold text-white">Femme Vision Kinga Maryniak</span>
+      <p class="text-sm font-light text-pale/25">&copy; 2025 Femme Vision Kinga Maryniak. Wszelkie prawa zastrzeżone.</p>
+    </div>
+    <div class="flex gap-8">
+      <a class="text-sm font-light text-pale/25 hover:text-mint transition-colors" href="#">Polityka prywatności</a>
+      <a class="text-sm font-light text-pale/25 hover:text-mint transition-colors" href="#">Regulamin</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Side drawer
+const openBtn = document.getElementById('menuOpenBtn');
+const closeBtn = document.getElementById('menuCloseBtn');
+const drawer = document.getElementById('sideDrawer');
+const overlay = document.getElementById('drawerOverlay');
+
+function openDrawer() {
+  drawer.classList.add('open');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  drawer.classList.remove('open');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+openBtn.addEventListener('click', openDrawer);
+closeBtn.addEventListener('click', closeDrawer);
+overlay.addEventListener('click', closeDrawer);
+
+// Fade-in on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

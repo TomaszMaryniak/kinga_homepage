@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Femme Vision Kinga Maryniak | Wirtualna Asystentka &middot; OBM &middot; SDR</title>
+  <meta name="description" content="Odzyskaj czas, uporządkuj procesy i prowadź swoją markę z lekkością. Wirtualna Asystentka, Online Business Manager i Sales Development Representative." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwindcss.config = {
+      theme: {
+        extend: {
+          colors: {
+            garden: {
+              green: '#A8C5A0',
+              'green-light': '#c4dbbe',
+              'green-dark': '#7da574',
+              rose: '#E8B4B8',
+              'rose-light': '#f0cdd0',
+              'rose-dark': '#d4969b',
+              sand: '#F5E6CC',
+              'sand-light': '#faf2e6',
+              dark: '#3D3D3D',
+              white: '#FFFEF9',
+            }
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            body: ['"DM Sans"', 'sans-serif'],
+          },
+          borderRadius: {
+            '4xl': '2rem',
+            '5xl': '2.5rem',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --green: #A8C5A0;
+      --green-light: #c4dbbe;
+      --green-dark: #7da574;
+      --rose: #E8B4B8;
+      --rose-light: #f0cdd0;
+      --rose-dark: #d4969b;
+      --sand: #F5E6CC;
+      --sand-light: #faf2e6;
+      --dark: #3D3D3D;
+      --white: #FFFEF9;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--dark); background-color: var(--sand-light); }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered children */
+    .reveal-child {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal-child.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Pulsating CTA */
+    @keyframes pulse-soft {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(168, 197, 160, 0.5); }
+      50% { box-shadow: 0 0 0 14px rgba(168, 197, 160, 0); }
+    }
+    .cta-pulse {
+      animation: pulse-soft 2.5s infinite;
+    }
+
+    /* Watercolor blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Floating pill nav */
+    .pill-nav {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Card hover */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(61, 61, 61, 0.08);
+    }
+
+    /* Smooth icon color transition */
+    .icon-transition {
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Photo frame */
+    .photo-frame {
+      border-radius: 2.5rem;
+      overflow: hidden;
+    }
+
+    /* Testimonial quote */
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      line-height: 1;
+      color: var(--green);
+      opacity: 0.4;
+    }
+
+    /* Form inputs */
+    .form-input {
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(168, 197, 160, 0.25);
+      outline: none;
+    }
+
+    /* Bestseller badge shimmer */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .shimmer-badge {
+      background: linear-gradient(90deg, var(--green-dark), var(--green), var(--green-dark));
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* Decorative leaf rotation */
+    @keyframes sway {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    .sway {
+      animation: sway 6s ease-in-out infinite;
+    }
+
+    /* Hide desktop nav on mobile, show pill nav */
+    @media (max-width: 767px) {
+      .desktop-nav { display: none !important; }
+      .mobile-pill { display: flex !important; }
+    }
+    @media (min-width: 768px) {
+      .mobile-pill { display: none !important; }
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+  <!-- ============================================ -->
+  <!-- DECORATIVE SVG DEFINITIONS                   -->
+  <!-- ============================================ -->
+  <svg class="hidden" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="leaf" viewBox="0 0 60 80">
+        <path d="M30 0 C10 20 0 50 30 80 C60 50 50 20 30 0Z" fill="currentColor" opacity="0.6"/>
+        <path d="M30 10 C30 10 30 70 30 70" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
+      </symbol>
+      <symbol id="flower" viewBox="0 0 80 80">
+        <ellipse cx="40" cy="20" rx="12" ry="18" fill="currentColor" opacity="0.5" transform="rotate(0 40 40)"/>
+        <ellipse cx="40" cy="20" rx="12" ry="18" fill="currentColor" opacity="0.4" transform="rotate(72 40 40)"/>
+        <ellipse cx="40" cy="20" rx="12" ry="18" fill="currentColor" opacity="0.5" transform="rotate(144 40 40)"/>
+        <ellipse cx="40" cy="20" rx="12" ry="18" fill="currentColor" opacity="0.4" transform="rotate(216 40 40)"/>
+        <ellipse cx="40" cy="20" rx="12" ry="18" fill="currentColor" opacity="0.5" transform="rotate(288 40 40)"/>
+        <circle cx="40" cy="40" r="8" fill="currentColor" opacity="0.7"/>
+      </symbol>
+      <symbol id="branch" viewBox="0 0 120 40">
+        <path d="M0 20 Q30 5 60 20 Q90 35 120 20" stroke="currentColor" stroke-width="2" fill="none" opacity="0.4"/>
+        <path d="M20 20 Q25 10 35 8" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.3"/>
+        <path d="M50 20 Q55 28 65 30" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.3"/>
+        <path d="M80 20 Q85 12 95 10" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.3"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ============================================ -->
+  <!-- DESKTOP NAVIGATION                           -->
+  <!-- ============================================ -->
+  <nav class="desktop-nav fixed top-0 left-0 right-0 z-50 bg-garden-white/80 backdrop-blur-md border-b border-garden-green/10">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="font-display text-xl md:text-2xl font-semibold text-garden-dark tracking-wide">
+        Femme Vision
+      </a>
+      <div class="flex items-center gap-8">
+        <a href="#problemy" class="text-sm font-medium text-garden-dark/70 hover:text-garden-green-dark transition-colors duration-300">Problemy</a>
+        <a href="#o-mnie" class="text-sm font-medium text-garden-dark/70 hover:text-garden-green-dark transition-colors duration-300">O mnie</a>
+        <a href="#sdr" class="text-sm font-medium text-garden-dark/70 hover:text-garden-green-dark transition-colors duration-300">SDR</a>
+        <a href="#obm" class="text-sm font-medium text-garden-dark/70 hover:text-garden-green-dark transition-colors duration-300">OBM</a>
+        <a href="#opinie" class="text-sm font-medium text-garden-dark/70 hover:text-garden-green-dark transition-colors duration-300">Opinie</a>
+        <a href="#cennik" class="text-sm font-medium text-garden-dark/70 hover:text-garden-green-dark transition-colors duration-300">Cennik</a>
+        <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" rel="noopener" class="bg-garden-green text-garden-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-garden-green-dark transition-colors duration-300">
+          Umow rozmowe
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- MOBILE FLOATING PILL NAV                     -->
+  <!-- ============================================ -->
+  <nav class="mobile-pill hidden fixed bottom-4 left-4 right-4 z-50 pill-nav bg-garden-white/85 rounded-full shadow-lg shadow-garden-dark/10 border border-garden-green/15 px-2 py-2 items-center justify-around">
+    <a href="#hero" class="flex flex-col items-center gap-0.5 p-2 rounded-full hover:bg-garden-green/10 transition-colors">
+      <span class="material-symbols-outlined text-[20px] text-garden-green-dark">home</span>
+      <span class="text-[10px] text-garden-dark/70 font-medium">Start</span>
+    </a>
+    <a href="#o-mnie" class="flex flex-col items-center gap-0.5 p-2 rounded-full hover:bg-garden-green/10 transition-colors">
+      <span class="material-symbols-outlined text-[20px] text-garden-green-dark">person</span>
+      <span class="text-[10px] text-garden-dark/70 font-medium">O mnie</span>
+    </a>
+    <a href="#sdr" class="flex flex-col items-center gap-0.5 p-2 rounded-full hover:bg-garden-green/10 transition-colors">
+      <span class="material-symbols-outlined text-[20px] text-garden-green-dark">support_agent</span>
+      <span class="text-[10px] text-garden-dark/70 font-medium">Uslugi</span>
+    </a>
+    <a href="#cennik" class="flex flex-col items-center gap-0.5 p-2 rounded-full hover:bg-garden-green/10 transition-colors">
+      <span class="material-symbols-outlined text-[20px] text-garden-green-dark">payments</span>
+      <span class="text-[10px] text-garden-dark/70 font-medium">Cennik</span>
+    </a>
+    <a href="#kontakt" class="flex flex-col items-center gap-0.5 p-2 rounded-full bg-garden-green/20 hover:bg-garden-green/30 transition-colors">
+      <span class="material-symbols-outlined text-[20px] text-garden-green-dark">mail</span>
+      <span class="text-[10px] text-garden-dark/70 font-semibold">Kontakt</span>
+    </a>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- HERO SECTION                                 -->
+  <!-- ============================================ -->
+  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-0">
+    <!-- Watercolor blobs -->
+    <div class="blob w-[500px] h-[500px] bg-garden-green top-[-100px] left-[-150px]"></div>
+    <div class="blob w-[400px] h-[400px] bg-garden-rose top-[200px] right-[-100px]"></div>
+    <div class="blob w-[300px] h-[300px] bg-garden-sand bottom-[-50px] left-[30%]"></div>
+
+    <!-- Decorative SVGs -->
+    <svg class="absolute top-24 right-8 w-16 h-20 text-garden-green sway opacity-40 hidden md:block" aria-hidden="true"><use href="#leaf"/></svg>
+    <svg class="absolute bottom-32 left-12 w-12 h-16 text-garden-green-dark sway opacity-30 hidden md:block" style="animation-delay: -2s;" aria-hidden="true"><use href="#leaf"/></svg>
+    <svg class="absolute top-40 left-1/4 w-20 h-20 text-garden-rose opacity-25 hidden lg:block" aria-hidden="true"><use href="#flower"/></svg>
+
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div class="reveal">
+        <p class="text-garden-green-dark font-medium tracking-widest uppercase text-sm mb-4">Wirtualna Asystentka &middot; OBM &middot; SDR</p>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-garden-dark mb-6">
+          Odzyskaj czas, uporz&#261;dkuj procesy i prowad&#378; swoj&#261; mark&#281; z lekko&#347;ci&#261;, o kt&#243;rej zawsze marzy&#322;a&#347;.
+        </h1>
+        <p class="text-lg md:text-xl text-garden-dark/70 mb-8 font-display italic">
+          Czy Tw&#243;j system obs&#322;ugi klienta ro&#347;nie tak szybko, jak Tw&#243;j biznes?
+        </p>
+        <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" rel="noopener"
+           class="cta-pulse inline-block bg-garden-green text-garden-white px-8 py-4 rounded-full text-sm md:text-base font-bold uppercase tracking-wide hover:bg-garden-green-dark transition-all duration-300 hover:scale-105 shadow-lg shadow-garden-green/30">
+          Umow sie na bezplatna rozmowe wstepna
+        </a>
+      </div>
+      <div class="reveal relative" style="transition-delay: 0.2s;">
+        <div class="photo-frame shadow-2xl shadow-garden-green/15">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOSVYubJZDfiDPlkScuvXf2XTtd6449_UOjM30wQdRVbd-bm26gDRosQ0y4KFzug_bz6-ym0gP0ZMftoQ4GjdNbXR-T0apfhTTYm5dQIOIZh0Tz-6YY02pZmlZbjwXbsy1Js-gPe7iXz0SWOQx51713NX-1oy-BGfN7Ab9WxfwGo8sBHJondKnwxqybwZVuXx9YQvf0AfAOt7y9zoFdJ8eKvFe9G4ltAWV1oIPiPh6iC41ZGYfYOlBITOho7z9T8BuGlf10vQxIAY"
+               alt="Kinga Maryniak - Femme Vision"
+               class="w-full h-auto object-cover" />
+        </div>
+        <!-- Decorative flower near photo -->
+        <svg class="absolute -bottom-6 -left-6 w-16 h-16 text-garden-rose sway opacity-50" aria-hidden="true"><use href="#flower"/></svg>
+        <svg class="absolute -top-4 -right-4 w-10 h-14 text-garden-green sway opacity-40" style="animation-delay: -3s;" aria-hidden="true"><use href="#leaf"/></svg>
+      </div>
+    </div>
+
+    <!-- Branch decoration -->
+    <svg class="absolute bottom-0 left-0 w-full h-10 text-garden-green opacity-20" aria-hidden="true" preserveAspectRatio="none">
+      <use href="#branch" width="100%" height="100%"/>
+    </svg>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PROBLEM SECTION                              -->
+  <!-- ============================================ -->
+  <section id="problemy" class="relative py-20 md:py-28 overflow-hidden">
+    <div class="blob w-[350px] h-[350px] bg-garden-rose right-[-80px] top-[100px]"></div>
+    <div class="blob w-[250px] h-[250px] bg-garden-green left-[-60px] bottom-[50px]"></div>
+
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-12 reveal">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-garden-dark mb-4">Znasz to uczucie?</h2>
+        <p class="text-lg text-garden-dark/70 max-w-2xl mx-auto">
+          Budujesz wspania&#322;&#261; mark&#281;, tworzysz &#347;wietne produkty, ale na zapleczu powoli zaczyna brakowa&#263; Ci tchu...
+        </p>
+      </div>
+
+      <div class="space-y-4 mb-12">
+        <div class="reveal-child bg-garden-white/70 backdrop-blur-sm rounded-4xl p-6 border border-garden-rose/20 shadow-sm flex items-start gap-4 card-hover">
+          <span class="material-symbols-outlined text-garden-rose text-2xl mt-0.5 shrink-0">help</span>
+          <p class="text-garden-dark/80">Wpadaj&#261; zapytania od klient&#243;w, ale nie zawsze masz przestrze&#324;, &#380;eby odpisa&#263; na czas?</p>
+        </div>
+        <div class="reveal-child bg-garden-white/70 backdrop-blur-sm rounded-4xl p-6 border border-garden-rose/20 shadow-sm flex items-start gap-4 card-hover" style="transition-delay: 0.1s;">
+          <span class="material-symbols-outlined text-garden-rose text-2xl mt-0.5 shrink-0">help</span>
+          <p class="text-garden-dark/80">Odk&#322;adasz follow-upy i czujesz, &#380;e przez to uciekaj&#261; Ci klientki, tracisz sprzeda&#380; i tym samym pieni&#261;dze?</p>
+        </div>
+        <div class="reveal-child bg-garden-white/70 backdrop-blur-sm rounded-4xl p-6 border border-garden-rose/20 shadow-sm flex items-start gap-4 card-hover" style="transition-delay: 0.2s;">
+          <span class="material-symbols-outlined text-garden-rose text-2xl mt-0.5 shrink-0">help</span>
+          <p class="text-garden-dark/80">Zastanawiasz si&#281;, czy na pewno odpisa&#322;a&#347; na ka&#380;d&#261; wiadomo&#347;&#263; i czy wszystko jest dopi&#281;te na ostatni guzik?</p>
+        </div>
+        <div class="reveal-child bg-garden-white/70 backdrop-blur-sm rounded-4xl p-6 border border-garden-rose/20 shadow-sm flex items-start gap-4 card-hover" style="transition-delay: 0.3s;">
+          <span class="material-symbols-outlined text-garden-rose text-2xl mt-0.5 shrink-0">help</span>
+          <p class="text-garden-dark/80">Twoja sprzeda&#380; dzieje si&#281; &bdquo;przy okazji&rdquo;, a nie w uporz&#261;dkowanym, powtarzalnym procesie?</p>
+        </div>
+        <div class="reveal-child bg-garden-white/70 backdrop-blur-sm rounded-4xl p-6 border border-garden-rose/20 shadow-sm flex items-start gap-4 card-hover" style="transition-delay: 0.4s;">
+          <span class="material-symbols-outlined text-garden-rose text-2xl mt-0.5 shrink-0">help</span>
+          <p class="text-garden-dark/80">Masz poczucie, &#380;e wi&#281;cej czasu sp&#281;dzasz na ogarnianiu bie&#380;&#261;cych temat&#243;w w DM i mailach, ni&#380; na strategicznym rozwijaniu biznesu?</p>
+        </div>
+      </div>
+
+      <div class="reveal text-center">
+        <p class="text-garden-dark/70 text-lg mb-4">Czy to brzmi znajomo? Je&#347;li chocia&#380; na cz&#281;&#347;&#263; tych pyta&#324; odpowiedzia&#322;a&#347; &bdquo;tak&rdquo;, to znaczy, &#380;e jeste&#347; w idealnym miejscu.</p>
+        <div class="inline-block bg-garden-green/15 rounded-4xl px-8 py-5 border border-garden-green/25">
+          <p class="font-display text-2xl md:text-3xl font-semibold text-garden-green-dark italic">
+            Odpocznij. Zdejmij to z siebie. Pomog&#281; Ci.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- O MNIE (ABOUT) SECTION                       -->
+  <!-- ============================================ -->
+  <section id="o-mnie" class="relative py-20 md:py-28 bg-garden-white/50 overflow-hidden">
+    <div class="blob w-[400px] h-[400px] bg-garden-green left-[-100px] top-[0px]"></div>
+    <div class="blob w-[300px] h-[300px] bg-garden-sand right-[-80px] bottom-[100px]"></div>
+
+    <!-- Decorative flowers -->
+    <svg class="absolute top-16 right-16 w-14 h-14 text-garden-rose opacity-25 sway hidden lg:block" aria-hidden="true"><use href="#flower"/></svg>
+    <svg class="absolute bottom-20 left-20 w-10 h-14 text-garden-green opacity-30 sway hidden lg:block" style="animation-delay: -1s;" aria-hidden="true"><use href="#leaf"/></svg>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="grid md:grid-cols-5 gap-12 items-start">
+        <!-- Photo column -->
+        <div class="md:col-span-2 reveal">
+          <div class="photo-frame shadow-xl shadow-garden-green/10 relative">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfSb9QD4qVKlI1G-lLWEzgi2RM8LQAvDNReymxjLznxcLmmmpM9hHutaMKYe0doT0yJ0H5LSKQGaJu2XyhDCqzWRrx7FCIMRtVRlzeFDEHBIRicnOQb9LBb7sT_NMujmITKMKOVBhJD62FIvsfAblvGERvxgEcZFDj7Mxx57v5kKP6zgJLuDAIBftjFb2cxoOzp9HazdI6awKP5pl23LjvPmVQWbT1lQm_iqRTZc-TC7aJroLsXDLYjcSO3hkOBA1Q22HTGUnFNeM"
+                 alt="Kinga Maryniak"
+                 class="w-full h-auto object-cover" />
+          </div>
+          <svg class="absolute -bottom-4 -right-4 w-12 h-12 text-garden-rose opacity-40 sway" aria-hidden="true"><use href="#flower"/></svg>
+        </div>
+
+        <!-- Content column -->
+        <div class="md:col-span-3 space-y-6">
+          <div class="reveal">
+            <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-garden-dark mb-6">Cze&#347;&#263;, jestem Kinga!</h2>
+          </div>
+
+          <div class="reveal" style="transition-delay: 0.1s;">
+            <p class="text-garden-dark/80 text-lg leading-relaxed">
+              Pomagam mentorkom, trenerkom i w&#322;a&#347;cicielkom marek osobistych odzyska&#263; czas i uporz&#261;dkowa&#263; procesy sprzeda&#380;owe.
+            </p>
+          </div>
+
+          <div class="reveal" style="transition-delay: 0.2s;">
+            <p class="text-garden-dark/80 leading-relaxed">
+              Dzia&#322;am jako Tw&#243;j SDR (Sales Development Representative) oraz OBM (Online Business Manager). Co to oznacza w praktyce? Nie tylko przejmu&#281; na siebie kontakt z klientem, ale buduj&#281; i usprawniam systemy pracy. Sprawiam, &#380;e &#380;adne zapytanie od klientki nie zostaje bez odpowiedzi, follow-upy domykaj&#261; sprzeda&#380;, a Ty w&#322;&#261;czasz si&#281; w procesy tylko tam, gdzie to naprawd&#281; konieczne. Moim celem jest stworzenie dla Ciebie przestrzeni, w kt&#243;rej odzyskasz czas na to, co w swoim biznesie kochasz najbardziej.
+            </p>
+          </div>
+
+          <!-- Highlighted box -->
+          <div class="reveal bg-garden-green/10 rounded-4xl p-6 md:p-8 border border-garden-green/20" style="transition-delay: 0.3s;">
+            <h3 class="font-display text-xl font-semibold text-garden-green-dark mb-3 flex items-center gap-2">
+              <span class="material-symbols-outlined text-garden-green">spa</span>
+              Wsparcie oparte na empatii i precyzji
+            </h3>
+            <p class="text-garden-dark/80 leading-relaxed">
+              Jestem entuzjastk&#261; organizacji. Wierz&#281;, &#380;e ka&#380;dy kreatywny biznes potrzebuje solidnych fundament&#243;w, by m&#243;c wzlecie&#263;. Moje &bdquo;supermoce&rdquo; to nie tylko perfekcyjna znajomo&#347;&#263; Trello czy Asany, ale przede wszystkim umiej&#281;tno&#347;&#263; s&#322;uchania i wy&#322;apywania tego, czego potrzebuj&#261; Twoi klienci oraz co w Twojej firmie wymaga natychmiastowego odci&#261;&#380;enia.
+            </p>
+          </div>
+
+          <div class="reveal" style="transition-delay: 0.4s;">
+            <p class="text-garden-dark/80 leading-relaxed">
+              Zanim zaj&#281;&#322;am si&#281; wspieraniem biznes&#243;w online, pracowa&#322;am jako HR Coordinator. To w&#322;a&#347;nie tam nauczy&#322;am si&#281;, jak &#322;&#261;czy&#263; &#347;wiat twardych proces&#243;w z ludzkim podej&#347;ciem, empati&#261; i zrozumieniem drugiej osoby.
+            </p>
+          </div>
+
+          <div class="reveal" style="transition-delay: 0.5s;">
+            <p class="text-garden-dark/80 leading-relaxed">
+              Prywatnie? Biegam. Biegi d&#322;ugodystansowe nauczy&#322;y mnie, &#380;e w biznesie &ndash; tak samo jak w sporcie &ndash; liczy si&#281; &#380;elazna konsekwencja, dyscyplina, odpowiednie roz&#322;o&#380;enie si&#322; i d&#322;ugofalowa strategia. Nie jestem sprinterka. Jestem Twoj&#261; partnerk&#261; na d&#322;ugie dystanse.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SDR SERVICES SECTION                         -->
+  <!-- ============================================ -->
+  <section id="sdr" class="relative py-20 md:py-28 overflow-hidden">
+    <div class="blob w-[450px] h-[450px] bg-garden-rose left-[20%] top-[-100px]"></div>
+    <div class="blob w-[350px] h-[350px] bg-garden-green right-[-50px] bottom-[-50px]"></div>
+
+    <svg class="absolute top-12 left-8 w-14 h-18 text-garden-green sway opacity-25 hidden md:block" aria-hidden="true"><use href="#leaf"/></svg>
+    <svg class="absolute bottom-16 right-12 w-16 h-16 text-garden-rose sway opacity-20 hidden md:block" style="animation-delay: -2s;" aria-hidden="true"><use href="#flower"/></svg>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 reveal">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-garden-dark mb-4">Obs&#322;uga klienta i wsparcie sprzeda&#380;y premium</h2>
+        <p class="font-display text-xl md:text-2xl text-garden-rose-dark italic mb-4">Zamiast lead&#243;w &ndash; klienci idealni</p>
+        <p class="text-garden-dark/70 max-w-3xl mx-auto leading-relaxed">
+          Moja praca to nie jest zwyk&#322;e &bdquo;odpisywanie na wiadomo&#347;ci&rdquo;. To kompleksowe zarz&#261;dzanie &#347;cie&#380;k&#261; Twojego klienta: od pierwszego kontaktu, poprzez pomoc w podj&#281;ciu decyzji o zakupie, formalno&#347;ci zakupowe, a&#380; po kompleksow&#261; obs&#322;ug&#281; premium.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <div class="reveal-child card-hover bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm">
+          <div class="w-14 h-14 rounded-full bg-garden-green/15 flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-garden-green-dark text-2xl icon-transition">diamond</span>
+          </div>
+          <h3 class="font-display text-xl font-semibold text-garden-dark mb-3">Kwalifikacja i umawianie konsultacji</h3>
+          <p class="text-garden-dark/70 text-sm leading-relaxed mb-4">
+            Przejmuj&#281; pe&#322;n&#261; opiek&#281; nad Twoimi zapytaniami (DM na Instagramie, e-maile, formularze). Weryfikuj&#281;, czy potencjalny klient pasuje do Twojej oferty i jest gotowy na inwestycj&#281;. Zape&#322;niam Tw&#243;j kalendarz osobami &bdquo;ogrzan&#261;mi&rdquo;.
+          </p>
+          <div class="bg-garden-green/8 rounded-3xl p-4 border border-garden-green/10">
+            <p class="text-sm text-garden-green-dark font-medium flex items-start gap-2">
+              <span class="material-symbols-outlined text-lg mt-0.5">eco</span>
+              <span>Nie tracisz czasu na rozmowy z przypadkowymi osobami. Od razu widzisz, ile warto&#347;ciowych konsultacji masz zaplanowanych na dany tydzie&#324;. Trafiaj&#261; do Ciebie tylko konkrety.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="reveal-child card-hover bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm" style="transition-delay: 0.1s;">
+          <div class="w-14 h-14 rounded-full bg-garden-rose/15 flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-garden-rose-dark text-2xl icon-transition">autorenew</span>
+          </div>
+          <h3 class="font-display text-xl font-semibold text-garden-dark mb-3">Systematyczny Follow-up i Opieka</h3>
+          <p class="text-garden-dark/70 text-sm leading-relaxed mb-4">
+            Wprowadzam procedury kontaktu (wiadomo&#347;ci, przypomnienia, struktura zada&#324;), dzi&#281;ki kt&#243;rym domykamy sprzeda&#380; tam, gdzie klient potrzebowa&#322; chwili na zastanowienie. Pilnuj&#281;, by ka&#380;dy czu&#322; si&#281; zaopiekowany od pierwszej sekundy.
+          </p>
+          <div class="bg-garden-rose/8 rounded-3xl p-4 border border-garden-rose/10">
+            <p class="text-sm text-garden-rose-dark font-medium flex items-start gap-2">
+              <span class="material-symbols-outlined text-lg mt-0.5">eco</span>
+              <span>Klienci, kt&#243;rzy &bdquo;mieli si&#281; odezwa&#263;&rdquo;, faktycznie wracaj&#261; i kupuj&#261;. Tw&#243;j biznes dzia&#322;a profesjonalnie, a odbiorcy czuj&#261; jako&#347;&#263; premium &ndash; bez chaosu i niedopowiedze&#324;.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="reveal-child card-hover bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm" style="transition-delay: 0.2s;">
+          <div class="w-14 h-14 rounded-full bg-garden-green/15 flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-garden-green-dark text-2xl icon-transition">settings_suggest</span>
+          </div>
+          <h3 class="font-display text-xl font-semibold text-garden-dark mb-3">Optymalizacja Proces&#243;w i Baza Wiedzy</h3>
+          <p class="text-garden-dark/70 text-sm leading-relaxed mb-4">
+            Porz&#261;dkuj&#281; spos&#243;b pracy: notatki, zadania dla zespo&#322;u, komunikacj&#281;. Zbieram i analizuj&#281; powtarzaj&#261;ce si&#281; obiekcje, blokady i pytania Twojej grupy docelowej.
+          </p>
+          <div class="bg-garden-green/8 rounded-3xl p-4 border border-garden-green/10">
+            <p class="text-sm text-garden-green-dark font-medium flex items-start gap-2">
+              <span class="material-symbols-outlined text-lg mt-0.5">eco</span>
+              <span>Zyskujesz absolutny spok&#243;j i jasne zasady. Wiesz, co si&#281; dzieje, ale nie musisz wszystkiego pilnowa&#263;. Dok&#322;adnie wiesz te&#380;, co poprawi&#263; w ofercie, by sprzedawa&#263; jeszcze &#322;atwiej.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="reveal-child card-hover bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm" style="transition-delay: 0.3s;">
+          <div class="w-14 h-14 rounded-full bg-garden-rose/15 flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-garden-rose-dark text-2xl icon-transition">trending_up</span>
+          </div>
+          <h3 class="font-display text-xl font-semibold text-garden-dark mb-3">Wsparcie Kampanii i Sprzeda&#380;y Po-Webinarowej</h3>
+          <p class="text-garden-dark/70 text-sm leading-relaxed mb-4">
+            Webinar &#347;wietnie buduje zaufanie, ale przy us&#322;ugach high-ticket to cz&#322;owiek domyka sprzeda&#380;! Obs&#322;uguj&#281; pytania podczas okienek sprzeda&#380;owych, usuwam bariery decyzyjne w DM-ach i odzyskuj&#281; &bdquo;porzucone koszyki&rdquo;.
+          </p>
+          <div class="bg-garden-rose/8 rounded-3xl p-4 border border-garden-rose/10">
+            <p class="text-sm text-garden-rose-dark font-medium flex items-start gap-2">
+              <span class="material-symbols-outlined text-lg mt-0.5">eco</span>
+              <span>Zmaksymalizowane zyski z ka&#380;dej przeprowadzonej kampanii i pe&#322;ne wsparcie w najbardziej intensywnym czasie.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- OBM SECTION                                  -->
+  <!-- ============================================ -->
+  <section id="obm" class="relative py-20 md:py-28 bg-garden-green/8 overflow-hidden">
+    <div class="blob w-[400px] h-[400px] bg-garden-sand left-[-100px] top-[-50px]"></div>
+    <div class="blob w-[300px] h-[300px] bg-garden-rose right-[10%] bottom-[-80px]"></div>
+
+    <svg class="absolute top-20 right-10 w-12 h-16 text-garden-green-dark sway opacity-25 hidden md:block" aria-hidden="true"><use href="#leaf"/></svg>
+
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-14 reveal">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-garden-dark mb-6">Tw&#243;j biznes ro&#347;nie tak szybko, &#380;e zaplecze nie nad&#261;&#380;a?</h2>
+        <p class="text-garden-dark/70 max-w-3xl mx-auto leading-relaxed">
+          Wiesz, &#380;e to ten moment. Nie chcesz ju&#380; d&#322;u&#380;ej d&#378;wiga&#263; wszystkiego na swoich barkach. Czujesz, &#380;e by i&#347;&#263; naprz&#243;d i rozwija&#263; potencja&#322; swojego biznesu, potrzebujesz &bdquo;prawej r&#281;ki&rdquo; &ndash; kogo&#347;, kto zna psychologi&#281; klienta, ale tak&#380;e doskonale wie, jak od &#347;rodka naoli&#263; tryby Twojej marki online.
+        </p>
+      </div>
+
+      <div class="reveal mb-10">
+        <p class="text-center font-display text-xl md:text-2xl text-garden-green-dark font-semibold">
+          Jako Twoja Online Business Manager (OBM) przejm&#281;:
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="reveal-child card-hover bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm">
+          <div class="w-12 h-12 rounded-full bg-garden-green/15 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-garden-green-dark icon-transition">account_tree</span>
+          </div>
+          <h3 class="font-display text-lg font-semibold text-garden-dark mb-2">Projektowanie i porz&#261;dkowanie proces&#243;w</h3>
+          <p class="text-garden-dark/60 text-sm leading-relaxed">aby&#347; przesta&#322;a gasi&#263; po&#380;ary, a zacz&#281;&#322;a zarz&#261;dza&#263; swoim imperium i z sukcesem je skalowa&#263;.</p>
+        </div>
+
+        <div class="reveal-child card-hover bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm" style="transition-delay: 0.1s;">
+          <div class="w-12 h-12 rounded-full bg-garden-rose/15 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-garden-rose-dark icon-transition">event_note</span>
+          </div>
+          <h3 class="font-display text-lg font-semibold text-garden-dark mb-2">Kompleksowa koordynacja projekt&#243;w</h3>
+          <p class="text-garden-dark/60 text-sm leading-relaxed">od harmonogramu premier, po opiek&#281; nad Twoimi programami high-ticket.</p>
+        </div>
+
+        <div class="reveal-child card-hover bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm" style="transition-delay: 0.2s;">
+          <div class="w-12 h-12 rounded-full bg-garden-green/15 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-garden-green-dark icon-transition">task_alt</span>
+          </div>
+          <h3 class="font-display text-lg font-semibold text-garden-dark mb-2">Zarz&#261;dzanie realizacj&#261; zada&#324;</h3>
+          <p class="text-garden-dark/60 text-sm leading-relaxed">pilnuj&#281; termin&#243;w i dbam o idealny przep&#322;yw informacji w zespole.</p>
+        </div>
+
+        <div class="reveal-child card-hover bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm" style="transition-delay: 0.3s;">
+          <div class="w-12 h-12 rounded-full bg-garden-rose/15 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-garden-rose-dark icon-transition">favorite</span>
+          </div>
+          <h3 class="font-display text-lg font-semibold text-garden-dark mb-2">Organizacja opieki nad klientem</h3>
+          <p class="text-garden-dark/60 text-sm leading-relaxed">ustawiam zaplecze tak, by klient od pierwszego kontaktu z mark&#261; czu&#322; jako&#347;&#263; premium na ka&#380;dym mo&#380;liwym kroku.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- TESTIMONIALS SECTION                         -->
+  <!-- ============================================ -->
+  <section id="opinie" class="relative py-20 md:py-28 overflow-hidden">
+    <div class="blob w-[400px] h-[400px] bg-garden-green right-[-120px] top-[50px]"></div>
+    <div class="blob w-[300px] h-[300px] bg-garden-rose left-[-80px] bottom-[0px]"></div>
+
+    <svg class="absolute top-16 left-12 w-16 h-16 text-garden-rose sway opacity-20 hidden lg:block" aria-hidden="true"><use href="#flower"/></svg>
+
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-14 reveal">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-garden-dark mb-4">Dlaczego warto mi zaufa&#263;?</h2>
+        <p class="text-garden-dark/70 max-w-2xl mx-auto leading-relaxed">
+          Szukam d&#322;ugofalowych wsp&#243;&#322;prac, poniewa&#380; uwielbiam widzie&#263;, jak moja praca przynosi mierzalne efekty biznesowe. To mnie nap&#281;dza! Moja praca to nie koszt &ndash; to inwestycja, kt&#243;ra realnie si&#281; zwraca.
+        </p>
+      </div>
+
+      <!-- Case study -->
+      <div class="reveal mb-10">
+        <div class="bg-gradient-to-br from-garden-green/15 to-garden-rose/10 rounded-4xl p-8 md:p-10 border border-garden-green/20 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-symbols-outlined text-garden-green-dark text-3xl">emoji_events</span>
+            <span class="font-display text-lg font-semibold text-garden-green-dark">Case Study</span>
+          </div>
+          <p class="text-garden-dark/80 text-lg leading-relaxed">
+            W ramach zaledwie <strong>20-godzinnej wsp&#243;&#322;pracy</strong> i dzi&#281;ki pouk&#322;adanemu procesowi weryfikacji klient&#243;w, pomog&#322;am mojej klientce pozyska&#263; <strong>3 nowe sprzeda&#380;e programu High-Ticket</strong>, co prze&#322;o&#380;y&#322;o si&#281; na &#322;&#261;czny przych&#243;d w wysoko&#347;ci <strong class="text-garden-green-dark">45&nbsp;000&nbsp;z&#322;</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="reveal" style="transition-delay: 0.2s;">
+        <div class="bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 md:p-10 border border-garden-rose/15 shadow-sm relative">
+          <span class="quote-mark absolute top-4 left-6">&ldquo;</span>
+
+          <div class="relative z-10 pt-8">
+            <p class="text-garden-dark/75 leading-relaxed mb-4">
+              Wsp&#243;&#322;praca z King&#261; od samego pocz&#261;tku by&#322;a naprawd&#281; &#347;wietna. Kinga do&#322;&#261;czy&#322;a do mojego zespo&#322;u jako osoba odpowiedzialna za obs&#322;ug&#281; klienta (...) od pocz&#261;tku zale&#380;a&#322;o mi na bardzo wysokiej jako&#347;ci kontaktu.
+            </p>
+
+            <div class="bg-garden-rose/10 rounded-3xl p-5 border border-garden-rose/15 mb-4">
+              <p class="text-garden-dark font-medium leading-relaxed italic">
+                &bdquo;Dzi&#281;ki niej jako osoba prowadz&#261;ca biznes mam ogromne poczucie zaufania i spokoju, wiedz&#261;c, &#380;e moi klienci s&#261; w naprawd&#281; dobrych r&#281;kach.&rdquo;
+              </p>
+            </div>
+
+            <p class="text-garden-dark/75 leading-relaxed mb-4">
+              To, co szczeg&#243;lnie ceni&#281; we wsp&#243;&#322;pracy z King&#261;, to jej wysoka empatia po&#322;&#261;czona z du&#380;&#261; zadaniowo&#347;ci&#261; i odpowiedzialno&#347;ci&#261;. Zawsze jest uwa&#380;na na potrzeby klient&#243;w, a jednocze&#347;nie bardzo konkretna i skuteczna w dzia&#322;aniu.
+            </p>
+
+            <p class="text-garden-dark/75 leading-relaxed mb-6">
+              Z pe&#322;nym przekonaniem polecam wsp&#243;&#322;prac&#281; z King&#261; ka&#380;demu, kto chce mie&#263; poczucie, &#380;e jego biznes, a przede wszystkim klienci, s&#261; otoczeni profesjonaln&#261; i troskliw&#261; opiek&#261;.
+            </p>
+
+            <div class="flex items-center gap-3 pt-4 border-t border-garden-sand">
+              <div class="w-10 h-10 rounded-full bg-garden-rose/20 flex items-center justify-center">
+                <span class="font-display text-lg font-semibold text-garden-rose-dark">K</span>
+              </div>
+              <div>
+                <p class="font-semibold text-garden-dark text-sm">Kamila Surma</p>
+                <p class="text-garden-dark/50 text-xs">@kamilasurma</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PRICING SECTION                              -->
+  <!-- ============================================ -->
+  <section id="cennik" class="relative py-20 md:py-28 bg-garden-white/50 overflow-hidden">
+    <div class="blob w-[350px] h-[350px] bg-garden-green left-[10%] top-[-80px]"></div>
+    <div class="blob w-[250px] h-[250px] bg-garden-rose right-[-60px] top-[200px]"></div>
+
+    <svg class="absolute bottom-10 left-16 w-12 h-16 text-garden-green sway opacity-25 hidden md:block" aria-hidden="true"><use href="#leaf"/></svg>
+    <svg class="absolute top-24 right-20 w-14 h-14 text-garden-rose sway opacity-20 hidden lg:block" style="animation-delay: -1.5s;" aria-hidden="true"><use href="#flower"/></svg>
+
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-14 reveal">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-garden-dark mb-4">Inwestycja w Tw&#243;j spok&#243;j</h2>
+        <p class="text-garden-dark/70 max-w-2xl mx-auto">
+          Ile to kosztuje? Wybierz pakiet dopasowany do obecnej skali Twojego biznesu.
+        </p>
+      </div>
+
+      <!-- SDR Packages -->
+      <div class="grid sm:grid-cols-3 gap-6 mb-10">
+        <!-- 10h -->
+        <div class="reveal-child card-hover bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm text-center">
+          <div class="w-12 h-12 rounded-full bg-garden-green/15 flex items-center justify-center mx-auto mb-4">
+            <span class="material-symbols-outlined text-garden-green-dark">timer</span>
+          </div>
+          <p class="text-sm uppercase tracking-wider text-garden-dark/50 font-medium mb-1">SDR</p>
+          <p class="font-display text-2xl font-semibold text-garden-dark mb-1">10 godzin</p>
+          <p class="font-display text-3xl font-bold text-garden-green-dark mb-1">950 z&#322;</p>
+          <p class="text-xs text-garden-dark/50">netto</p>
+        </div>
+
+        <!-- 20h Bestseller -->
+        <div class="reveal-child card-hover relative bg-garden-white rounded-4xl p-8 border-2 border-garden-green shadow-lg shadow-garden-green/15 text-center scale-105" style="transition-delay: 0.1s;">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 shimmer-badge text-garden-white text-xs font-bold uppercase tracking-wider px-5 py-1.5 rounded-full">
+            Bestseller
+          </div>
+          <div class="w-12 h-12 rounded-full bg-garden-green/20 flex items-center justify-center mx-auto mb-4">
+            <span class="material-symbols-outlined text-garden-green-dark">star</span>
+          </div>
+          <p class="text-sm uppercase tracking-wider text-garden-dark/50 font-medium mb-1">SDR</p>
+          <p class="font-display text-2xl font-semibold text-garden-dark mb-1">20 godzin</p>
+          <p class="font-display text-3xl font-bold text-garden-green-dark mb-1">1&nbsp;800 z&#322;</p>
+          <p class="text-xs text-garden-dark/50">netto</p>
+        </div>
+
+        <!-- 40h -->
+        <div class="reveal-child card-hover bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm text-center" style="transition-delay: 0.2s;">
+          <div class="w-12 h-12 rounded-full bg-garden-green/15 flex items-center justify-center mx-auto mb-4">
+            <span class="material-symbols-outlined text-garden-green-dark">rocket_launch</span>
+          </div>
+          <p class="text-sm uppercase tracking-wider text-garden-dark/50 font-medium mb-1">SDR</p>
+          <p class="font-display text-2xl font-semibold text-garden-dark mb-1">40 godzin</p>
+          <p class="font-display text-3xl font-bold text-garden-green-dark mb-1">3&nbsp;400 z&#322;</p>
+          <p class="text-xs text-garden-dark/50">netto</p>
+        </div>
+      </div>
+
+      <!-- OBM -->
+      <div class="reveal">
+        <div class="bg-gradient-to-r from-garden-rose/10 to-garden-green/10 rounded-4xl p-8 border border-garden-rose/15 shadow-sm text-center">
+          <p class="text-sm uppercase tracking-wider text-garden-dark/50 font-medium mb-2">Online Business Manager</p>
+          <p class="font-display text-2xl font-semibold text-garden-dark mb-2">Indywidualna wycena</p>
+          <p class="text-garden-dark/60">w zale&#380;no&#347;ci od zakresu projekt&#243;w (od <strong class="text-garden-green-dark">1500 z&#322; netto</strong>)</p>
+        </div>
+      </div>
+
+      <div class="reveal text-center mt-6">
+        <p class="text-sm text-garden-dark/50 flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-base">receipt_long</span>
+          Wystawiam faktury VAT
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CTA / CONTACT SECTION                        -->
+  <!-- ============================================ -->
+  <section id="kontakt" class="relative py-20 md:py-28 overflow-hidden">
+    <div class="blob w-[500px] h-[500px] bg-garden-green left-[-150px] top-[-100px]"></div>
+    <div class="blob w-[400px] h-[400px] bg-garden-rose right-[-100px] bottom-[-50px]"></div>
+    <div class="blob w-[300px] h-[300px] bg-garden-sand left-[40%] bottom-[-80px]"></div>
+
+    <svg class="absolute top-12 right-16 w-16 h-16 text-garden-rose sway opacity-20 hidden md:block" aria-hidden="true"><use href="#flower"/></svg>
+    <svg class="absolute bottom-20 left-8 w-10 h-14 text-garden-green-dark sway opacity-25 hidden md:block" style="animation-delay: -2s;" aria-hidden="true"><use href="#leaf"/></svg>
+
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-14 reveal">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-garden-dark mb-4">Poczuj ulg&#281; i zr&#243;b miejsce na rozw&#243;j</h2>
+        <p class="text-lg text-garden-dark/70 max-w-2xl mx-auto">
+          Je&#347;li czujesz, &#380;e to jest to, czego od dawna potrzebujesz w swoim biznesie &ndash; nie odk&#322;adaj tego na p&#243;&#378;niej.
+        </p>
+      </div>
+
+      <!-- 3 Steps -->
+      <div class="grid sm:grid-cols-3 gap-6 mb-14">
+        <div class="reveal-child text-center">
+          <div class="w-14 h-14 rounded-full bg-garden-green/15 flex items-center justify-center mx-auto mb-4">
+            <span class="font-display text-2xl font-bold text-garden-green-dark">1</span>
+          </div>
+          <p class="text-garden-dark/80 text-sm leading-relaxed">Um&#243;w si&#281; na kr&#243;tk&#261;, niezobowi&#261;zuj&#261;c&#261; rozmow&#281; wideo.</p>
+        </div>
+        <div class="reveal-child text-center" style="transition-delay: 0.1s;">
+          <div class="w-14 h-14 rounded-full bg-garden-rose/15 flex items-center justify-center mx-auto mb-4">
+            <span class="font-display text-2xl font-bold text-garden-rose-dark">2</span>
+          </div>
+          <p class="text-garden-dark/80 text-sm leading-relaxed">Poznajmy si&#281;. Sprawdzimy, czy nadajemy na tych samych falach i czy to dobry moment na wsp&#243;&#322;prac&#281;.</p>
+        </div>
+        <div class="reveal-child text-center" style="transition-delay: 0.2s;">
+          <div class="w-14 h-14 rounded-full bg-garden-green/15 flex items-center justify-center mx-auto mb-4">
+            <span class="font-display text-2xl font-bold text-garden-green-dark">3</span>
+          </div>
+          <p class="text-garden-dark/80 text-sm leading-relaxed">Stw&#243;rzmy plan, jak mog&#281; uwolni&#263; Tw&#243;j czas i wesprze&#263; Tw&#243;j biznes.</p>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="reveal text-center mb-16">
+        <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" rel="noopener"
+           class="cta-pulse inline-block bg-garden-green text-garden-white px-10 py-5 rounded-full text-base md:text-lg font-bold uppercase tracking-wide hover:bg-garden-green-dark transition-all duration-300 hover:scale-105 shadow-lg shadow-garden-green/30">
+          Umow sie na bezplatna rozmowe
+        </a>
+      </div>
+
+      <!-- Contact Form + Info -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Contact Form -->
+        <div class="reveal bg-garden-white/80 backdrop-blur-sm rounded-4xl p-8 border border-garden-green/15 shadow-sm">
+          <h3 class="font-display text-xl font-semibold text-garden-dark mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-garden-green">mail</span>
+            Napisz do mnie
+          </h3>
+          <form onsubmit="event.preventDefault(); document.getElementById('form-success').classList.remove('hidden'); this.reset();" class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-garden-dark/70 mb-1.5">Imi&#281;</label>
+              <input type="text" id="name" name="name" required
+                     class="form-input w-full px-5 py-3 rounded-full border border-garden-sand bg-garden-white text-garden-dark placeholder-garden-dark/30"
+                     placeholder="Twoje imi&#281;" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-garden-dark/70 mb-1.5">Email</label>
+              <input type="email" id="email" name="email" required
+                     class="form-input w-full px-5 py-3 rounded-full border border-garden-sand bg-garden-white text-garden-dark placeholder-garden-dark/30"
+                     placeholder="twoj@email.pl" />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-garden-dark/70 mb-1.5">Wiadomo&#347;&#263;</label>
+              <textarea id="message" name="message" rows="4" required
+                        class="form-input w-full px-5 py-3 rounded-3xl border border-garden-sand bg-garden-white text-garden-dark placeholder-garden-dark/30 resize-none"
+                        placeholder="W czym mog&#281; Ci pom&#243;c?"></textarea>
+            </div>
+            <button type="submit"
+                    class="w-full bg-garden-green text-garden-white py-3.5 rounded-full font-semibold hover:bg-garden-green-dark transition-all duration-300 hover:scale-[1.02] shadow-md shadow-garden-green/20">
+              Wy&#347;lij wiadomo&#347;&#263;
+            </button>
+          </form>
+          <div id="form-success" class="hidden mt-4 bg-garden-green/10 rounded-3xl p-4 text-center">
+            <p class="text-garden-green-dark font-medium text-sm flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined">check_circle</span>
+              Dzi&#281;kuj&#281;! Twoja wiadomo&#347;&#263; zosta&#322;a wys&#322;ana.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="reveal flex flex-col justify-center space-y-6" style="transition-delay: 0.2s;">
+          <div class="bg-garden-white/60 backdrop-blur-sm rounded-4xl p-6 border border-garden-rose/10">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-garden-rose/15 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-garden-rose-dark">photo_camera</span>
+              </div>
+              <div>
+                <p class="font-semibold text-garden-dark text-sm">Instagram</p>
+                <a href="#" class="text-garden-rose-dark hover:text-garden-rose transition-colors text-sm">@femmevision</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-garden-white/60 backdrop-blur-sm rounded-4xl p-6 border border-garden-green/10">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-garden-green/15 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-garden-green-dark">email</span>
+              </div>
+              <div>
+                <p class="font-semibold text-garden-dark text-sm">Email</p>
+                <a href="#" class="text-garden-green-dark hover:text-garden-green transition-colors text-sm">kontakt@femmevision.pl</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decorative -->
+          <div class="hidden md:flex items-center justify-center pt-4">
+            <svg class="w-24 h-24 text-garden-green opacity-20" aria-hidden="true"><use href="#flower"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER                                       -->
+  <!-- ============================================ -->
+  <footer class="relative bg-garden-dark py-12 overflow-hidden">
+    <div class="blob w-[300px] h-[300px] bg-garden-green opacity-10 left-[-100px] top-[-100px]"></div>
+
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-8">
+        <p class="font-display text-2xl font-semibold text-garden-white mb-2">Femme Vision Kinga Maryniak</p>
+        <div class="flex items-center justify-center gap-4 mb-6">
+          <a href="#" class="w-10 h-10 rounded-full bg-garden-white/10 flex items-center justify-center hover:bg-garden-white/20 transition-colors">
+            <span class="material-symbols-outlined text-garden-white/70 text-lg">photo_camera</span>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-garden-white/10 flex items-center justify-center hover:bg-garden-white/20 transition-colors">
+            <span class="material-symbols-outlined text-garden-white/70 text-lg">email</span>
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-garden-white/40 mb-6">
+        <a href="#" class="hover:text-garden-white/70 transition-colors">Instagram</a>
+        <span>&middot;</span>
+        <a href="#" class="hover:text-garden-white/70 transition-colors">Email</a>
+        <span>&middot;</span>
+        <a href="#" class="hover:text-garden-white/70 transition-colors">Polityka prywatno&#347;ci</a>
+        <span>&middot;</span>
+        <a href="#" class="hover:text-garden-white/70 transition-colors">Regulamin</a>
+      </div>
+      <p class="text-center text-xs text-garden-white/30">
+        &copy; 2025 Femme Vision Kinga Maryniak. Wszelkie prawa zastrze&#380;one.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Spacer for mobile pill nav -->
+  <div class="h-20 md:hidden bg-garden-dark"></div>
+
+  <!-- ============================================ -->
+  <!-- SCRIPTS                                      -->
+  <!-- ============================================ -->
+  <script>
+    // Scroll reveal with IntersectionObserver
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal, .reveal-child').forEach(el => {
+        revealObserver.observe(el);
+      });
+
+      // Smooth scroll for nav links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Active nav state for pill nav (mobile)
+      const sections = document.querySelectorAll('section[id]');
+      const pillLinks = document.querySelectorAll('.mobile-pill a');
+
+      const activateLink = () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          if (window.scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        pillLinks.forEach(link => {
+          link.classList.remove('bg-garden-green/20');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('bg-garden-green/20');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', activateLink, { passive: true });
+    });
+  </script>
+</body>
+</html>

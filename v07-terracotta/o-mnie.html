@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O mnie — Femme Vision Kinga Maryniak</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracotta: '#C67C4E',
+            'terracotta-deep': '#A85D3A',
+            olive: '#6B705C',
+            'olive-dark': '#3F4237',
+            cream: '#FFF8F0',
+            'warm-white': '#FFFDF7',
+            'dark-text': '#2C2418',
+          },
+          fontFamily: {
+            heading: ['"Libre Baskerville"', 'serif'],
+            body: ['"Raleway"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Raleway', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Libre Baskerville', serif; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+    body { animation: pageIn 0.5s ease-out; }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.35s ease; }
+    .mobile-menu.open { transform: translateX(0); }
+    .hamburger span { transition: all 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+    a { transition: color 0.25s ease, background-color 0.25s ease; }
+  </style>
+</head>
+<body class="bg-warm-white text-dark-text">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-warm-white/90 backdrop-blur-md border-b border-terracotta/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="index.html" class="font-heading text-lg text-terracotta-deep font-bold tracking-tight">Femme Vision</a>
+      <ul class="hidden md:flex items-center gap-8 font-body text-sm font-medium text-olive-dark">
+        <li><a href="index.html" class="hover:text-terracotta">Strona główna</a></li>
+        <li><a href="uslugi.html" class="hover:text-terracotta">Usługi</a></li>
+        <li><a href="o-mnie.html" class="text-terracotta-deep border-b-2 border-terracotta pb-0.5">O mnie</a></li>
+        <li><a href="kontakt.html" class="hover:text-terracotta">Kontakt</a></li>
+      </ul>
+      <button class="hamburger md:hidden flex flex-col gap-1.5 p-2" onclick="toggleMenu()" aria-label="Menu">
+        <span class="block w-6 h-0.5 bg-olive-dark"></span>
+        <span class="block w-6 h-0.5 bg-olive-dark"></span>
+        <span class="block w-6 h-0.5 bg-olive-dark"></span>
+      </button>
+    </div>
+    <div class="mobile-menu fixed top-0 right-0 h-full w-64 bg-cream shadow-2xl md:hidden z-50 flex flex-col pt-20 px-8 gap-6">
+      <button class="absolute top-5 right-5 text-olive-dark" onclick="toggleMenu()" aria-label="Zamknij menu">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+      <a href="index.html" class="font-body font-medium text-olive-dark hover:text-terracotta">Strona główna</a>
+      <a href="uslugi.html" class="font-body font-medium text-olive-dark hover:text-terracotta">Usługi</a>
+      <a href="o-mnie.html" class="font-body font-semibold text-terracotta-deep">O mnie</a>
+      <a href="kontakt.html" class="font-body font-medium text-olive-dark hover:text-terracotta">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="pt-16">
+
+    <!-- Breadcrumbs -->
+    <div class="bg-cream border-b border-terracotta/10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="text-sm text-olive-dark/60 flex items-center gap-2">
+          <a href="index.html" class="hover:text-terracotta transition-colors">Strona główna</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-terracotta-deep font-medium">O mnie</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- O MNIE -->
+    <section class="py-20 bg-warm-white relative overflow-hidden">
+      <!-- Olive branch top right -->
+      <svg class="absolute top-8 right-0 w-56 h-56 text-olive/8 pointer-events-none" viewBox="0 0 200 200" fill="none">
+        <path d="M180 30 C160 50, 150 40, 130 60 C110 80, 120 100, 100 120 C80 140, 60 130, 50 150" stroke="currentColor" stroke-width="2" fill="none"/>
+        <ellipse cx="130" cy="58" rx="8" ry="14" transform="rotate(-30 130 58)" fill="currentColor"/>
+        <ellipse cx="115" cy="75" rx="8" ry="14" transform="rotate(-50 115 75)" fill="currentColor"/>
+        <ellipse cx="105" cy="105" rx="8" ry="14" transform="rotate(-20 105 105)" fill="currentColor"/>
+        <ellipse cx="85" cy="128" rx="8" ry="14" transform="rotate(-60 85 128)" fill="currentColor"/>
+        <ellipse cx="140" cy="45" rx="7" ry="12" transform="rotate(20 140 45)" fill="currentColor"/>
+      </svg>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid md:grid-cols-5 gap-12 items-start">
+          <!-- Photo -->
+          <div class="fade-in md:col-span-2 flex justify-center">
+            <div class="relative">
+              <div class="absolute -inset-3 bg-terracotta/10 rounded-2xl rotate-2"></div>
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfSb9QD4qVKlI1G-lLWEzgi2RM8LQAvDNReymxjLznxcLmmmpM9hHutaMKYe0doT0yJ0H5LSKQGaJu2XyhDCqzWRrx7FCIMRtVRlzeFDEHBIRicnOQb9LBb7sT_NMujmITKMKOVBhJD62FIvsfAblvGERvxgEcZFDj7Mxx57v5kKP6zgJLuDAIBftjFb2cxoOzp9HazdI6awKP5pl23LjvPmVQWbT1lQm_iqRTZc-TC7aJroLsXDLYjcSO3hkOBA1Q22HTGUnFNeM"
+                   alt="Kinga Maryniak"
+                   class="relative rounded-xl shadow-xl w-full max-w-xs object-cover">
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="fade-in md:col-span-3">
+            <svg class="mb-6 w-24 h-6 text-olive/25" viewBox="0 0 100 24" fill="none">
+              <path d="M5 12 Q25 4, 50 12 Q75 20, 95 12" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <ellipse cx="30" cy="8" rx="4" ry="7" transform="rotate(-15 30 8)" fill="currentColor"/>
+              <ellipse cx="50" cy="11" rx="4" ry="7" transform="rotate(10 50 11)" fill="currentColor"/>
+              <ellipse cx="70" cy="14" rx="4" ry="7" transform="rotate(-10 70 14)" fill="currentColor"/>
+            </svg>
+
+            <h1 class="font-heading text-3xl sm:text-4xl text-dark-text mb-6">Cześć, jestem Kinga!</h1>
+
+            <div class="space-y-4 text-olive-dark/80 leading-relaxed">
+              <p>
+                Jestem wirtualną asystentką, która specjalizuje się w&nbsp;obsłudze klienta i&nbsp;wsparciu sprzedaży w&nbsp;branży online. Pracuję z&nbsp;markami osobistymi — ekspertkami, mentorkami, trenerkami — które chcą rozwijać swoje biznesy bez wypalania się codziennymi operacjami.
+              </p>
+              <p>
+                Wiem, jak ważne jest, żeby ktoś po drugiej stronie naprawdę rozumiał Twoją markę, Twój ton i&nbsp;Twoje wartości. Dlatego nie działam „na sztuki" — buduję relację z&nbsp;Twoimi klientami tak, jakby to było moje własne przedsięwzięcie.
+              </p>
+              <p>
+                Mam doświadczenie w&nbsp;sprzedaży, obsłudze klienta i&nbsp;zarządzaniu procesami. Łączę empatię z&nbsp;systematycznością — i&nbsp;właśnie to sprawia, że moje klientki mogą wreszcie odetchnąć.
+              </p>
+              <p>
+                Moją misją jest wspieranie kobiet w&nbsp;biznesie — żebyś mogła prowadzić swoją markę z&nbsp;lekkością, skupić się na tym, co kochasz, i&nbsp;mieć spokojną głowę, że reszta jest zaopiekowana.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-20 bg-cream relative overflow-hidden">
+      <!-- Olive branch bottom left -->
+      <svg class="absolute bottom-0 left-0 w-40 h-40 text-olive/8 pointer-events-none" viewBox="0 0 160 160" fill="none">
+        <path d="M15 145 C35 125, 25 110, 45 90 C65 70, 80 80, 95 65" stroke="currentColor" stroke-width="2" fill="none"/>
+        <ellipse cx="43" cy="92" rx="7" ry="12" transform="rotate(35 43 92)" fill="currentColor"/>
+        <ellipse cx="60" cy="78" rx="7" ry="12" transform="rotate(50 60 78)" fill="currentColor"/>
+        <ellipse cx="82" cy="70" rx="7" ry="12" transform="rotate(15 82 70)" fill="currentColor"/>
+      </svg>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="fade-in text-center mb-14">
+          <h2 class="font-heading text-2xl sm:text-3xl text-dark-text mb-4">Dlaczego warto mi zaufać?</h2>
+          <p class="text-olive-dark/70 max-w-2xl mx-auto">Nie mówię o&nbsp;rezultatach w&nbsp;teorii. Oto realne efekty mojej pracy i&nbsp;słowa klientki, z&nbsp;którą miałam przyjemność współpracować.</p>
+        </div>
+
+        <!-- Case Study -->
+        <div class="fade-in bg-white border border-terracotta/15 rounded-2xl p-8 md:p-10 shadow-sm mb-10">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="material-symbols-outlined text-terracotta text-2xl">insights</span>
+            <h3 class="font-heading text-lg text-dark-text">Case study</h3>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-6 mb-6">
+            <div class="text-center p-5 bg-cream rounded-xl">
+              <p class="font-heading text-3xl text-terracotta-deep mb-1">20h</p>
+              <p class="text-sm text-olive-dark/60">miesięcznie pracy</p>
+            </div>
+            <div class="text-center p-5 bg-cream rounded-xl">
+              <p class="font-heading text-3xl text-terracotta-deep mb-1">3</p>
+              <p class="text-sm text-olive-dark/60">zamknięte sprzedaże</p>
+            </div>
+            <div class="text-center p-5 bg-cream rounded-xl">
+              <p class="font-heading text-3xl text-terracotta-deep mb-1">45 000 zł</p>
+              <p class="text-sm text-olive-dark/60">wartość sprzedaży</p>
+            </div>
+          </div>
+          <p class="text-olive-dark/70 text-sm leading-relaxed">
+            W&nbsp;ciągu pierwszego miesiąca współpracy przy zaangażowaniu 20&nbsp;godzin miesięcznie udało się zamknąć 3&nbsp;sprzedaże o&nbsp;łącznej wartości 45&nbsp;000&nbsp;zł. To wynik systematycznej kwalifikacji leadów, konsekwentnych follow-upów i&nbsp;profesjonalnej obsługi na każdym etapie ścieżki klienta.
+          </p>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="fade-in bg-white border border-olive/15 rounded-2xl p-8 md:p-10 shadow-sm">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="material-symbols-outlined text-olive text-2xl">format_quote</span>
+            <div>
+              <p class="font-semibold text-dark-text">Kamila Surma</p>
+            </div>
+          </div>
+          <div class="space-y-4 text-olive-dark/80 leading-relaxed">
+            <p>
+              Kinga to osoba, która naprawdę rozumie, czego potrzebujesz — często zanim sama to powiesz. Od początku naszej współpracy poczułam ogromną ulgę. Wiedziałam, że moje klientki są w&nbsp;dobrych rękach, a&nbsp;ja mogę skupić się na tym, co robię najlepiej.
+            </p>
+            <blockquote class="border-l-4 border-terracotta/40 pl-6 py-2 bg-cream/50 rounded-r-lg">
+              <p class="font-heading text-base text-terracotta-deep italic">
+                „To, co Kinga daje, to przede wszystkim zaufanie i&nbsp;spokój. A&nbsp;to w&nbsp;biznesie jest bezcenne."
+              </p>
+            </blockquote>
+            <p>
+              Jest dokładna, empatyczna i&nbsp;proaktywna. Nie trzeba jej przypominać, nie trzeba kontrolować — po prostu działa. I&nbsp;to działa dobrze. Z&nbsp;czystym sumieniem polecam ją każdej kobiecie, która chce wreszcie oddać część swojego biznesu w&nbsp;ręce kogoś godnego zaufania.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-warm-white">
+      <div class="fade-in max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-heading text-2xl text-dark-text mb-6">Chcesz sprawdzić, czy pasujemy do siebie?</h2>
+        <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-terracotta hover:bg-terracotta-deep text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-terracotta/25 transition-all hover:shadow-xl">
+          <span class="material-symbols-outlined text-xl">calendar_month</span>
+          Umów darmową konsultację
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-olive-dark text-cream/80 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <p class="font-heading text-lg text-cream mb-1">Femme Vision Kinga Maryniak</p>
+          <p class="text-sm text-cream/50">&copy; 2025 Wszelkie prawa zastrzeżone.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-6 text-sm">
+          <a href="#" class="hover:text-terracotta transition-colors inline-flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">photo_camera</span> Instagram
+          </a>
+          <a href="#" class="hover:text-terracotta transition-colors inline-flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">mail</span> Email
+          </a>
+          <a href="#" class="hover:text-terracotta transition-colors">Polityka prywatności</a>
+          <a href="#" class="hover:text-terracotta transition-colors">Regulamin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.mobile-menu').classList.toggle('open');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

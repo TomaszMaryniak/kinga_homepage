@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Femme Vision Kinga Maryniak — Wirtualna Asystentka · OBM · SDR</title>
+  <meta name="description" content="Odzyskaj czas, uporządkuj procesy i prowadź swoją markę z lekkością. Wirtualna Asystentka, Online Business Manager i Sales Development Representative.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --dark: #1C1917;
+      --dark-2: #292524;
+      --dark-3: #3D3530;
+      --cream: #FEFAF6;
+      --cream-muted: #F0E8DE;
+      --gold: #C8A55C;
+      --gold-light: #DFC48B;
+      --gold-dim: rgba(200, 165, 92, 0.15);
+      --blush: #D4A69A;
+      --stone: #78716C;
+      --stone-light: #A8A29E;
+
+      --font-display: 'Fraunces', serif;
+      --font-body: 'Sora', sans-serif;
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--cream);
+      background: var(--dark);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Noise overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; }
+
+    .heading-xl {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-optical-sizing: auto;
+    }
+
+    .heading-lg {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .heading-md {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      line-height: 1.25;
+    }
+
+    .body-lg { font-size: 1.125rem; line-height: 1.75; }
+    .body-md { font-size: 0.9375rem; line-height: 1.7; }
+    .body-sm { font-size: 0.8125rem; line-height: 1.65; }
+
+    .text-gold { color: var(--gold); }
+    .text-blush { color: var(--blush); }
+    .text-stone { color: var(--stone-light); }
+    .text-cream { color: var(--cream); }
+    .text-muted { color: rgba(254, 250, 246, 0.55); }
+
+    /* ── Layout ── */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+    .container-sm { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Gold rule divider ── */
+    .gold-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.3;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.25rem 0;
+      transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+    }
+    .nav.scrolled {
+      background: rgba(28, 25, 23, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(200, 165, 92, 0.1);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      font-weight: 400;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 2.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.8125rem;
+      color: var(--stone-light);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s var(--ease-out-expo);
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--dark) !important;
+    }
+    .nav-cta::after { display: none !important; }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 0.5rem;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--gold);
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+    .mobile-menu {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(28, 25, 23, 0.97);
+      backdrop-filter: blur(30px);
+      z-index: 99;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      color: var(--cream);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu a:hover { opacity: 1; color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ── Buttons ── */
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 1rem 2.5rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 48px rgba(200, 165, 92, 0.25);
+    }
+    .btn-gold::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    .btn-gold:hover::before { transform: translateX(100%); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 1rem 2.5rem;
+      background: transparent;
+      color: var(--gold);
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(200, 165, 92, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: rgba(200, 165, 92, 0.08);
+    }
+
+    /* ── Arrow icon ── */
+    .arrow-icon {
+      display: inline-block;
+      width: 18px; height: 18px;
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+    .btn-gold:hover .arrow-icon,
+    .btn-outline:hover .arrow-icon { transform: translateX(4px); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 8rem 0 6rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 0;
+      border-top: 1px solid rgba(200, 165, 92, 0.3);
+      border-bottom: 1px solid rgba(200, 165, 92, 0.3);
+    }
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--stone-light);
+      font-style: italic;
+      margin: 1.75rem 0 2.5rem;
+      font-weight: 300;
+    }
+    .hero-photo-wrap {
+      position: relative;
+    }
+    .hero-photo {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: brightness(0.95) contrast(1.05);
+    }
+    .hero-photo-frame {
+      position: absolute;
+      inset: -12px;
+      border: 1px solid rgba(200, 165, 92, 0.2);
+      pointer-events: none;
+    }
+    .hero-photo-accent {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      width: 80px; height: 80px;
+      border-right: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      opacity: 0.4;
+    }
+
+    /* warm radial glow behind hero content */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 165, 92, 0.06) 0%, transparent 70%);
+      top: 50%; left: 20%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 7rem 0 4rem; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .hero-photo-wrap { order: -1; max-width: 400px; margin: 0 auto; }
+    }
+
+    /* ── Section spacing ── */
+    .section { padding: 6rem 0; position: relative; }
+    .section-cream {
+      background: var(--cream);
+      color: var(--dark);
+    }
+    .section-dark-2 { background: var(--dark-2); }
+    .section-dark-3 { background: var(--dark-3); }
+
+    .section-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+    .section-cream .section-label { color: var(--gold); }
+
+    /* ── Problem cards ── */
+    .problem-list {
+      display: flex; flex-direction: column; gap: 1rem;
+      max-width: 700px; margin: 0 auto;
+    }
+    .problem-card {
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      padding: 1.5rem 1.75rem;
+      background: rgba(200, 165, 92, 0.04);
+      border: 1px solid rgba(200, 165, 92, 0.1);
+      border-left: 2px solid var(--gold);
+      transition: all 0.3s ease;
+    }
+    .problem-card:hover {
+      background: rgba(200, 165, 92, 0.08);
+      border-left-color: var(--gold-light);
+      transform: translateX(4px);
+    }
+    .problem-icon {
+      width: 20px; height: 20px;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .problem-card p { color: rgba(254, 250, 246, 0.7); }
+
+    /* ── About section ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      filter: brightness(0.95);
+    }
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -8px; right: -8px;
+      width: 60%; height: 60%;
+      border-right: 1px solid rgba(200, 165, 92, 0.25);
+      border-bottom: 1px solid rgba(200, 165, 92, 0.25);
+      pointer-events: none;
+    }
+    .about-highlight {
+      padding: 1.75rem 2rem;
+      border-left: 2px solid var(--gold);
+      background: var(--gold-dim);
+      margin: 2rem 0;
+    }
+    .section-cream .about-highlight {
+      background: rgba(200, 165, 92, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .about-photo-wrap { max-width: 350px; }
+    }
+
+    /* ── Services grid ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .service-card {
+      padding: 2.5rem;
+      border: 1px solid rgba(200, 165, 92, 0.12);
+      background: rgba(254, 250, 246, 0.02);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .service-card:hover {
+      border-color: rgba(200, 165, 92, 0.25);
+      background: rgba(200, 165, 92, 0.04);
+      transform: translateY(-4px);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--gold);
+      opacity: 0.2;
+      line-height: 1;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--cream);
+    }
+    .service-effect {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: rgba(200, 165, 92, 0.06);
+      border-left: 2px solid rgba(200, 165, 92, 0.3);
+      font-size: 0.8125rem;
+      color: var(--gold-light);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── OBM cards ── */
+    .obm-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .obm-card {
+      padding: 2rem 1.5rem;
+      background: var(--dark);
+      border: 1px solid rgba(200, 165, 92, 0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .obm-card:hover {
+      border-color: rgba(200, 165, 92, 0.3);
+      transform: translateY(-3px);
+    }
+    .obm-icon {
+      width: 40px; height: 40px;
+      color: var(--gold);
+      margin: 0 auto 1rem;
+      opacity: 0.7;
+    }
+    .obm-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--cream);
+    }
+
+    @media (max-width: 768px) {
+      .obm-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .obm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Testimonial ── */
+    .testimonial-block {
+      position: relative;
+      padding: 3rem;
+      border: 1px solid rgba(200, 165, 92, 0.15);
+      background: rgba(200, 165, 92, 0.03);
+    }
+    .testimonial-quote-mark {
+      font-family: var(--font-display);
+      font-size: 8rem;
+      line-height: 0.8;
+      color: var(--gold);
+      opacity: 0.15;
+      position: absolute;
+      top: 1rem; left: 2rem;
+    }
+    .testimonial-highlight {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--gold-light);
+      font-style: italic;
+      line-height: 1.5;
+      padding: 1.5rem 2rem;
+      border-left: 2px solid var(--gold);
+      margin: 1.5rem 0;
+      font-weight: 300;
+    }
+    .case-study {
+      padding: 2.5rem;
+      background: linear-gradient(135deg, rgba(200, 165, 92, 0.08), rgba(212, 166, 154, 0.05));
+      border: 1px solid rgba(200, 165, 92, 0.15);
+      text-align: center;
+    }
+    .case-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      color: var(--gold);
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    /* ── Pricing ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .price-card {
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(200, 165, 92, 0.12);
+      text-align: center;
+      background: rgba(254, 250, 246, 0.02);
+      transition: all 0.4s var(--ease-out-expo);
+      position: relative;
+    }
+    .price-card:hover {
+      border-color: rgba(200, 165, 92, 0.3);
+      transform: translateY(-4px);
+    }
+    .price-card.featured {
+      border-color: var(--gold);
+      background: rgba(200, 165, 92, 0.06);
+    }
+    .price-featured-label {
+      position: absolute;
+      top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.35rem 1.25rem;
+    }
+    .price-hours {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      color: var(--gold);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+    .price-unit {
+      font-size: 0.75rem;
+      color: var(--stone);
+      margin-top: 0.25rem;
+    }
+    .obm-price-card {
+      padding: 2rem 2.5rem;
+      border: 1px solid rgba(200, 165, 92, 0.15);
+      background: linear-gradient(135deg, rgba(200, 165, 92, 0.05), rgba(212, 166, 154, 0.03));
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+    }
+
+    /* ── Steps ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .step-item { text-align: center; }
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      color: var(--gold);
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .step-item h3 {
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .steps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 3rem 0;
+      border-top: 1px solid rgba(200, 165, 92, 0.1);
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+    .footer-links {
+      display: flex; gap: 1.5rem; list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.75rem;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+    }
+    .reveal-stagger.visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.08s; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.24s; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.32s; }
+
+    /* ── Utilities ── */
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 1.5rem; }
+    .mb-4 { margin-bottom: 2rem; }
+    .mb-6 { margin-bottom: 3rem; }
+    .mb-8 { margin-bottom: 4rem; }
+    .mt-6 { margin-top: 3rem; }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .max-w-md { max-width: 640px; }
+    .max-w-lg { max-width: 780px; }
+    .italic { font-style: italic; }
+    .font-display { font-family: var(--font-display); }
+
+    .flex-center { display: flex; align-items: center; justify-content: center; }
+    .gap-2 { gap: 1rem; }
+    .gap-3 { gap: 1.5rem; }
+
+    /* Cream section overrides */
+    .section-cream h2,
+    .section-cream h3 { color: var(--dark); }
+    .section-cream p { color: var(--dark-3); }
+    .section-cream .text-muted { color: rgba(28, 25, 23, 0.5); }
+    .section-cream .problem-card {
+      background: rgba(200, 165, 92, 0.06);
+      border-color: rgba(200, 165, 92, 0.15);
+      border-left-color: var(--gold);
+    }
+    .section-cream .problem-card p { color: var(--dark-3); }
+    .section-cream .problem-card:hover { background: rgba(200, 165, 92, 0.1); }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">Femme Vision</a>
+      <ul class="nav-links">
+        <li><a href="#problemy">Problemy</a></li>
+        <li><a href="#o-mnie">O mnie</a></li>
+        <li><a href="#uslugi">Usługi</a></li>
+        <li><a href="#opinie">Opinie</a></li>
+        <li><a href="#cennik">Cennik</a></li>
+        <li><a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" rel="noopener" class="nav-cta">Umów rozmowę</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#problemy" class="mobile-link">Problemy</a>
+    <a href="#o-mnie" class="mobile-link">O mnie</a>
+    <a href="#uslugi" class="mobile-link">Usługi</a>
+    <a href="#opinie" class="mobile-link">Opinie</a>
+    <a href="#cennik" class="mobile-link">Cennik</a>
+    <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" rel="noopener" class="mobile-link" style="color: var(--gold);">Umów rozmowę</a>
+  </div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="hero-badge">Wirtualna Asystentka · OBM · SDR</div>
+          <h1 class="heading-xl">
+            Odzyskaj czas i prowadź swoją markę z <em class="text-gold italic">lekkością</em>
+          </h1>
+          <p class="hero-subtitle">Czy Twój system obsługi klienta rośnie tak szybko, jak Twój biznes?</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" rel="noopener" class="btn-gold">
+              Umów bezpłatną rozmowę
+              <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="reveal hero-photo-wrap" style="transition-delay: 0.15s;">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOSVYubJZDfiDPlkScuvXf2XTtd6449_UOjM30wQdRVbd-bm26gDRosQ0y4KFzug_bz6-ym0gP0ZMftoQ4GjdNbXR-T0apfhTTYm5dQIOIZh0Tz-6YY02pZmlZbjwXbsy1Js-gPe7iXz0SWOQx51713NX-1oy-BGfN7Ab9WxfwGo8sBHJondKnwxqybwZVuXx9YQvf0AfAOt7y9zoFdJ8eKvFe9G4ltAWV1oIPiPh6iC41ZGYfYOlBITOho7z9T8BuGlf10vQxIAY"
+               alt="Kinga Maryniak — Femme Vision"
+               class="hero-photo">
+          <div class="hero-photo-frame"></div>
+          <div class="hero-photo-accent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <!-- ═══════════ PROBLEMS ═══════════ -->
+  <section class="section section-cream" id="problemy">
+    <div class="container-sm">
+      <div class="reveal text-center mb-8">
+        <p class="section-label">Diagnoza</p>
+        <h2 class="heading-lg mb-3">Znasz to uczucie?</h2>
+        <p class="body-lg max-w-lg mx-auto" style="color: var(--dark-3);">Budujesz wspaniałą markę, tworzysz świetne produkty, ale na zapleczu powoli zaczyna brakować Ci tchu...</p>
+      </div>
+
+      <div class="problem-list reveal-stagger">
+        <div class="problem-card">
+          <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <p class="body-md">Wpadają zapytania od klientów, ale nie zawsze masz przestrzeń, żeby odpisać na czas?</p>
+        </div>
+        <div class="problem-card">
+          <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <p class="body-md">Odkładasz follow-upy i czujesz, że przez to uciekają Ci klientki, tracisz sprzedaż i pieniądze?</p>
+        </div>
+        <div class="problem-card">
+          <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <p class="body-md">Zastanawiasz się, czy na pewno odpisałaś na każdą wiadomość i czy wszystko jest dopięte na ostatni guzik?</p>
+        </div>
+        <div class="problem-card">
+          <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+          <p class="body-md">Twoja sprzedaż dzieje się „przy okazji", a nie w uporządkowanym, powtarzalnym procesie?</p>
+        </div>
+        <div class="problem-card">
+          <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3v4M3 5h4M6 17v4M4 19h4M13 3l2 2M19.4 15l1.6 1.6M15 13l6.4 6.4M11 21l-7-7L17.7 1"/></svg>
+          <p class="body-md">Więcej czasu spędzasz na ogarnianiu bieżących tematów w DM i mailach, niż na strategicznym rozwijaniu biznesu?</p>
+        </div>
+      </div>
+
+      <div class="reveal text-center mt-6">
+        <div style="display: inline-block; padding: 2rem 3rem; border: 1px solid rgba(200, 165, 92, 0.2); background: rgba(200, 165, 92, 0.04);">
+          <p class="heading-md text-gold italic font-display">Odpocznij. Zdejmij to z siebie. Pomogę Ci.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <!-- ═══════════ O MNIE ═══════════ -->
+  <section class="section" id="o-mnie">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal about-photo-wrap">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfSb9QD4qVKlI1G-lLWEzgi2RM8LQAvDNReymxjLznxcLmmmpM9hHutaMKYe0doT0yJ0H5LSKQGaJu2XyhDCqzWRrx7FCIMRtVRlzeFDEHBIRicnOQb9LBb7sT_NMujmITKMKOVBhJD62FIvsfAblvGERvxgEcZFDj7Mxx57v5kKP6zgJLuDAIBftjFb2cxoOzp9HazdI6awKP5pl23LjvPmVQWbT1lQm_iqRTZc-TC7aJroLsXDLYjcSO3hkOBA1Q22HTGUnFNeM"
+               alt="Kinga Maryniak"
+               class="about-photo">
+        </div>
+        <div>
+          <div class="reveal">
+            <p class="section-label">O mnie</p>
+            <h2 class="heading-lg mb-3">Cześć, jestem Kinga</h2>
+          </div>
+          <div class="reveal" style="transition-delay: 0.1s;">
+            <p class="body-lg text-muted mb-4">Pomagam mentorkom, trenerkom i właścicielkom marek osobistych odzyskać czas i uporządkować procesy sprzedażowe.</p>
+          </div>
+          <div class="reveal" style="transition-delay: 0.15s;">
+            <p class="body-md text-muted mb-3">Działam jako Twój SDR (Sales Development Representative) oraz OBM (Online Business Manager). Nie tylko przejmuję na siebie kontakt z klientem, ale buduję i usprawniam systemy pracy. Sprawiam, że żadne zapytanie nie zostaje bez odpowiedzi, follow-upy domykają sprzedaż, a Ty włączasz się w procesy tylko tam, gdzie to naprawdę konieczne.</p>
+          </div>
+          <div class="reveal about-highlight" style="transition-delay: 0.2s;">
+            <h3 class="heading-md mb-2" style="font-size: 1.15rem;">Wsparcie oparte na empatii i precyzji</h3>
+            <p class="body-md text-muted">Jestem entuzjastką organizacji. Wierzę, że każdy kreatywny biznes potrzebuje solidnych fundamentów, by móc wzlecieć. Moje „supermoce" to przede wszystkim umiejętność słuchania i wyłapywania tego, czego potrzebują Twoi klienci.</p>
+          </div>
+          <div class="reveal" style="transition-delay: 0.25s;">
+            <p class="body-md text-muted mb-3">Zanim zajęłam się wspieraniem biznesów online, pracowałam jako HR Coordinator. To właśnie tam nauczyłam się, jak łączyć świat twardych procesów z ludzkim podejściem, empatią i zrozumieniem drugiej osoby.</p>
+          </div>
+          <div class="reveal" style="transition-delay: 0.3s;">
+            <p class="body-md text-muted">Prywatnie? Biegam. Biegi długodystansowe nauczyły mnie, że w biznesie — tak samo jak w sporcie — liczy się żelazna konsekwencja, dyscyplina, odpowiednie rozłożenie sił i długofalowa strategia. Nie jestem sprinterką. Jestem Twoją partnerką na długie dystanse.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <!-- ═══════════ SDR SERVICES ═══════════ -->
+  <section class="section section-dark-2" id="uslugi">
+    <div class="container">
+      <div class="reveal text-center mb-8">
+        <p class="section-label">Usługi SDR</p>
+        <h2 class="heading-lg mb-2">Obsługa klienta i wsparcie sprzedaży premium</h2>
+        <p class="heading-md italic text-blush" style="font-weight: 300;">Zamiast leadów — klienci idealni</p>
+      </div>
+      <div class="reveal mb-6">
+        <p class="body-md text-muted text-center max-w-lg mx-auto">Moja praca to nie jest zwykłe „odpisywanie na wiadomości". To kompleksowe zarządzanie ścieżką Twojego klienta: od pierwszego kontaktu, aż po obsługę premium.</p>
+      </div>
+
+      <div class="services-grid reveal-stagger">
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <h3>Kwalifikacja i umawianie konsultacji</h3>
+          <p class="body-sm text-muted">Przejmuję pełną opiekę nad Twoimi zapytaniami — DM na Instagramie, e-maile, formularze. Weryfikuję, czy potencjalny klient pasuje do Twojej oferty i jest gotowy na inwestycję. Zapełniam Twój kalendarz osobami „ogrzanymi".</p>
+          <div class="service-effect">Nie tracisz czasu na rozmowy z przypadkowymi osobami. Trafiają do Ciebie tylko konkrety.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-number">02</div>
+          <h3>Systematyczny Follow-up i Opieka</h3>
+          <p class="body-sm text-muted">Wprowadzam procedury kontaktu — wiadomości, przypomnienia, struktura zadań — dzięki którym domykamy sprzedaż tam, gdzie klient potrzebował chwili na zastanowienie.</p>
+          <div class="service-effect">Klienci, którzy „mieli się odezwać", faktycznie wracają i kupują. Twój biznes działa profesjonalnie.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <h3>Optymalizacja Procesów i Baza Wiedzy</h3>
+          <p class="body-sm text-muted">Porządkuję sposób pracy: notatki, zadania dla zespołu, komunikację. Zbieram i analizuję powtarzające się obiekcje, blokady i pytania Twojej grupy docelowej.</p>
+          <div class="service-effect">Zyskujesz absolutny spokój i jasne zasady. Dokładnie wiesz, co poprawić w ofercie.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-number">04</div>
+          <h3>Wsparcie Kampanii i Sprzedaży Po-Webinarowej</h3>
+          <p class="body-sm text-muted">Webinar świetnie buduje zaufanie, ale przy usługach high-ticket to człowiek domyka sprzedaż! Obsługuję pytania, usuwam bariery decyzyjne i odzyskuję „porzucone koszyki".</p>
+          <div class="service-effect">Zmaksymalizowane zyski z każdej kampanii i pełne wsparcie w najbardziej intensywnym czasie.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ OBM ═══════════ -->
+  <section class="section" id="obm">
+    <div class="container">
+      <div class="reveal text-center mb-6">
+        <p class="section-label">Wsparcie OBM</p>
+        <h2 class="heading-lg mb-3">Twój biznes rośnie tak szybko, że zaplecze nie nadąża?</h2>
+        <p class="body-md text-muted max-w-lg mx-auto">Potrzebujesz „prawej ręki" — kogoś, kto zna psychologię klienta, ale także doskonale wie, jak od środka naoliwić tryby Twojej marki online.</p>
+      </div>
+
+      <div class="reveal mb-4">
+        <p class="heading-md text-center text-gold italic font-display">Jako Twoja Online Business Manager przejmę:</p>
+      </div>
+
+      <div class="obm-grid reveal-stagger">
+        <div class="obm-card">
+          <svg class="obm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          <h3>Projektowanie procesów</h3>
+          <p class="body-sm text-muted">Przestaniesz gasić pożary i zaczniesz zarządzać swoim imperium.</p>
+        </div>
+        <div class="obm-card">
+          <svg class="obm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <h3>Koordynacja projektów</h3>
+          <p class="body-sm text-muted">Od harmonogramu premier, po opiekę nad programami high-ticket.</p>
+        </div>
+        <div class="obm-card">
+          <svg class="obm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          <h3>Zarządzanie zadaniami</h3>
+          <p class="body-sm text-muted">Pilnuję terminów i dbam o idealny przepływ informacji w zespole.</p>
+        </div>
+        <div class="obm-card">
+          <svg class="obm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>
+          <h3>Opieka nad klientem</h3>
+          <p class="body-sm text-muted">Klient od pierwszego kontaktu czuje jakość premium na każdym kroku.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <!-- ═══════════ TESTIMONIALS ═══════════ -->
+  <section class="section section-cream" id="opinie">
+    <div class="container-sm">
+      <div class="reveal text-center mb-8">
+        <p class="section-label">Zaufanie</p>
+        <h2 class="heading-lg mb-3">Dlaczego warto mi zaufać?</h2>
+        <p class="body-lg max-w-lg mx-auto" style="color: var(--dark-3);">Szukam długofalowych współprac, ponieważ uwielbiam widzieć, jak moja praca przynosi mierzalne efekty biznesowe. Moja praca to nie koszt — to inwestycja, która realnie się zwraca.</p>
+      </div>
+
+      <div class="reveal mb-6">
+        <div class="case-study">
+          <p class="body-sm" style="color: var(--stone); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 500;">Case Study</p>
+          <p class="body-md mb-3" style="color: var(--dark-3);">W ramach zaledwie <strong>20-godzinnej współpracy</strong> i dzięki poukładanemu procesowi weryfikacji klientów, pomogłam mojej klientce pozyskać <strong>3 nowe sprzedaże programu High-Ticket</strong>:</p>
+          <div class="case-number">45 000 zł</div>
+          <p class="body-sm mt-1" style="color: var(--stone);">łączny przychód</p>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay: 0.15s;">
+        <div class="testimonial-block" style="background: rgba(200, 165, 92, 0.03); border-color: rgba(200, 165, 92, 0.12);">
+          <span class="testimonial-quote-mark">"</span>
+          <div style="position: relative; z-index: 1; padding-top: 1.5rem;">
+            <p class="body-md mb-3" style="color: var(--dark-3);">Współpraca z Kingą od samego początku była naprawdę świetna. Kinga dołączyła do mojego zespołu jako osoba odpowiedzialna za obsługę klienta — od początku zależało mi na bardzo wysokiej jakości kontaktu.</p>
+
+            <div class="testimonial-highlight" style="color: var(--dark); border-left-color: var(--gold);">
+              Dzięki niej jako osoba prowadząca biznes mam ogromne poczucie zaufania i spokoju, wiedząc, że moi klienci są w naprawdę dobrych rękach.
+            </div>
+
+            <p class="body-md mb-3" style="color: var(--dark-3);">To, co szczególnie cenię we współpracy z Kingą, to jej wysoka empatia połączona z dużą zadaniowością i odpowiedzialnością. Zawsze jest uważna na potrzeby klientów, a jednocześnie bardzo konkretna i skuteczna w działaniu.</p>
+
+            <p class="body-md mb-4" style="color: var(--dark-3);">Z pełnym przekonaniem polecam współpracę z Kingą każdemu, kto chce mieć poczucie, że jego biznes, a przede wszystkim klienci, są otoczeni profesjonalną i troskliwą opieką.</p>
+
+            <div style="display: flex; align-items: center; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid rgba(200, 165, 92, 0.15);">
+              <div style="width: 44px; height: 44px; background: var(--gold-dim); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.25rem; color: var(--gold);">K</div>
+              <div>
+                <p style="font-weight: 600; font-size: 0.875rem; color: var(--dark);">Kamila Surma</p>
+                <p style="font-size: 0.75rem; color: var(--stone);">@kamilasurma</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <!-- ═══════════ PRICING ═══════════ -->
+  <section class="section" id="cennik">
+    <div class="container-sm">
+      <div class="reveal text-center mb-8">
+        <p class="section-label">Inwestycja</p>
+        <h2 class="heading-lg mb-3">Inwestycja w Twój spokój</h2>
+        <p class="body-md text-muted max-w-md mx-auto">Wybierz pakiet dopasowany do obecnej skali Twojego biznesu.</p>
+      </div>
+
+      <div class="reveal mb-2">
+        <p class="body-sm text-stone text-center" style="letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;">Wsparcie SDR / Obsługa Klienta Premium</p>
+      </div>
+
+      <div class="pricing-grid reveal-stagger mb-4">
+        <div class="price-card">
+          <div class="price-hours">10 godzin</div>
+          <div class="price-amount">950 zł</div>
+          <div class="price-unit">netto</div>
+        </div>
+        <div class="price-card featured">
+          <div class="price-featured-label">Bestseller</div>
+          <div class="price-hours" style="margin-top: 0.5rem;">20 godzin</div>
+          <div class="price-amount">1 800 zł</div>
+          <div class="price-unit">netto</div>
+        </div>
+        <div class="price-card">
+          <div class="price-hours">40 godzin</div>
+          <div class="price-amount">3 400 zł</div>
+          <div class="price-unit">netto</div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="obm-price-card">
+          <p class="body-sm text-stone mb-1" style="letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;">Online Business Manager</p>
+          <p class="heading-md text-cream mb-1">Indywidualna wycena</p>
+          <p class="body-md text-muted">w zależności od zakresu projektów (od <span class="text-gold" style="font-weight: 500;">1 500 zł netto</span>)</p>
+        </div>
+      </div>
+
+      <div class="reveal text-center mt-3">
+        <p class="body-sm text-muted">Wystawiam faktury VAT</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-rule"></div>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="section section-dark-2" id="kontakt">
+    <div class="container-sm">
+      <div class="reveal text-center mb-8">
+        <p class="section-label">Twój kolejny krok</p>
+        <h2 class="heading-lg mb-3">Poczuj ulgę i zrób miejsce na rozwój</h2>
+        <p class="body-lg text-muted max-w-lg mx-auto">Jeśli czujesz, że to jest to, czego od dawna potrzebujesz w swoim biznesie — nie odkładaj tego na później.</p>
+      </div>
+
+      <div class="steps-grid reveal-stagger mb-8">
+        <div class="step-item">
+          <div class="step-number">01</div>
+          <h3>Rozmowa</h3>
+          <p class="body-sm text-muted">Umów się na krótką, niezobowiązującą rozmowę wideo.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">02</div>
+          <h3>Poznajmy się</h3>
+          <p class="body-sm text-muted">Sprawdzimy, czy nadajemy na tych samych falach i czy to dobry moment na współpracę.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">03</div>
+          <h3>Plan działania</h3>
+          <p class="body-sm text-muted">Stwórzmy plan, jak mogę uwolnić Twój czas i wesprzeć Twój biznes.</p>
+        </div>
+      </div>
+
+      <div class="reveal text-center mb-6">
+        <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" rel="noopener" class="btn-gold">
+          Umów się na bezpłatną rozmowę
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="reveal text-center">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+          <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: var(--stone-light); text-decoration: none; font-size: 0.875rem; transition: color 0.3s ease;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--stone-light)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="18" cy="6" r="1.5" fill="currentColor"/></svg>
+            Instagram
+          </a>
+          <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: var(--stone-light); text-decoration: none; font-size: 0.875rem; transition: color 0.3s ease;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--stone-light)'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-logo">Femme Vision Kinga Maryniak</p>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Email</a></li>
+          <li><a href="#">Polityka prywatności</a></li>
+        </ul>
+        <p style="font-size: 0.6875rem; color: var(--stone);">© 2025 Wszelkie prawa zastrzeżone.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

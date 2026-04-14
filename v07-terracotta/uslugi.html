@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usługi — Femme Vision Kinga Maryniak</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracotta: '#C67C4E',
+            'terracotta-deep': '#A85D3A',
+            olive: '#6B705C',
+            'olive-dark': '#3F4237',
+            cream: '#FFF8F0',
+            'warm-white': '#FFFDF7',
+            'dark-text': '#2C2418',
+          },
+          fontFamily: {
+            heading: ['"Libre Baskerville"', 'serif'],
+            body: ['"Raleway"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Raleway', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Libre Baskerville', serif; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+    body { animation: pageIn 0.5s ease-out; }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.35s ease; }
+    .mobile-menu.open { transform: translateX(0); }
+    .hamburger span { transition: all 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+    a { transition: color 0.25s ease, background-color 0.25s ease; }
+  </style>
+</head>
+<body class="bg-warm-white text-dark-text">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-warm-white/90 backdrop-blur-md border-b border-terracotta/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="index.html" class="font-heading text-lg text-terracotta-deep font-bold tracking-tight">Femme Vision</a>
+      <ul class="hidden md:flex items-center gap-8 font-body text-sm font-medium text-olive-dark">
+        <li><a href="index.html" class="hover:text-terracotta">Strona główna</a></li>
+        <li><a href="uslugi.html" class="text-terracotta-deep border-b-2 border-terracotta pb-0.5">Usługi</a></li>
+        <li><a href="o-mnie.html" class="hover:text-terracotta">O mnie</a></li>
+        <li><a href="kontakt.html" class="hover:text-terracotta">Kontakt</a></li>
+      </ul>
+      <button class="hamburger md:hidden flex flex-col gap-1.5 p-2" onclick="toggleMenu()" aria-label="Menu">
+        <span class="block w-6 h-0.5 bg-olive-dark"></span>
+        <span class="block w-6 h-0.5 bg-olive-dark"></span>
+        <span class="block w-6 h-0.5 bg-olive-dark"></span>
+      </button>
+    </div>
+    <div class="mobile-menu fixed top-0 right-0 h-full w-64 bg-cream shadow-2xl md:hidden z-50 flex flex-col pt-20 px-8 gap-6">
+      <button class="absolute top-5 right-5 text-olive-dark" onclick="toggleMenu()" aria-label="Zamknij menu">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+      <a href="index.html" class="font-body font-medium text-olive-dark hover:text-terracotta">Strona główna</a>
+      <a href="uslugi.html" class="font-body font-semibold text-terracotta-deep">Usługi</a>
+      <a href="o-mnie.html" class="font-body font-medium text-olive-dark hover:text-terracotta">O mnie</a>
+      <a href="kontakt.html" class="font-body font-medium text-olive-dark hover:text-terracotta">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="pt-16">
+
+    <!-- Breadcrumbs -->
+    <div class="bg-cream border-b border-terracotta/10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="text-sm text-olive-dark/60 flex items-center gap-2">
+          <a href="index.html" class="hover:text-terracotta transition-colors">Strona główna</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-terracotta-deep font-medium">Usługi</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- SDR SECTION -->
+    <section class="py-20 bg-warm-white relative overflow-hidden">
+      <!-- Olive branch decoration -->
+      <svg class="absolute top-8 right-0 w-56 h-56 text-olive/8 pointer-events-none" viewBox="0 0 200 200" fill="none">
+        <path d="M180 20 C160 40, 140 30, 120 50 C100 70, 110 90, 90 110" stroke="currentColor" stroke-width="2" fill="none"/>
+        <ellipse cx="120" cy="48" rx="8" ry="14" transform="rotate(-30 120 48)" fill="currentColor"/>
+        <ellipse cx="105" cy="65" rx="8" ry="14" transform="rotate(-50 105 65)" fill="currentColor"/>
+        <ellipse cx="95" cy="95" rx="8" ry="14" transform="rotate(-20 95 95)" fill="currentColor"/>
+        <ellipse cx="130" cy="35" rx="7" ry="12" transform="rotate(20 130 35)" fill="currentColor"/>
+      </svg>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="fade-in text-center mb-6">
+          <div class="inline-flex items-center gap-2 bg-terracotta/10 text-terracotta-deep text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+            <span class="material-symbols-outlined text-lg">diamond</span> SDR
+          </div>
+          <h1 class="font-heading text-3xl sm:text-4xl text-dark-text mb-4">Obsługa klienta i wsparcie sprzedaży premium</h1>
+          <p class="font-heading text-lg text-terracotta italic">Zamiast leadów — klienci idealni</p>
+        </div>
+
+        <div class="fade-in max-w-3xl mx-auto text-center mb-16">
+          <p class="text-olive-dark/80 leading-relaxed text-lg">
+            Moja praca to nie jest zwykłe „odpisywanie na wiadomości". To kompleksowe zarządzanie ścieżką Twojego klienta — od pierwszego zapytania, przez kwalifikację i&nbsp;follow-up, aż po umówienie konsultacji lub zamknięcie sprzedaży. Działam w&nbsp;Twoim imieniu, dbając o&nbsp;ton komunikacji, relację z&nbsp;klientem i&nbsp;skuteczność każdego kontaktu.
+          </p>
+        </div>
+
+        <!-- 4 SDR Cards -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+          <!-- Card 1 -->
+          <div class="fade-in bg-white border border-terracotta/15 rounded-2xl p-7 shadow-sm">
+            <div class="w-11 h-11 rounded-lg bg-terracotta/10 flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-terracotta">diamond</span>
+            </div>
+            <h3 class="font-heading text-lg text-dark-text mb-3">Kwalifikacja i umawianie konsultacji</h3>
+            <p class="text-olive-dark/70 leading-relaxed mb-4">
+              Odpisuję na wiadomości od potencjalnych klientek, prowadzę wstępną rozmowę, badam potrzeby i&nbsp;kwalifikuję leady. Osoby, które pasują do Twojej oferty, umawiam na konsultację — w&nbsp;Twoim kalendarzu, według Twoich zasad.
+            </p>
+            <div class="bg-cream/80 rounded-lg p-4 border-l-4 border-terracotta/40">
+              <p class="text-sm text-olive-dark/70"><span class="font-semibold text-terracotta-deep">Efekt dla Ciebie:</span> Nie tracisz czasu na rozmowy z&nbsp;przypadkowymi osobami. Na konsultację trafiają tylko osoby realnie zainteresowane i&nbsp;dopasowane do Twojej oferty.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="fade-in bg-white border border-terracotta/15 rounded-2xl p-7 shadow-sm">
+            <div class="w-11 h-11 rounded-lg bg-terracotta/10 flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-terracotta">autorenew</span>
+            </div>
+            <h3 class="font-heading text-lg text-dark-text mb-3">Systematyczny Follow-up i&nbsp;Opieka</h3>
+            <p class="text-olive-dark/70 leading-relaxed mb-4">
+              Wracam do osób, które nie odpowiedziały, przypominam o&nbsp;konsultacjach, wysyłam podsumowania po rozmowach. Dbam o&nbsp;to, żeby żaden lead nie „wypadł" z&nbsp;procesu — bez nachalności, z&nbsp;troską i&nbsp;profesjonalizmem.
+            </p>
+            <div class="bg-cream/80 rounded-lg p-4 border-l-4 border-terracotta/40">
+              <p class="text-sm text-olive-dark/70"><span class="font-semibold text-terracotta-deep">Efekt dla Ciebie:</span> Masz spokojną głowę, że nikt nie został pominięty, a&nbsp;Twoja sprzedaż dzieje się w&nbsp;sposób systematyczny i&nbsp;powtarzalny.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="fade-in bg-white border border-terracotta/15 rounded-2xl p-7 shadow-sm">
+            <div class="w-11 h-11 rounded-lg bg-olive/10 flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-olive">settings_suggest</span>
+            </div>
+            <h3 class="font-heading text-lg text-dark-text mb-3">Optymalizacja Procesów i&nbsp;Baza Wiedzy</h3>
+            <p class="text-olive-dark/70 leading-relaxed mb-4">
+              Tworzę i&nbsp;aktualizuję skrypty rozmów, szablony wiadomości i&nbsp;bazę wiedzy o&nbsp;Twojej ofercie. Dzięki temu komunikacja z&nbsp;klientami jest spójna, profesjonalna i&nbsp;zgodna z&nbsp;Twoim tonem marki — nawet gdy to nie Ty odpisujesz.
+            </p>
+            <div class="bg-cream/80 rounded-lg p-4 border-l-4 border-olive/30">
+              <p class="text-sm text-olive-dark/70"><span class="font-semibold text-olive">Efekt dla Ciebie:</span> Twoja marka mówi jednym głosem, a&nbsp;procesy sprzedażowe działają sprawnie — nawet pod Twoją nieobecność.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="fade-in bg-white border border-terracotta/15 rounded-2xl p-7 shadow-sm">
+            <div class="w-11 h-11 rounded-lg bg-olive/10 flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-olive">trending_up</span>
+            </div>
+            <h3 class="font-heading text-lg text-dark-text mb-3">Wsparcie Kampanii i&nbsp;Sprzedaży Po-Webinarowej</h3>
+            <p class="text-olive-dark/70 leading-relaxed mb-4">
+              Podczas launchów i&nbsp;kampanii sprzedażowych obsługuję zwiększony ruch — odpowiadam na pytania, rozwiewam obiekcje, przypominam o&nbsp;terminach i&nbsp;zamykam sprzedaż. Działam szybko i&nbsp;skutecznie, gdy liczy się każda godzina.
+            </p>
+            <div class="bg-cream/80 rounded-lg p-4 border-l-4 border-olive/30">
+              <p class="text-sm text-olive-dark/70"><span class="font-semibold text-olive">Efekt dla Ciebie:</span> Twój launch działa jak dobrze naoliwiona maszyna, a&nbsp;Ty możesz skupić się na tworzeniu wartości — nie na gaszeniu pożarów.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBM SECTION -->
+    <section class="py-20 bg-cream relative overflow-hidden">
+      <!-- Olive branch decoration -->
+      <svg class="absolute bottom-0 left-0 w-48 h-48 text-olive/8 pointer-events-none" viewBox="0 0 200 200" fill="none">
+        <path d="M20 180 C40 160, 30 140, 50 120 C70 100, 90 110, 110 90" stroke="currentColor" stroke-width="2" fill="none"/>
+        <ellipse cx="48" cy="122" rx="8" ry="14" transform="rotate(30 48 122)" fill="currentColor"/>
+        <ellipse cx="65" cy="105" rx="8" ry="14" transform="rotate(50 65 105)" fill="currentColor"/>
+        <ellipse cx="95" cy="95" rx="8" ry="14" transform="rotate(20 95 95)" fill="currentColor"/>
+      </svg>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="fade-in text-center mb-6">
+          <div class="inline-flex items-center gap-2 bg-olive/10 text-olive-dark text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+            <span class="material-symbols-outlined text-lg">settings_suggest</span> OBM
+          </div>
+          <h2 class="font-heading text-2xl sm:text-3xl text-dark-text mb-4">Twój biznes rośnie tak szybko, że zaplecze nie nadąża?</h2>
+        </div>
+
+        <div class="fade-in max-w-3xl mx-auto mb-12">
+          <p class="text-olive-dark/80 leading-relaxed text-lg text-center mb-8">
+            Jeśli prowadzisz firmę online, masz zespół lub współpracowników i&nbsp;czujesz, że tracisz kontrolę nad operacjami — potrzebujesz kogoś, kto ogarnie to za Ciebie. Nie kolejnej asystentki do zadań, ale osoby, która myśli strategicznie, widzi całość i&nbsp;działa samodzielnie.
+          </p>
+
+          <div class="bg-white border border-olive/15 rounded-2xl p-8 shadow-sm">
+            <h3 class="font-heading text-lg text-dark-text mb-6">Jako Twoja Online Business Manager (OBM) przejmę:</h3>
+            <div class="space-y-5">
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-terracotta text-xl mt-0.5 shrink-0">check_circle</span>
+                <div>
+                  <p class="font-semibold text-dark-text mb-1">Zarządzanie procesami</p>
+                  <p class="text-olive-dark/70 text-sm leading-relaxed">Uporządkuję i&nbsp;zautomatyzuję procesy w&nbsp;Twoim biznesie — od onboardingu klientów po wewnętrzne procedury zespołu.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-terracotta text-xl mt-0.5 shrink-0">check_circle</span>
+                <div>
+                  <p class="font-semibold text-dark-text mb-1">Koordynacja projektów</p>
+                  <p class="text-olive-dark/70 text-sm leading-relaxed">Pilnuję terminów, deleguję zadania, komunikuję się z&nbsp;zespołem i&nbsp;podwykonawcami — żebyś Ty nie musiała.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-terracotta text-xl mt-0.5 shrink-0">check_circle</span>
+                <div>
+                  <p class="font-semibold text-dark-text mb-1">Delegowanie i&nbsp;nadzór nad zadaniami</p>
+                  <p class="text-olive-dark/70 text-sm leading-relaxed">Przejmuję kontrolę nad codziennymi operacjami, żebyś mogła wrócić do roli wizjonerki i&nbsp;liderki Twojej marki.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-terracotta text-xl mt-0.5 shrink-0">check_circle</span>
+                <div>
+                  <p class="font-semibold text-dark-text mb-1">Obsługa klienta i&nbsp;komunikacja</p>
+                  <p class="text-olive-dark/70 text-sm leading-relaxed">Dbam o&nbsp;doświadczenie Twoich klientów na każdym etapie — od pierwszego kontaktu po zakończenie współpracy.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in text-center">
+          <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-terracotta hover:bg-terracotta-deep text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-terracotta/25 transition-all hover:shadow-xl">
+            <span class="material-symbols-outlined text-xl">calendar_month</span>
+            Umów darmową konsultację
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-olive-dark text-cream/80 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <p class="font-heading text-lg text-cream mb-1">Femme Vision Kinga Maryniak</p>
+          <p class="text-sm text-cream/50">&copy; 2025 Wszelkie prawa zastrzeżone.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-6 text-sm">
+          <a href="#" class="hover:text-terracotta transition-colors inline-flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">photo_camera</span> Instagram
+          </a>
+          <a href="#" class="hover:text-terracotta transition-colors inline-flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">mail</span> Email
+          </a>
+          <a href="#" class="hover:text-terracotta transition-colors">Polityka prywatności</a>
+          <a href="#" class="hover:text-terracotta transition-colors">Regulamin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.mobile-menu').classList.toggle('open');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

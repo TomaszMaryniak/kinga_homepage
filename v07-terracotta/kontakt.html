@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt — Femme Vision Kinga Maryniak</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracotta: '#C67C4E',
+            'terracotta-deep': '#A85D3A',
+            olive: '#6B705C',
+            'olive-dark': '#3F4237',
+            cream: '#FFF8F0',
+            'warm-white': '#FFFDF7',
+            'dark-text': '#2C2418',
+          },
+          fontFamily: {
+            heading: ['"Libre Baskerville"', 'serif'],
+            body: ['"Raleway"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Raleway', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Libre Baskerville', serif; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+    body { animation: pageIn 0.5s ease-out; }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.35s ease; }
+    .mobile-menu.open { transform: translateX(0); }
+    .hamburger span { transition: all 0.3s ease; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+    a { transition: color 0.25s ease, background-color 0.25s ease; }
+  </style>
+</head>
+<body class="bg-warm-white text-dark-text">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-warm-white/90 backdrop-blur-md border-b border-terracotta/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="index.html" class="font-heading text-lg text-terracotta-deep font-bold tracking-tight">Femme Vision</a>
+      <ul class="hidden md:flex items-center gap-8 font-body text-sm font-medium text-olive-dark">
+        <li><a href="index.html" class="hover:text-terracotta">Strona główna</a></li>
+        <li><a href="uslugi.html" class="hover:text-terracotta">Usługi</a></li>
+        <li><a href="o-mnie.html" class="hover:text-terracotta">O mnie</a></li>
+        <li><a href="kontakt.html" class="text-terracotta-deep border-b-2 border-terracotta pb-0.5">Kontakt</a></li>
+      </ul>
+      <button class="hamburger md:hidden flex flex-col gap-1.5 p-2" onclick="toggleMenu()" aria-label="Menu">
+        <span class="block w-6 h-0.5 bg-olive-dark"></span>
+        <span class="block w-6 h-0.5 bg-olive-dark"></span>
+        <span class="block w-6 h-0.5 bg-olive-dark"></span>
+      </button>
+    </div>
+    <div class="mobile-menu fixed top-0 right-0 h-full w-64 bg-cream shadow-2xl md:hidden z-50 flex flex-col pt-20 px-8 gap-6">
+      <button class="absolute top-5 right-5 text-olive-dark" onclick="toggleMenu()" aria-label="Zamknij menu">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+      <a href="index.html" class="font-body font-medium text-olive-dark hover:text-terracotta">Strona główna</a>
+      <a href="uslugi.html" class="font-body font-medium text-olive-dark hover:text-terracotta">Usługi</a>
+      <a href="o-mnie.html" class="font-body font-medium text-olive-dark hover:text-terracotta">O mnie</a>
+      <a href="kontakt.html" class="font-body font-semibold text-terracotta-deep">Kontakt</a>
+    </div>
+  </nav>
+
+  <main class="pt-16">
+
+    <!-- Breadcrumbs -->
+    <div class="bg-cream border-b border-terracotta/10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="text-sm text-olive-dark/60 flex items-center gap-2">
+          <a href="index.html" class="hover:text-terracotta transition-colors">Strona główna</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-terracotta-deep font-medium">Kontakt</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <section class="py-20 bg-warm-white relative overflow-hidden">
+      <!-- Olive branch top right -->
+      <svg class="absolute top-8 right-0 w-52 h-52 text-olive/8 pointer-events-none" viewBox="0 0 200 200" fill="none">
+        <path d="M180 20 C160 40, 140 30, 120 50 C100 70, 110 90, 90 110" stroke="currentColor" stroke-width="2" fill="none"/>
+        <ellipse cx="120" cy="48" rx="8" ry="14" transform="rotate(-30 120 48)" fill="currentColor"/>
+        <ellipse cx="105" cy="65" rx="8" ry="14" transform="rotate(-50 105 65)" fill="currentColor"/>
+        <ellipse cx="95" cy="95" rx="8" ry="14" transform="rotate(-20 95 95)" fill="currentColor"/>
+        <ellipse cx="130" cy="35" rx="7" ry="12" transform="rotate(20 130 35)" fill="currentColor"/>
+      </svg>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="fade-in text-center mb-14">
+          <!-- Olive divider -->
+          <svg class="mx-auto mb-6 w-32 h-8 text-olive/30" viewBox="0 0 120 30" fill="none">
+            <path d="M10 15 Q30 5, 60 15 Q90 25, 110 15" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <ellipse cx="35" cy="10" rx="5" ry="9" transform="rotate(-20 35 10)" fill="currentColor"/>
+            <ellipse cx="55" cy="13" rx="5" ry="9" transform="rotate(10 55 13)" fill="currentColor"/>
+            <ellipse cx="75" cy="12" rx="5" ry="9" transform="rotate(-15 75 12)" fill="currentColor"/>
+            <ellipse cx="90" cy="17" rx="5" ry="9" transform="rotate(25 90 17)" fill="currentColor"/>
+          </svg>
+          <h1 class="font-heading text-3xl sm:text-4xl text-dark-text mb-4">Inwestycja w&nbsp;Twój spokój</h1>
+          <p class="text-olive-dark/70 max-w-xl mx-auto">Przejrzyste zasady współpracy. Bez ukrytych kosztów, bez zobowiązań na lata.</p>
+        </div>
+
+        <!-- SDR Pricing -->
+        <div class="fade-in mb-10">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-terracotta/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-terracotta">diamond</span>
+            </div>
+            <h2 class="font-heading text-xl text-dark-text">SDR — Obsługa klienta i wsparcie sprzedaży</h2>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-6">
+            <!-- 10h -->
+            <div class="bg-white border border-terracotta/15 rounded-2xl p-7 shadow-sm text-center">
+              <p class="text-sm font-semibold text-olive uppercase tracking-wider mb-3">Pakiet 10h</p>
+              <p class="font-heading text-3xl text-dark-text mb-1">950 zł</p>
+              <p class="text-sm text-olive-dark/50 mb-4">netto / miesiąc</p>
+              <p class="text-sm text-olive-dark/70">10 godzin miesięcznie</p>
+            </div>
+
+            <!-- 20h bestseller -->
+            <div class="relative bg-white border-2 border-terracotta rounded-2xl p-7 shadow-lg text-center">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-white text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">
+                Bestseller
+              </div>
+              <p class="text-sm font-semibold text-olive uppercase tracking-wider mb-3">Pakiet 20h</p>
+              <p class="font-heading text-3xl text-terracotta-deep mb-1">1 800 zł</p>
+              <p class="text-sm text-olive-dark/50 mb-4">netto / miesiąc</p>
+              <p class="text-sm text-olive-dark/70">20 godzin miesięcznie</p>
+            </div>
+
+            <!-- 40h -->
+            <div class="bg-white border border-terracotta/15 rounded-2xl p-7 shadow-sm text-center">
+              <p class="text-sm font-semibold text-olive uppercase tracking-wider mb-3">Pakiet 40h</p>
+              <p class="font-heading text-3xl text-dark-text mb-1">3 400 zł</p>
+              <p class="text-sm text-olive-dark/50 mb-4">netto / miesiąc</p>
+              <p class="text-sm text-olive-dark/70">40 godzin miesięcznie</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- OBM Pricing -->
+        <div class="fade-in mb-10">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-olive/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-olive">settings_suggest</span>
+            </div>
+            <h2 class="font-heading text-xl text-dark-text">OBM — Online Business Manager</h2>
+          </div>
+
+          <div class="max-w-sm">
+            <div class="bg-white border border-olive/15 rounded-2xl p-7 shadow-sm text-center">
+              <p class="text-sm font-semibold text-olive uppercase tracking-wider mb-3">Współpraca OBM</p>
+              <p class="font-heading text-3xl text-dark-text mb-1">od 1 500 zł</p>
+              <p class="text-sm text-olive-dark/50 mb-4">netto / miesiąc</p>
+              <p class="text-sm text-olive-dark/70">Zakres ustalany indywidualnie</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in flex items-center gap-2 text-sm text-olive-dark/60 mb-0">
+          <span class="material-symbols-outlined text-lg">receipt_long</span>
+          Wystawiam faktury VAT.
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA + 3 STEPS -->
+    <section class="py-20 bg-cream relative overflow-hidden">
+      <!-- Olive branch bottom left -->
+      <svg class="absolute bottom-0 left-0 w-44 h-44 text-olive/8 pointer-events-none" viewBox="0 0 180 180" fill="none">
+        <path d="M15 165 C35 145, 25 125, 50 105 C70 85, 85 95, 100 75" stroke="currentColor" stroke-width="2" fill="none"/>
+        <ellipse cx="48" cy="107" rx="7" ry="13" transform="rotate(30 48 107)" fill="currentColor"/>
+        <ellipse cx="65" cy="90" rx="7" ry="13" transform="rotate(50 65 90)" fill="currentColor"/>
+        <ellipse cx="88" cy="80" rx="7" ry="13" transform="rotate(15 88 80)" fill="currentColor"/>
+        <ellipse cx="30" cy="138" rx="6" ry="11" transform="rotate(-20 30 138)" fill="currentColor"/>
+      </svg>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="fade-in text-center mb-14">
+          <h2 class="font-heading text-2xl sm:text-3xl text-dark-text mb-4">Poczuj ulgę i&nbsp;zrób miejsce na rozwój</h2>
+          <p class="text-olive-dark/70 max-w-xl mx-auto">Wystarczą trzy proste kroki, żebyśmy mogły zacząć współpracę.</p>
+        </div>
+
+        <!-- 3 Steps -->
+        <div class="grid sm:grid-cols-3 gap-8 mb-14">
+          <div class="fade-in text-center">
+            <div class="w-14 h-14 rounded-full bg-terracotta/10 border-2 border-terracotta/30 flex items-center justify-center mx-auto mb-5">
+              <span class="font-heading text-xl text-terracotta-deep">1</span>
+            </div>
+            <h3 class="font-heading text-base text-dark-text mb-2">Umów konsultację</h3>
+            <p class="text-sm text-olive-dark/70 leading-relaxed">Wybierz wygodny termin w&nbsp;moim kalendarzu. Spotkanie trwa ok. 30&nbsp;minut i&nbsp;jest całkowicie bezpłatne.</p>
+          </div>
+          <div class="fade-in text-center">
+            <div class="w-14 h-14 rounded-full bg-terracotta/10 border-2 border-terracotta/30 flex items-center justify-center mx-auto mb-5">
+              <span class="font-heading text-xl text-terracotta-deep">2</span>
+            </div>
+            <h3 class="font-heading text-base text-dark-text mb-2">Porozmawiajmy</h3>
+            <p class="text-sm text-olive-dark/70 leading-relaxed">Opowiesz mi o&nbsp;swoim biznesie, wyzwaniach i&nbsp;celach. Razem ustalimy, jak mogę Ci najlepiej pomóc.</p>
+          </div>
+          <div class="fade-in text-center">
+            <div class="w-14 h-14 rounded-full bg-terracotta/10 border-2 border-terracotta/30 flex items-center justify-center mx-auto mb-5">
+              <span class="font-heading text-xl text-terracotta-deep">3</span>
+            </div>
+            <h3 class="font-heading text-base text-dark-text mb-2">Odetchnij</h3>
+            <p class="text-sm text-olive-dark/70 leading-relaxed">Przejmę operacje, a&nbsp;Ty wrócisz do strategicznego rozwijania swojej marki — bez stresu i&nbsp;chaosu.</p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="fade-in text-center mb-14">
+          <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-terracotta hover:bg-terracotta-deep text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-terracotta/25 transition-all hover:shadow-xl">
+            <span class="material-symbols-outlined text-xl">calendar_month</span>
+            Umów darmową konsultację
+          </a>
+        </div>
+
+        <!-- Contact links -->
+        <div class="fade-in flex flex-col sm:flex-row items-center justify-center gap-6 text-olive-dark/70">
+          <a href="#" class="inline-flex items-center gap-2 hover:text-terracotta transition-colors">
+            <span class="material-symbols-outlined text-xl">photo_camera</span>
+            Instagram
+          </a>
+          <span class="hidden sm:inline text-olive/30">|</span>
+          <a href="#" class="inline-flex items-center gap-2 hover:text-terracotta transition-colors">
+            <span class="material-symbols-outlined text-xl">mail</span>
+            Email
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-olive-dark text-cream/80 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <p class="font-heading text-lg text-cream mb-1">Femme Vision Kinga Maryniak</p>
+          <p class="text-sm text-cream/50">&copy; 2025 Wszelkie prawa zastrzeżone.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-6 text-sm">
+          <a href="#" class="hover:text-terracotta transition-colors inline-flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">photo_camera</span> Instagram
+          </a>
+          <a href="#" class="hover:text-terracotta transition-colors inline-flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">mail</span> Email
+          </a>
+          <a href="#" class="hover:text-terracotta transition-colors">Polityka prywatności</a>
+          <a href="#" class="hover:text-terracotta transition-colors">Regulamin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.mobile-menu').classList.toggle('open');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

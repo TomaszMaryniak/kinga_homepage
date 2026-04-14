@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usługi — Femme Vision Kinga Maryniak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'euc': '#8B9D83',
+                        'euc-deep': '#6B7F63',
+                        'euc-off': '#F9FAF8',
+                        'euc-wood': '#D4A574',
+                        'euc-wood-dark': '#B8895A',
+                        'euc-dark': '#2B2B2B',
+                        'euc-light': '#E8EBE6',
+                    },
+                    fontFamily: {
+                        'serif': ['"DM Serif Display"', 'serif'],
+                        'sans': ['"Figtree"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .mobile-menu.open { max-height: 400px; }
+    </style>
+</head>
+<body class="bg-white text-euc-dark font-sans antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm z-50 border-b border-euc-light">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-serif text-xl text-euc-deep tracking-wide">Femme Vision</a>
+            <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-euc-dark/70">
+                <li><a href="index.html" class="hover:text-euc-deep transition">Start</a></li>
+                <li><a href="uslugi.html" class="hover:text-euc-deep transition text-euc-deep">Usługi</a></li>
+                <li><a href="o-mnie.html" class="hover:text-euc-deep transition">O mnie</a></li>
+                <li><a href="kontakt.html" class="hover:text-euc-deep transition">Kontakt</a></li>
+                <li><a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" class="ml-2 px-5 py-2 bg-euc text-white rounded-full text-sm hover:bg-euc-deep transition">Umów rozmowę</a></li>
+            </ul>
+            <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+                <span class="block w-6 h-0.5 bg-euc-dark transition-all"></span>
+                <span class="block w-6 h-0.5 bg-euc-dark transition-all"></span>
+                <span class="block w-6 h-0.5 bg-euc-dark transition-all"></span>
+            </button>
+        </div>
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t border-euc-light">
+            <ul class="flex flex-col gap-1 px-6 py-4 text-sm font-medium text-euc-dark/70">
+                <li><a href="index.html" class="block py-2 hover:text-euc-deep transition">Start</a></li>
+                <li><a href="uslugi.html" class="block py-2 text-euc-deep">Usługi</a></li>
+                <li><a href="o-mnie.html" class="block py-2 hover:text-euc-deep transition">O mnie</a></li>
+                <li><a href="kontakt.html" class="block py-2 hover:text-euc-deep transition">Kontakt</a></li>
+                <li><a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" class="inline-block mt-2 px-5 py-2 bg-euc text-white rounded-full text-sm hover:bg-euc-deep transition">Umów rozmowę</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="relative pt-28 md:pt-36 pb-16 md:pb-20 bg-euc-off overflow-hidden">
+        <svg class="absolute top-10 right-0 w-56 md:w-80 opacity-[0.08]" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="200" y1="0" x2="200" y2="600" stroke="#8B9D83" stroke-width="2"/>
+            <ellipse cx="160" cy="80" rx="30" ry="18" transform="rotate(-30 160 80)" fill="#8B9D83"/>
+            <ellipse cx="240" cy="130" rx="30" ry="18" transform="rotate(30 240 130)" fill="#8B9D83"/>
+            <ellipse cx="155" cy="190" rx="28" ry="16" transform="rotate(-25 155 190)" fill="#8B9D83"/>
+            <ellipse cx="245" cy="250" rx="32" ry="17" transform="rotate(25 245 250)" fill="#8B9D83"/>
+            <ellipse cx="158" cy="310" rx="26" ry="15" transform="rotate(-30 158 310)" fill="#8B9D83"/>
+            <ellipse cx="242" cy="370" rx="28" ry="16" transform="rotate(28 242 370)" fill="#8B9D83"/>
+        </svg>
+        <div class="max-w-4xl mx-auto px-6 relative z-10 fade-in">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-euc mb-4">Oferta</p>
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-euc-dark leading-tight mb-6">
+                Obsługa klienta i wsparcie sprzedaży <span class="text-euc-deep italic">premium</span>
+            </h1>
+            <p class="font-serif italic text-2xl text-euc-wood-dark mb-6">Zamiast leadów – klienci idealni</p>
+            <p class="text-lg text-euc-dark/70 leading-relaxed max-w-3xl">
+                Moja praca to nie jest zwykłe „odpisywanie na wiadomości". To kompleksowe zarządzanie ścieżką Twojego klienta: od pierwszego kontaktu, poprzez pomoc w podjęciu decyzji o zakupie, formalności zakupowe, aż po kompleksową obsługę premium.
+            </p>
+        </div>
+    </section>
+
+    <!-- SDR CARDS -->
+    <section class="py-20 md:py-28 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="fade-in p-8 md:p-10 rounded-2xl bg-euc-off border border-euc-light hover:border-euc/40 transition">
+                    <div class="w-14 h-14 rounded-xl bg-euc/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-euc-deep text-3xl">diamond</span>
+                    </div>
+                    <h3 class="font-serif text-2xl text-euc-dark mb-4">Kwalifikacja i umawianie konsultacji</h3>
+                    <p class="text-euc-dark/70 leading-relaxed mb-6">
+                        Przejmuję pełną opiekę nad Twoimi zapytaniami (DM na Instagramie, e-maile, formularze). Weryfikuję, czy potencjalny klient pasuje do Twojej oferty i jest gotowy na inwestycję. Zapełniam Twój kalendarz osobami „ogrzanymi".
+                    </p>
+                    <div class="p-5 rounded-xl bg-euc-wood/10 border-l-4 border-euc-wood">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-euc-wood-dark mb-2">Efekt dla Ciebie</p>
+                        <p class="text-sm text-euc-dark/80 leading-relaxed">Nie tracisz czasu na rozmowy z przypadkowymi osobami. Od razu widzisz, ile wartościowych konsultacji masz zaplanowanych na dany tydzień. Trafiają do Ciebie tylko konkrety.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="fade-in p-8 md:p-10 rounded-2xl bg-euc-off border border-euc-light hover:border-euc/40 transition">
+                    <div class="w-14 h-14 rounded-xl bg-euc/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-euc-deep text-3xl">autorenew</span>
+                    </div>
+                    <h3 class="font-serif text-2xl text-euc-dark mb-4">Systematyczny Follow-up i Opieka</h3>
+                    <p class="text-euc-dark/70 leading-relaxed mb-6">
+                        Wprowadzam procedury kontaktu (wiadomości, przypomnienia, struktura zadań), dzięki którym domykamy sprzedaż tam, gdzie klient potrzebował chwili na zastanowienie. Pilnuję, by każdy czuł się zaopiekowany od pierwszej sekundy.
+                    </p>
+                    <div class="p-5 rounded-xl bg-euc-wood/10 border-l-4 border-euc-wood">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-euc-wood-dark mb-2">Efekt dla Ciebie</p>
+                        <p class="text-sm text-euc-dark/80 leading-relaxed">Klienci, którzy „mieli się odezwać", faktycznie wracają i kupują. Twój biznes działa profesjonalnie, a odbiorcy czują jakość premium – bez chaosu i niedopowiedzeń.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="fade-in p-8 md:p-10 rounded-2xl bg-euc-off border border-euc-light hover:border-euc/40 transition">
+                    <div class="w-14 h-14 rounded-xl bg-euc/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-euc-deep text-3xl">settings_suggest</span>
+                    </div>
+                    <h3 class="font-serif text-2xl text-euc-dark mb-4">Optymalizacja Procesów i Baza Wiedzy</h3>
+                    <p class="text-euc-dark/70 leading-relaxed mb-6">
+                        Porządkuję sposób pracy: notatki, zadania dla zespołu, komunikację. Zbieram i analizuję powtarzające się obiekcje, blokady i pytania Twojej grupy docelowej.
+                    </p>
+                    <div class="p-5 rounded-xl bg-euc-wood/10 border-l-4 border-euc-wood">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-euc-wood-dark mb-2">Efekt dla Ciebie</p>
+                        <p class="text-sm text-euc-dark/80 leading-relaxed">Zyskujesz absolutny spokój i jasne zasady. Wiesz, co się dzieje, ale nie musisz wszystkiego pilnować. Dokładnie wiesz też, co poprawić w ofercie, by sprzedawać jeszcze łatwiej.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="fade-in p-8 md:p-10 rounded-2xl bg-euc-off border border-euc-light hover:border-euc/40 transition">
+                    <div class="w-14 h-14 rounded-xl bg-euc/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-euc-deep text-3xl">trending_up</span>
+                    </div>
+                    <h3 class="font-serif text-2xl text-euc-dark mb-4">Wsparcie Kampanii i Sprzedaży Po-Webinarowej</h3>
+                    <p class="text-euc-dark/70 leading-relaxed mb-6">
+                        Webinar świetnie buduje zaufanie, ale przy usługach high-ticket to człowiek domyka sprzedaż! Obsługuję pytania podczas okienek sprzedażowych, usuwam bariery decyzyjne w DM-ach i odzyskuję „porzucone koszyki".
+                    </p>
+                    <div class="p-5 rounded-xl bg-euc-wood/10 border-l-4 border-euc-wood">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-euc-wood-dark mb-2">Efekt dla Ciebie</p>
+                        <p class="text-sm text-euc-dark/80 leading-relaxed">Zmaksymalizowane zyski z każdej przeprowadzonej kampanii i pełne wsparcie w najbardziej intensywnym czasie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OBM -->
+    <section class="py-20 md:py-28 bg-euc-off relative overflow-hidden">
+        <svg class="absolute bottom-0 right-0 w-56 md:w-80 opacity-[0.07]" viewBox="0 0 300 500" fill="none">
+            <line x1="150" y1="0" x2="150" y2="500" stroke="#6B7F63" stroke-width="2"/>
+            <ellipse cx="115" cy="60" rx="25" ry="14" transform="rotate(-35 115 60)" fill="#6B7F63"/>
+            <ellipse cx="185" cy="120" rx="25" ry="14" transform="rotate(35 185 120)" fill="#6B7F63"/>
+            <ellipse cx="110" cy="180" rx="22" ry="13" transform="rotate(-30 110 180)" fill="#6B7F63"/>
+            <ellipse cx="190" cy="240" rx="22" ry="13" transform="rotate(30 190 240)" fill="#6B7F63"/>
+            <ellipse cx="115" cy="300" rx="20" ry="12" transform="rotate(-25 115 300)" fill="#6B7F63"/>
+            <ellipse cx="185" cy="360" rx="20" ry="12" transform="rotate(25 185 360)" fill="#6B7F63"/>
+        </svg>
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="fade-in mb-12">
+                <p class="text-sm font-semibold tracking-[0.2em] uppercase text-euc-wood-dark mb-4">Wsparcie OBM</p>
+                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-euc-dark leading-tight mb-8">
+                    Twój biznes rośnie tak szybko, że zaplecze nie <span class="text-euc-deep italic">nadąża</span>?
+                </h2>
+                <p class="text-lg text-euc-dark/70 leading-relaxed">
+                    Wiesz, że to ten moment. Nie chcesz już dłużej dźwigać wszystkiego na swoich barkach. Czujesz, że by iść naprzód i rozwijać potencjał swojego biznesu, potrzebujesz „prawej ręki" – kogoś, kto zna psychologię klienta, ale także doskonale wie, jak od środka naoliwić tryby Twojej marki online.
+                </p>
+            </div>
+
+            <div class="fade-in">
+                <p class="font-serif italic text-xl text-euc-deep mb-8">Jako Twoja Online Business Manager (OBM) przejmę:</p>
+                <div class="space-y-5">
+                    <div class="flex items-start gap-5 p-6 rounded-xl bg-white border border-euc-light">
+                        <span class="material-symbols-outlined text-euc-wood text-2xl mt-0.5 shrink-0">account_tree</span>
+                        <div>
+                            <p class="font-semibold text-euc-dark mb-1">Projektowanie i porządkowanie procesów</p>
+                            <p class="text-sm text-euc-dark/70 leading-relaxed">Abyś przestała gasić pożary, a zaczęła zarządzać swoim imperium i z sukcesem je skalować.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 p-6 rounded-xl bg-white border border-euc-light">
+                        <span class="material-symbols-outlined text-euc-wood text-2xl mt-0.5 shrink-0">calendar_month</span>
+                        <div>
+                            <p class="font-semibold text-euc-dark mb-1">Kompleksowa koordynacja projektów</p>
+                            <p class="text-sm text-euc-dark/70 leading-relaxed">Od harmonogramu premier, po opiekę nad Twoimi programami high-ticket.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 p-6 rounded-xl bg-white border border-euc-light">
+                        <span class="material-symbols-outlined text-euc-wood text-2xl mt-0.5 shrink-0">task_alt</span>
+                        <div>
+                            <p class="font-semibold text-euc-dark mb-1">Zarządzanie realizacją zadań</p>
+                            <p class="text-sm text-euc-dark/70 leading-relaxed">Pilnuję terminów i dbam o idealny przepływ informacji w zespole.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5 p-6 rounded-xl bg-white border border-euc-light">
+                        <span class="material-symbols-outlined text-euc-wood text-2xl mt-0.5 shrink-0">workspace_premium</span>
+                        <div>
+                            <p class="font-semibold text-euc-dark mb-1">Organizacja opieki nad klientem</p>
+                            <p class="text-sm text-euc-dark/70 leading-relaxed">Ustawiam zaplecze tak, by klient od pierwszego kontaktu z marką czuł jakość premium na każdym możliwym kroku.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 md:py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-6 text-center fade-in">
+            <h2 class="font-serif text-3xl md:text-4xl text-euc-dark mb-6">Porozmawiajmy o Twoim biznesie</h2>
+            <p class="text-euc-dark/60 mb-10 text-lg leading-relaxed">Dowiedz się więcej o mnie i zobacz, jak współpraca może wyglądać w praktyce.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="o-mnie.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-euc text-euc-deep rounded-full text-base font-medium hover:bg-euc hover:text-white transition">
+                    <span class="material-symbols-outlined text-xl">person</span>
+                    Poznaj mnie
+                </a>
+                <a href="https://calendar.app.google/SgwkkR6YrpGz9JnGA" target="_blank" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-euc text-white rounded-full text-base font-medium hover:bg-euc-deep transition shadow-lg shadow-euc/20">
+                    <span class="material-symbols-outlined text-xl">calendar_month</span>
+                    Umów darmową rozmowę
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-euc-dark text-white/60">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-serif text-lg text-white/90 mb-1">Femme Vision Kinga Maryniak</p>
+                    <p class="text-sm">&copy; 2025 Wszelkie prawa zastrzeżone.</p>
+                </div>
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="#" class="hover:text-white transition flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">photo_camera</span>Instagram</a>
+                    <a href="#" class="hover:text-white transition flex items-center gap-1.5"><span class="material-symbols-outlined text-lg">mail</span>Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

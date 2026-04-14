@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html class="light" lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Femme Vision Kinga Maryniak | OBM &amp; SDR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-primary-container": "#525251",
+          "error": "#9f403d",
+          "primary": "#5f5e5e",
+          "on-tertiary-fixed": "#2c4535",
+          "secondary-fixed": "#e1e3e3",
+          "surface-container-low": "#f6f3ee",
+          "on-secondary-fixed": "#3c4040",
+          "tertiary-fixed-dim": "#c0e0ca",
+          "on-error-container": "#752121",
+          "inverse-primary": "#ffffff",
+          "on-primary-fixed": "#3f3f3f",
+          "primary-dim": "#535252",
+          "background": "#fcf9f5",
+          "on-tertiary-fixed-variant": "#4a7258",
+          "secondary-fixed-dim": "#d2d5d5",
+          "secondary": "#5c6060",
+          "inverse-on-surface": "#9e9d99",
+          "surface": "#fcf9f5",
+          "primary-fixed-dim": "#d6d4d3",
+          "on-error": "#fff7f6",
+          "surface-tint": "#5f5e5e",
+          "on-tertiary-container": "#3a5c44",
+          "on-secondary-container": "#4f5253",
+          "surface-container-high": "#eae8e1",
+          "on-secondary-fixed-variant": "#595c5d",
+          "surface-variant": "#e4e3da",
+          "on-surface": "#32332d",
+          "surface-dim": "#dbdad1",
+          "error-container": "#fe8983",
+          "outline": "#7b7b74",
+          "surface-container": "#f0eee8",
+          "on-tertiary": "#f4fff6",
+          "secondary-dim": "#505454",
+          "on-surface-variant": "#5f5f59",
+          "on-primary-fixed-variant": "#5c5b5b",
+          "surface-container-lowest": "#ffffff",
+          "primary-container": "#e4e2e1",
+          "surface-bright": "#fcf9f5",
+          "primary-fixed": "#e4e2e1",
+          "tertiary-fixed": "#d4f0dc",
+          "tertiary-dim": "#3d5f4a",
+          "on-primary": "#faf7f6",
+          "inverse-surface": "#0e0e0c",
+          "on-secondary": "#f7f9fa",
+          "secondary-container": "#e1e3e3",
+          "tertiary-container": "#d4f0dc",
+          "on-background": "#32332d",
+          "error-dim": "#4e0309",
+          "outline-variant": "#b3b2ab",
+          "surface-container-highest": "#e4e3da",
+          "tertiary": "#4a7258"
+        },
+        borderRadius: {
+          DEFAULT: "0.25rem",
+          lg: "0.5rem",
+          xl: "0.75rem",
+          "2xl": "1rem",
+          "3xl": "1.5rem",
+          full: "9999px"
+        },
+        fontFamily: {
+          headline: ["Noto Serif"],
+          body: ["Manrope"],
+          label: ["Manrope"]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  body {
+    background-color: #fcf9f5;
+    color: #32332d;
+    font-family: 'Manrope', sans-serif;
+  }
+  .serif-display {
+    font-family: 'Noto Serif', serif;
+  }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#fcf9f5]/70 backdrop-blur-xl shadow-[0_12px_40px_rgba(50,51,45,0.05)]">
+  <div class="flex justify-between items-center px-6 md:px-12 py-6 max-w-[1920px] mx-auto">
+    <a href="#" class="font-['Noto_Serif'] text-2xl font-medium tracking-tighter text-[#32332d]">Femme Vision Kinga Maryniak</a>
+    <div class="hidden md:flex items-center gap-10">
+      <a class="font-['Noto_Serif'] text-lg tracking-tight text-[#5f5e5e]/70 hover:text-[#32332d] transition-colors duration-300" href="#uslugi">Usługi</a>
+      <a class="font-['Noto_Serif'] text-lg tracking-tight text-[#5f5e5e]/70 hover:text-[#32332d] transition-colors duration-300" href="#o-mnie">O mnie</a>
+      <a class="font-['Noto_Serif'] text-lg tracking-tight text-[#5f5e5e]/70 hover:text-[#32332d] transition-colors duration-300" href="#cennik">Cennik</a>
+      <a class="font-['Noto_Serif'] text-lg tracking-tight text-[#5f5e5e]/70 hover:text-[#32332d] transition-colors duration-300" href="#kontakt">Kontakt</a>
+    </div>
+    <a class="bg-primary hover:bg-primary-dim text-on-primary px-8 py-3 rounded-lg font-label text-sm tracking-widest uppercase transition-all duration-300 transform hover:-translate-y-0.5" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
+      Konsultacja
+    </a>
+  </div>
+</nav>
+
+<main class="pt-24">
+
+<!-- ============================================ -->
+<!-- SEKCJA 1: HERO                               -->
+<!-- ============================================ -->
+<section id="hero" class="relative min-h-[921px] flex items-center px-6 md:px-12 py-20 overflow-hidden">
+  <div class="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    <div class="lg:col-span-7 z-10">
+      <h1 class="serif-display text-5xl md:text-7xl lg:text-8xl leading-[1.25] mb-8 tracking-tight text-on-surface">
+        Odzyskaj czas, uporządkuj procesy i prowadź swoją markę z lekkością, <span class="italic opacity-80">o&nbsp;której zawsze marzyłaś.</span>
+      </h1>
+      <p class="text-xl md:text-2xl font-light leading-relaxed text-on-surface-variant max-w-2xl mb-12">
+        Czy Twój system obsługi klienta rośnie tak szybko, jak Twój biznes?
+      </p>
+      <div class="flex flex-col sm:flex-row gap-6">
+        <a class="bg-primary text-on-primary px-10 py-5 rounded-lg text-sm font-semibold tracking-[0.1em] text-center transition-all duration-300 hover:bg-primary-dim hover:shadow-xl uppercase" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
+          Umów się na bezpłatną rozmowę wstępną
+        </a>
+      </div>
+    </div>
+    <div class="lg:col-span-5 relative">
+      <div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl relative rotate-3 lg:translate-x-12">
+        <img class="w-full h-full object-cover grayscale-[20%]" alt="Kinga w jasnym biurze" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOSVYubJZDfiDPlkScuvXf2XTtd6449_UOjM30wQdRVbd-bm26gDRosQ0y4KFzug_bz6-ym0gP0ZMftoQ4GjdNbXR-T0apfhTTYm5dQIOIZh0Tz-6YY02pZmlZbjwXbsy1Js-gPe7iXz0SWOQx51713NX-1oy-BGfN7Ab9WxfwGo8sBHJondKnwxqybwZVuXx9YQvf0AfAOt7y9zoFdJ8eKvFe9G4ltAWV1oIPiPh6iC41ZGYfYOlBITOho7z9T8BuGlf10vQxIAY"/>
+        <div class="absolute inset-0 bg-primary/5"></div>
+      </div>
+      <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-tertiary-container/30 rounded-full blur-3xl -z-10"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SEKCJA 2: IDENTYFIKACJA PROBLEMU             -->
+<!-- ============================================ -->
+<section id="problem" class="bg-surface-container-low py-32 px-6 md:px-12">
+  <div class="max-w-4xl mx-auto text-center mb-20">
+    <h2 class="serif-display text-4xl md:text-5xl mb-8 leading-tight">Znasz to uczucie?</h2>
+    <p class="text-xl md:text-2xl font-light leading-relaxed text-on-surface-variant">
+      Budujesz wspaniałą markę, tworzysz świetne produkty, ale na zapleczu powoli zaczyna brakować Ci tchu...
+    </p>
+  </div>
+
+  <div class="max-w-3xl mx-auto space-y-8 mb-20">
+    <div class="bg-surface p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:bg-surface-container-lowest transition-colors duration-500">
+      <span class="material-symbols-outlined text-3xl text-primary/40 group-hover:text-primary transition-colors mt-1 shrink-0">mail_outline</span>
+      <p class="text-lg md:text-xl font-light text-on-surface leading-relaxed">Wpadają zapytania od klientów, ale nie zawsze masz przestrzeń, żeby odpisać na czas?</p>
+    </div>
+    <div class="bg-surface p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:bg-surface-container-lowest transition-colors duration-500">
+      <span class="material-symbols-outlined text-3xl text-primary/40 group-hover:text-primary transition-colors mt-1 shrink-0">trending_down</span>
+      <p class="text-lg md:text-xl font-light text-on-surface leading-relaxed">Odkładasz follow-upy i czujesz, że przez to uciekają Ci klientki, tracisz sprzedaż i tym samym pieniądze?</p>
+    </div>
+    <div class="bg-surface p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:bg-surface-container-lowest transition-colors duration-500">
+      <span class="material-symbols-outlined text-3xl text-primary/40 group-hover:text-primary transition-colors mt-1 shrink-0">help_outline</span>
+      <p class="text-lg md:text-xl font-light text-on-surface leading-relaxed">Zastanawiasz się, czy na pewno odpisałaś na każdą wiadomość i czy wszystko jest dopięte na ostatni guzik?</p>
+    </div>
+    <div class="bg-surface p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:bg-surface-container-lowest transition-colors duration-500">
+      <span class="material-symbols-outlined text-3xl text-primary/40 group-hover:text-primary transition-colors mt-1 shrink-0">shuffle</span>
+      <p class="text-lg md:text-xl font-light text-on-surface leading-relaxed">Twoja sprzedaż dzieje się „przy okazji", a nie w uporządkowanym, powtarzalnym procesie?</p>
+    </div>
+    <div class="bg-surface p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:bg-surface-container-lowest transition-colors duration-500">
+      <span class="material-symbols-outlined text-3xl text-primary/40 group-hover:text-primary transition-colors mt-1 shrink-0">hourglass_top</span>
+      <p class="text-lg md:text-xl font-light text-on-surface leading-relaxed">Masz poczucie, że więcej czasu spędzasz na ogarnianiu bieżących tematów w DM i mailach, niż na strategicznym rozwijaniu biznesu?</p>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="text-lg md:text-xl font-light text-on-surface-variant leading-relaxed mb-10">
+      Czy to brzmi znajomo? Jeśli chociaż na część tych pytań odpowiedziałaś „tak", to znaczy, że jesteś w idealnym miejscu.
+    </p>
+    <p class="serif-display text-3xl md:text-4xl italic text-primary-dim">
+      Odpocznij. Zdejmij to z siebie. Pomogę Ci.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SEKCJA 3: O MNIE                             -->
+<!-- ============================================ -->
+<section id="o-mnie" class="py-32 px-6 md:px-12 max-w-[1920px] mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+    <div class="lg:col-span-5">
+      <div class="aspect-[3/4] bg-surface-container-high rounded-xl overflow-hidden shadow-sm">
+        <img class="w-full h-full object-cover mix-blend-multiply" alt="Kinga — portret" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfSb9QD4qVKlI1G-lLWEzgi2RM8LQAvDNReymxjLznxcLmmmpM9hHutaMKYe0doT0yJ0H5LSKQGaJu2XyhDCqzWRrx7FCIMRtVRlzeFDEHBIRicnOQb9LBb7sT_NMujmITKMKOVBhJD62FIvsfAblvGERvxgEcZFDj7Mxx57v5kKP6zgJLuDAIBftjFb2cxoOzp9HazdI6awKP5pl23LjvPmVQWbT1lQm_iqRTZc-TC7aJroLsXDLYjcSO3hkOBA1Q22HTGUnFNeM"/>
+      </div>
+    </div>
+    <div class="lg:col-span-7">
+      <h2 class="serif-display text-5xl mb-10">Cześć, jestem Kinga! ☕</h2>
+      <div class="space-y-8">
+        <p class="text-xl leading-relaxed font-light text-on-surface-variant">
+          Pomagam mentorkom, trenerkom i właścicielkom marek osobistych odzyskać czas i uporządkować procesy sprzedażowe.
+        </p>
+        <p class="text-xl leading-relaxed font-light text-on-surface-variant">
+          Działam jako Twój SDR (Sales Development Representative) oraz OBM (Online Business Manager). Co to oznacza w praktyce? Nie tylko przejmuję na siebie kontakt z klientem, ale buduję i usprawniam systemy pracy. Sprawiam, że żadne zapytanie od klientki nie zostaje bez odpowiedzi, follow-upy domykają sprzedaż, a Ty włączasz się w procesy tylko tam, gdzie to naprawdę konieczne. Moim celem jest stworzenie dla Ciebie przestrzeni, w której odzyskasz czas na to, co w swoim biznesie kochasz najbardziej.
+        </p>
+
+        <div class="bg-tertiary-container/20 border-l-4 border-tertiary p-8 rounded-r-lg">
+          <h3 class="serif-display text-2xl mb-4 text-on-tertiary-container">Wsparcie oparte na empatii i precyzji</h3>
+          <p class="text-lg leading-relaxed font-light text-on-tertiary-container/80">
+            Jestem entuzjastką organizacji. Wierzę, że każdy kreatywny biznes potrzebuje solidnych fundamentów, by móc wzlecieć. Moje „supermoce" to nie tylko perfekcyjna znajomość Trello czy Asany, ale przede wszystkim umiejętność słuchania i wyłapywania tego, czego potrzebują Twoi klienci oraz co w Twojej firmie wymaga natychmiastowego odciążenia.
+          </p>
+        </div>
+
+        <p class="text-xl leading-relaxed font-light text-on-surface-variant">
+          Zanim zajęłam się wspieraniem biznesów online, pracowałam jako HR Coordinator. To właśnie tam nauczyłam się, jak łączyć świat twardych procesów z ludzkim podejściem, empatią i zrozumieniem drugiej osoby.
+        </p>
+
+        <div class="bg-surface-container-high/50 p-8 rounded-xl">
+          <p class="serif-display text-xl italic leading-relaxed text-primary-dim">
+            Prywatnie? Biegam. Biegi długodystansowe nauczyły mnie, że w biznesie – tak samo jak w sporcie – liczy się żelazna konsekwencja, dyscyplina, odpowiednie rozłożenie sił i długofalowa strategia. Nie jestem sprinterką. Jestem Twoją partnerką na długie dystanse.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SEKCJA 4: OFERTA – OBSŁUGA KLIENTA PREMIUM   -->
+<!-- ============================================ -->
+<section id="uslugi" class="py-32 bg-surface-container-low px-6 md:px-12">
+  <div class="max-w-[1920px] mx-auto">
+    <div class="max-w-4xl mx-auto text-center mb-20">
+      <h2 class="serif-display text-4xl md:text-5xl mb-8 leading-tight">Obsługa klienta i wsparcie sprzedaży premium</h2>
+      <p class="serif-display text-2xl italic text-primary-dim mb-6">Zamiast leadów – klienci idealni</p>
+      <p class="text-xl font-light leading-relaxed text-on-surface-variant">
+        Moja praca to nie jest zwykłe „odpisywanie na wiadomości". To kompleksowe zarządzanie ścieżką Twojego klienta: od pierwszego kontaktu, poprzez pomoc w podjęciu decyzji o zakupie, formalności zakupowe, aż po kompleksową obsługę premium.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+
+      <!-- Kwalifikacja -->
+      <div class="bg-surface-container-lowest p-10 md:p-12 rounded-2xl shadow-sm flex flex-col">
+        <span class="text-3xl mb-6">💎</span>
+        <h3 class="serif-display text-2xl mb-4">Kwalifikacja i umawianie konsultacji</h3>
+        <p class="text-lg font-light leading-relaxed text-on-surface-variant mb-8">
+          Przejmuję pełną opiekę nad Twoimi zapytaniami (DM na Instagramie, e-maile, formularze). Weryfikuję, czy potencjalny klient pasuje do Twojej oferty i jest gotowy na inwestycję. Zapełniam Twój kalendarz osobami „ogrzanymi".
+        </p>
+        <div class="mt-auto bg-tertiary-container/15 p-6 rounded-xl">
+          <p class="text-sm font-medium uppercase tracking-widest text-tertiary mb-2">Efekt dla Ciebie</p>
+          <p class="text-base font-light leading-relaxed text-on-surface-variant">
+            Nie tracisz czasu na rozmowy z przypadkowymi osobami. Od razu widzisz, ile wartościowych konsultacji masz zaplanowanych na dany tydzień. Trafiają do Ciebie tylko konkrety.
+          </p>
+        </div>
+      </div>
+
+      <!-- Follow-up -->
+      <div class="bg-surface-container-lowest p-10 md:p-12 rounded-2xl shadow-sm flex flex-col">
+        <span class="text-3xl mb-6">🔄</span>
+        <h3 class="serif-display text-2xl mb-4">Systematyczny Follow-up i Opieka</h3>
+        <p class="text-lg font-light leading-relaxed text-on-surface-variant mb-8">
+          Wprowadzam procedury kontaktu (wiadomości, przypomnienia, struktura zadań), dzięki którym domykamy sprzedaż tam, gdzie klient potrzebował chwili na zastanowienie. Pilnuję, by każdy czuł się zaopiekowany od pierwszej sekundy.
+        </p>
+        <div class="mt-auto bg-tertiary-container/15 p-6 rounded-xl">
+          <p class="text-sm font-medium uppercase tracking-widest text-tertiary mb-2">Efekt dla Ciebie</p>
+          <p class="text-base font-light leading-relaxed text-on-surface-variant">
+            Klienci, którzy „mieli się odezwać", faktycznie wracają i kupują. Twój biznes działa profesjonalnie, a odbiorcy czują jakość premium – bez chaosu i niedopowiedzeń.
+          </p>
+        </div>
+      </div>
+
+      <!-- Optymalizacja -->
+      <div class="bg-surface-container-lowest p-10 md:p-12 rounded-2xl shadow-sm flex flex-col">
+        <span class="text-3xl mb-6">⚙️</span>
+        <h3 class="serif-display text-2xl mb-4">Optymalizacja Procesów i Baza Wiedzy</h3>
+        <p class="text-lg font-light leading-relaxed text-on-surface-variant mb-8">
+          Porządkuję sposób pracy: notatki, zadania dla zespołu, komunikację. Zbieram i analizuję powtarzające się obiekcje, blokady i pytania Twojej grupy docelowej.
+        </p>
+        <div class="mt-auto bg-tertiary-container/15 p-6 rounded-xl">
+          <p class="text-sm font-medium uppercase tracking-widest text-tertiary mb-2">Efekt dla Ciebie</p>
+          <p class="text-base font-light leading-relaxed text-on-surface-variant">
+            Zyskujesz absolutny spokój i jasne zasady. Wiesz, co się dzieje, ale nie musisz wszystkiego pilnować. Dokładnie wiesz też, co poprawić w ofercie, by sprzedawać jeszcze łatwiej.
+          </p>
+        </div>
+      </div>
+
+      <!-- Kampanie -->
+      <div class="bg-surface-container-lowest p-10 md:p-12 rounded-2xl shadow-sm flex flex-col">
+        <span class="text-3xl mb-6">🚀</span>
+        <h3 class="serif-display text-2xl mb-4">Wsparcie Kampanii i Sprzedaży Po-Webinarowej</h3>
+        <p class="text-lg font-light leading-relaxed text-on-surface-variant mb-8">
+          Webinar świetnie buduje zaufanie, ale przy usługach high-ticket to człowiek domyka sprzedaż! Obsługuję pytania podczas okienek sprzedażowych, usuwam bariery decyzyjne w DM-ach i odzyskuję „porzucone koszyki".
+        </p>
+        <div class="mt-auto bg-tertiary-container/15 p-6 rounded-xl">
+          <p class="text-sm font-medium uppercase tracking-widest text-tertiary mb-2">Efekt dla Ciebie</p>
+          <p class="text-base font-light leading-relaxed text-on-surface-variant">
+            Zmaksymalizowane zyski z każdej przeprowadzonej kampanii i pełne wsparcie w najbardziej intensywnym czasie.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SEKCJA 5: WSPARCIE OBM                       -->
+<!-- ============================================ -->
+<section id="obm" class="py-32 px-6 md:px-12">
+  <div class="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    <div class="lg:col-span-5">
+      <div class="bg-primary text-on-primary p-12 md:p-16 rounded-2xl shadow-xl relative overflow-hidden h-full flex flex-col justify-center">
+        <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <span class="tracking-[0.2em] uppercase text-primary-fixed-dim mb-6 block text-sm font-medium">Online Business Manager</span>
+        <h2 class="serif-display text-4xl md:text-5xl mb-6">Twoja prawa ręka</h2>
+        <p class="text-lg font-light leading-relaxed text-on-primary/80">
+          Twój biznes rośnie tak szybko, że zaplecze nie nadąża?
+        </p>
+      </div>
+    </div>
+    <div class="lg:col-span-7">
+      <p class="text-xl font-light leading-relaxed text-on-surface-variant mb-10">
+        Wiesz, że to ten moment. Nie chcesz już dłużej dźwigać wszystkiego na swoich barkach. Czujesz, że by iść naprzód i rozwijać potencjał swojego biznesu, potrzebujesz „prawej ręki" – kogoś, kto zna psychologię klienta, ale także doskonale wie, jak od środka naoliwić tryby Twojej marki online.
+      </p>
+      <h3 class="serif-display text-2xl mb-8">Jako Twoja Online Business Manager (OBM) przejmę:</h3>
+      <div class="space-y-6">
+        <div class="flex items-start gap-5">
+          <span class="material-symbols-outlined text-2xl text-tertiary mt-1 shrink-0">account_tree</span>
+          <div>
+            <p class="text-lg font-medium text-on-surface mb-1">Projektowanie i porządkowanie procesów</p>
+            <p class="text-base font-light text-on-surface-variant">Abyś przestała gasić pożary, a zaczęła zarządzać swoim imperium i z sukcesem je skalować.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5">
+          <span class="material-symbols-outlined text-2xl text-tertiary mt-1 shrink-0">calendar_month</span>
+          <div>
+            <p class="text-lg font-medium text-on-surface mb-1">Kompleksowa koordynacja projektów</p>
+            <p class="text-base font-light text-on-surface-variant">Od harmonogramu premier, po opiekę nad Twoimi programami high-ticket.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5">
+          <span class="material-symbols-outlined text-2xl text-tertiary mt-1 shrink-0">task_alt</span>
+          <div>
+            <p class="text-lg font-medium text-on-surface mb-1">Zarządzanie realizacją zadań</p>
+            <p class="text-base font-light text-on-surface-variant">Pilnuję terminów i dbam o idealny przepływ informacji w zespole.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5">
+          <span class="material-symbols-outlined text-2xl text-tertiary mt-1 shrink-0">workspace_premium</span>
+          <div>
+            <p class="text-lg font-medium text-on-surface mb-1">Organizacja opieki nad klientem</p>
+            <p class="text-base font-light text-on-surface-variant">Ustawiam zaplecze tak, by klient od pierwszego kontaktu z marką czuł jakość premium na każdym możliwym kroku.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SEKCJA 6: DOWÓD SPOŁECZNY I OPINIE           -->
+<!-- ============================================ -->
+<section id="opinie" class="py-32 bg-surface-container-low px-6 md:px-12">
+  <div class="max-w-4xl mx-auto text-center mb-20">
+    <h2 class="serif-display text-4xl md:text-5xl mb-8 leading-tight">Dlaczego warto mi zaufać?</h2>
+    <p class="text-xl font-light leading-relaxed text-on-surface-variant">
+      Szukam długofalowych współprac, ponieważ uwielbiam widzieć, jak moja praca przynosi mierzalne efekty biznesowe. To mnie napędza! Moja praca to nie koszt – to inwestycja, która realnie się zwraca.
+    </p>
+  </div>
+
+  <!-- Case Study -->
+  <div class="max-w-4xl mx-auto mb-20">
+    <div class="bg-surface-container-highest/50 p-12 md:p-16 rounded-2xl text-center">
+      <p class="text-sm font-medium uppercase tracking-widest text-tertiary mb-6">Studium przypadku</p>
+      <p class="serif-display text-2xl md:text-3xl leading-relaxed text-on-surface mb-4">
+        W ramach zaledwie <span class="font-bold">20-godzinnej współpracy</span> i dzięki poukładanemu procesowi weryfikacji klientów, pomogłam mojej klientce pozyskać <span class="font-bold">3 nowe sprzedaże</span> programu High-Ticket, co przełożyło się na łączny przychód w wysokości <span class="font-bold">45&nbsp;000&nbsp;zł</span>.
+      </p>
+    </div>
+  </div>
+
+  <!-- Opinia Kamili -->
+  <div class="max-w-4xl mx-auto">
+    <p class="serif-display text-2xl text-center mb-12">Sprawdź, co mówią moje klientki:</p>
+    <div class="bg-surface p-10 md:p-14 rounded-2xl relative">
+      <span class="material-symbols-outlined text-6xl text-primary/15 absolute -top-6 left-8">format_quote</span>
+      <div class="space-y-6 text-lg font-light leading-relaxed text-on-surface-variant">
+        <p>
+          Współpraca z Kingą od samego początku była naprawdę świetna. Kinga dołączyła do mojego zespołu jako osoba odpowiedzialna za obsługę klienta (...) od początku zależało mi na bardzo wysokiej jakości kontaktu.
+        </p>
+        <p class="bg-tertiary-container/20 border-l-4 border-tertiary p-6 rounded-r-lg text-xl font-normal text-on-surface">
+          Dzięki niej jako osoba prowadząca biznes mam ogromne poczucie zaufania i spokoju, wiedząc, że moi klienci są w naprawdę dobrych rękach.
+        </p>
+        <p>
+          To, co szczególnie cenię we współpracy z Kingą, to jej wysoka empatia połączona z dużą zadaniowością i odpowiedzialnością. Zawsze jest uważna na potrzeby klientów, a jednocześnie bardzo konkretna i skuteczna w działaniu.
+        </p>
+        <p>
+          Z pełnym przekonaniem polecam współpracę z Kingą każdemu, kto chce mieć poczucie, że jego biznes, a przede wszystkim klienci, są otoczeni profesjonalną i troskliwą opieką.
+        </p>
+      </div>
+      <div class="mt-8 pt-8 border-t border-outline-variant/20">
+        <p class="font-medium text-on-surface text-lg">Kamila Surma</p>
+        <p class="text-on-surface-variant font-light">@kamilasurma</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SEKCJA 7: CENNIK                             -->
+<!-- ============================================ -->
+<section id="cennik" class="py-32 px-6 md:px-12 max-w-[1920px] mx-auto">
+  <div class="max-w-4xl mx-auto text-center mb-20">
+    <h2 class="serif-display text-4xl md:text-5xl mb-6 leading-tight">Inwestycja w Twój spokój</h2>
+    <p class="text-xl font-light text-on-surface-variant">Ile to kosztuje? Wybierz pakiet dopasowany do obecnej skali Twojego biznesu.</p>
+  </div>
+
+  <div class="max-w-5xl mx-auto mb-16">
+    <p class="text-sm font-medium uppercase tracking-widest text-primary mb-8 text-center">Wsparcie SDR / Obsługa Klienta Premium</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="border border-outline-variant/20 p-10 rounded-2xl flex flex-col justify-between hover:border-primary/40 transition-colors">
+        <div>
+          <h4 class="font-medium text-lg mb-4">Pakiet 10 godzin</h4>
+          <p class="serif-display text-4xl mb-2">950 zł</p>
+          <p class="text-sm text-on-surface-variant font-light">netto</p>
+        </div>
+      </div>
+      <div class="bg-surface-container-low p-10 rounded-2xl flex flex-col justify-between border-2 border-primary relative">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[10px] px-3 py-1 rounded-full uppercase tracking-widest">Bestseller</span>
+        <div>
+          <h4 class="font-medium text-lg mb-4">Pakiet 20 godzin</h4>
+          <p class="serif-display text-4xl mb-2">1 800 zł</p>
+          <p class="text-sm text-on-surface-variant font-light">netto</p>
+        </div>
+      </div>
+      <div class="border border-outline-variant/20 p-10 rounded-2xl flex flex-col justify-between hover:border-primary/40 transition-colors">
+        <div>
+          <h4 class="font-medium text-lg mb-4">Pakiet 40 godzin</h4>
+          <p class="serif-display text-4xl mb-2">3 400 zł</p>
+          <p class="text-sm text-on-surface-variant font-light">netto</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto">
+    <p class="text-sm font-medium uppercase tracking-widest text-primary mb-8 text-center">Wsparcie Online Business Manager (OBM)</p>
+    <div class="max-w-md mx-auto">
+      <div class="bg-tertiary-container/30 p-10 rounded-2xl text-center">
+        <h4 class="font-medium text-lg mb-4">Indywidualna wycena</h4>
+        <p class="serif-display text-3xl mb-2">od 1 500 zł</p>
+        <p class="text-sm text-on-surface-variant font-light">netto / w zależności od zakresu projektów</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-center text-sm text-on-surface-variant/60 font-light mt-12">Wystawiam faktury VAT</p>
+</section>
+
+<!-- ============================================ -->
+<!-- SEKCJA 8: CTA – TWÓJ KOLEJNY KROK            -->
+<!-- ============================================ -->
+<section id="kontakt" class="py-40 bg-surface px-6 md:px-12 text-center overflow-hidden relative">
+  <div class="absolute inset-0 -z-10 opacity-30">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-tr from-surface-container-low to-transparent rounded-full blur-[120px]"></div>
+  </div>
+  <div class="max-w-4xl mx-auto">
+    <h2 class="serif-display text-4xl md:text-6xl mb-6 leading-tight">Poczuj ulgę i zrób miejsce na rozwój</h2>
+    <p class="text-xl font-light text-on-surface-variant mb-16 max-w-2xl mx-auto">
+      Jeśli czujesz, że to jest to, czego od dawna potrzebujesz w swoim biznesie – nie odkładaj tego na później.
+    </p>
+
+    <div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-left">
+      <div class="flex flex-col items-center text-center">
+        <span class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-semibold text-lg mb-4">1</span>
+        <p class="text-base font-light text-on-surface leading-relaxed">Umów się na krótką, niezobowiązującą rozmowę wideo.</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <span class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-semibold text-lg mb-4">2</span>
+        <p class="text-base font-light text-on-surface leading-relaxed">Poznajmy się. Sprawdzimy, czy nadajemy na tych samych falach i czy to dobry moment na współpracę.</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <span class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-semibold text-lg mb-4">3</span>
+        <p class="text-base font-light text-on-surface leading-relaxed">Stwórzmy plan, jak mogę uwolnić Twój czas i wesprzeć Twój biznes.</p>
+      </div>
+    </div>
+
+    <a class="inline-flex items-center gap-6 bg-primary text-on-primary px-16 py-8 rounded-lg text-lg font-medium tracking-widest transition-all duration-500 hover:bg-primary-dim hover:scale-[1.02] shadow-2xl uppercase" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
+      Umów się na bezpłatną rozmowę wstępną
+      <span class="material-symbols-outlined">calendar_today</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-16 px-6 md:px-12 bg-[#f6f3ee] border-t border-[#b3b2ab]/20">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-[1920px] mx-auto">
+    <div class="flex flex-col gap-4 text-center md:text-left">
+      <span class="font-['Noto_Serif'] text-xl text-[#32332d]">Femme Vision Kinga Maryniak</span>
+      <p class="font-['Manrope'] text-sm font-light tracking-wide text-[#5f5e5e] opacity-60">© 2025 Femme Vision Kinga Maryniak. Wszelkie prawa zastrzeżone.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-6 items-center">
+      <span class="text-sm font-light text-[#5f5e5e]/60">Bądźmy w kontakcie:</span>
+      <a class="font-['Manrope'] text-sm font-light tracking-wide text-[#5f5e5e] opacity-60 hover:opacity-100 underline-offset-4 hover:underline" href="#">Instagram</a>
+      <a class="font-['Manrope'] text-sm font-light tracking-wide text-[#5f5e5e] opacity-60 hover:opacity-100 underline-offset-4 hover:underline" href="#">Email</a>
+    </div>
+    <div class="flex gap-8">
+      <a class="font-['Manrope'] text-sm font-light tracking-wide text-[#5f5e5e] opacity-60 hover:opacity-100 underline-offset-4 hover:underline" href="#">Polityka prywatności</a>
+      <a class="font-['Manrope'] text-sm font-light tracking-wide text-[#5f5e5e] opacity-60 hover:opacity-100 underline-offset-4 hover:underline" href="#">Regulamin</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
