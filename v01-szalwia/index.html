@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Femme Vision Kinga Maryniak | OBM & SDR</title>
+  <title>Kinga Maryniak | OBM & SDR</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
@@ -121,8 +121,7 @@
   <!-- Navigation -->
   <nav class="fixed top-0 w-full z-50 bg-cream-50/80 backdrop-blur-xl border-b border-sage-300/10">
     <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-7xl mx-auto">
-      <a href="#" class="font-display text-2xl font-semibold tracking-tight text-sage-800">Femme Vision Kinga
-        Maryniak</a>
+      <a href="#" class="font-display text-2xl font-semibold tracking-tight text-sage-800">Kinga Maryniak</a>
       <div class="hidden nav:flex items-center gap-10">
         <a class="font-body text-sm tracking-wide text-sage-600/70 hover:text-sage-800 transition-colors"
           href="#uslugi">Usługi</a>
@@ -277,7 +276,8 @@
             </p>
             <p class="text-lg leading-relaxed font-light text-sage-600">
               Działam jako Twój SDR (Sales Development Representative) oraz OBM (Online Business Manager). Co to oznacza
-              w praktyce? <b class="font-bold">Nie tylko przejmuję na siebie kontakt z klientem, ale buduję i usprawniam systemy
+              w praktyce? <b class="font-bold">Nie tylko przejmuję na siebie kontakt z klientem, ale buduję i usprawniam
+                systemy
                 pracy.</b> Sprawiam, że żadne zapytanie od klientki nie zostaje bez odpowiedzi, follow-upy domykają
               sprzedaż, a Ty włączasz się w procesy tylko tam, gdzie to naprawdę konieczne. Moim celem jest stworzenie
               dla Ciebie przestrzeni, w której odzyskasz czas na to, co w swoim biznesie kochasz najbardziej.
@@ -292,8 +292,8 @@
               </p>
             </div>
             <p class="text-lg leading-relaxed font-light text-sage-600">
-              Zanim zaczęłam wspierać biznesy online, pracowałam jako HR Coordinator oraz HR Training Coordinator, 
-              gdzie odpowiadałam m.in. za rozwój i szkolenia. To właśnie tam nauczyłam się, jak łączyć świat 
+              Zanim zaczęłam wspierać biznesy online, pracowałam jako HR Coordinator oraz HR Training Coordinator,
+              gdzie odpowiadałam m.in. za rozwój i szkolenia. To właśnie tam nauczyłam się, jak łączyć świat
               twardych procesów z ludzkim podejściem, empatią i zrozumieniem drugiej osoby.
             </p>
             <div class="bg-sage-300/10 p-8 rounded-xl">
@@ -321,19 +321,20 @@
             kompleksową obsługę premium.
           </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <div
-            class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto items-start">
+          <div onclick="this.querySelector('.tile-desc').classList.toggle('line-clamp-2'); this.querySelector('.tile-effect').classList.toggle('hidden')"
+            class="cursor-pointer fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
             <span
               class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span
                 class="material-symbols-outlined text-2xl text-sage-500">diamond</span></span>
             <h3 class="font-display text-2xl mb-4 text-sage-800">Kwalifikacja i umawianie konsultacji</h3>
-            <p class="text-base font-light leading-relaxed text-sage-600 mb-8">
+            <p
+              class="tile-desc line-clamp-2 text-base font-light leading-relaxed text-sage-600 mb-8 transition-all duration-300">
               Przejmuję pełną opiekę nad Twoimi zapytaniami (DM na Instagramie, e-maile, formularze). Weryfikuję, czy
               potencjalny klient pasuje do Twojej oferty i jest gotowy na inwestycję. Zapełniam Twój kalendarz osobami
               „ogrzanymi".
             </p>
-            <div class="mt-auto bg-sage-300/15 p-6 rounded-xl">
+            <div class="tile-effect hidden mt-auto bg-sage-300/15 p-6 rounded-xl">
               <p class="text-xs font-medium uppercase tracking-widest text-sage-500 mb-2">Efekt dla Ciebie</p>
               <p class="text-sm font-light leading-relaxed text-sage-600">
                 Nie tracisz czasu na rozmowy z przypadkowymi osobami. Od razu widzisz, ile wartościowych konsultacji
@@ -341,18 +342,19 @@
               </p>
             </div>
           </div>
-          <div
-            class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+          <div onclick="this.querySelector('.tile-desc').classList.toggle('line-clamp-2'); this.querySelector('.tile-effect').classList.toggle('hidden')"
+            class="cursor-pointer fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
             <span
               class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span
                 class="material-symbols-outlined text-2xl text-sage-500">autorenew</span></span>
             <h3 class="font-display text-2xl mb-4 text-sage-800">Systematyczny Follow-up i Opieka</h3>
-            <p class="text-base font-light leading-relaxed text-sage-600 mb-8">
+            <p
+              class="tile-desc line-clamp-2 text-base font-light leading-relaxed text-sage-600 mb-8 transition-all duration-300">
               Wprowadzam procedury kontaktu (wiadomości, przypomnienia, struktura zadań), dzięki którym domykamy
               sprzedaż tam, gdzie klient potrzebował chwili na zastanowienie. Pilnuję, by każdy czuł się zaopiekowany od
               pierwszej sekundy.
             </p>
-            <div class="mt-auto bg-sage-300/15 p-6 rounded-xl">
+            <div class="tile-effect hidden mt-auto bg-sage-300/15 p-6 rounded-xl">
               <p class="text-xs font-medium uppercase tracking-widest text-sage-500 mb-2">Efekt dla Ciebie</p>
               <p class="text-sm font-light leading-relaxed text-sage-600">
                 Klienci, którzy „mieli się odezwać", faktycznie wracają i kupują. Twój biznes działa profesjonalnie, a
@@ -360,17 +362,18 @@
               </p>
             </div>
           </div>
-          <div
-            class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+          <div onclick="this.querySelector('.tile-desc').classList.toggle('line-clamp-2'); this.querySelector('.tile-effect').classList.toggle('hidden')"
+            class="cursor-pointer fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
             <span
               class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span
                 class="material-symbols-outlined text-2xl text-sage-500">tune</span></span>
             <h3 class="font-display text-2xl mb-4 text-sage-800">Optymalizacja Procesów i Baza Wiedzy</h3>
-            <p class="text-base font-light leading-relaxed text-sage-600 mb-8">
+            <p
+              class="tile-desc line-clamp-2 text-base font-light leading-relaxed text-sage-600 mb-8 transition-all duration-300">
               Porządkuję sposób pracy: notatki, zadania dla zespołu, komunikację. Zbieram i analizuję powtarzające się
               obiekcje, blokady i pytania Twojej grupy docelowej.
             </p>
-            <div class="mt-auto bg-sage-300/15 p-6 rounded-xl">
+            <div class="tile-effect hidden mt-auto bg-sage-300/15 p-6 rounded-xl">
               <p class="text-xs font-medium uppercase tracking-widest text-sage-500 mb-2">Efekt dla Ciebie</p>
               <p class="text-sm font-light leading-relaxed text-sage-600">
                 Zyskujesz absolutny spokój i jasne zasady. Wiesz, co się dzieje, ale nie musisz wszystkiego pilnować.
@@ -378,17 +381,18 @@
               </p>
             </div>
           </div>
-          <div
-            class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+          <div onclick="this.querySelector('.tile-desc').classList.toggle('line-clamp-2'); this.querySelector('.tile-effect').classList.toggle('hidden')"
+            class="cursor-pointer fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
             <span
               class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span
                 class="material-symbols-outlined text-2xl text-sage-500">campaign</span></span>
             <h3 class="font-display text-2xl mb-4 text-sage-800">Wsparcie Kampanii i Sprzedaży Po-Webinarowej</h3>
-            <p class="text-base font-light leading-relaxed text-sage-600 mb-8">
+            <p
+              class="tile-desc line-clamp-2 text-base font-light leading-relaxed text-sage-600 mb-8 transition-all duration-300">
               Webinar świetnie buduje zaufanie, ale przy usługach high-ticket to człowiek domyka sprzedaż! Obsługuję
               pytania podczas okienek sprzedażowych, usuwam bariery decyzyjne w DM-ach i odzyskuję „porzucone koszyki".
             </p>
-            <div class="mt-auto bg-sage-300/15 p-6 rounded-xl">
+            <div class="tile-effect hidden mt-auto bg-sage-300/15 p-6 rounded-xl">
               <p class="text-xs font-medium uppercase tracking-widest text-sage-500 mb-2">Efekt dla Ciebie</p>
               <p class="text-sm font-light leading-relaxed text-sage-600">
                 Zmaksymalizowane zyski z każdej przeprowadzonej kampanii i pełne wsparcie w najbardziej intensywnym
