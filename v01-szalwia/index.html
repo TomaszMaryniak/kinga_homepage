@@ -25,9 +25,16 @@ tailwind.config = {
 <style>
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: #FFFDF7; color: #334538; }
-  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  /* Fade-in on scroll (match v06-greenhouse) */
+  .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+  /* Mobile drawer (match v06-greenhouse motion) */
+  #mobileMenu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+  #mobileMenu.open { transform: translateX(0); }
+  #menuOverlay { opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; }
+  #menuOverlay.open { opacity: 1; visibility: visible; }
 
   /* Sage leaf SVG background */
   .sage-leaf-bg { position: relative; overflow: hidden; }
@@ -70,7 +77,7 @@ tailwind.config = {
       <a class="font-body text-sm tracking-wide text-sage-600/70 hover:text-sage-800 transition-colors" href="#cennik">Cennik</a>
       <a class="font-body text-sm tracking-wide text-sage-600/70 hover:text-sage-800 transition-colors" href="#kontakt">Kontakt</a>
     </div>
-    <a class="hidden md:inline-block bg-sage-500 hover:bg-sage-600 text-cream-50 px-7 py-3 rounded-lg text-sm font-medium tracking-wider uppercase transition-all duration-300" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">Konsultacja</a>
+    <a class="hidden md:inline-block bg-sage-500 hover:bg-sage-600 text-cream-50 px-7 py-3 rounded-lg text-sm font-medium tracking-wider uppercase transition-all duration-300 hover:shadow-lg hover:shadow-sage-500/25" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">Konsultacja</a>
     <!-- Mobile hamburger -->
     <button id="menuBtn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
       <span class="w-6 h-0.5 bg-sage-800 transition-all duration-300" id="bar1"></span>
@@ -81,7 +88,7 @@ tailwind.config = {
 </nav>
 
 <!-- Mobile slide-in menu -->
-<div id="mobileMenu" class="fixed inset-y-0 right-0 w-72 bg-cream-50 z-[60] transform translate-x-full transition-transform duration-500 ease-out shadow-2xl">
+<div id="mobileMenu" class="fixed inset-y-0 right-0 w-72 bg-cream-50 z-[60] shadow-2xl">
   <div class="flex flex-col p-10 pt-24 gap-8">
     <button id="closeMenu" class="absolute top-6 right-6 text-sage-800 text-2xl">&times;</button>
     <a class="font-display text-2xl text-sage-800 hover:text-sage-500 transition-colors" href="#uslugi" onclick="closeMobileMenu()">Usługi</a>
@@ -91,7 +98,7 @@ tailwind.config = {
     <a class="bg-sage-500 text-cream-50 px-6 py-4 rounded-lg text-center text-sm font-medium tracking-wider uppercase mt-4" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">Konsultacja</a>
   </div>
 </div>
-<div id="menuOverlay" class="fixed inset-0 bg-sage-800/20 z-[55] hidden backdrop-blur-sm" onclick="closeMobileMenu()"></div>
+<div id="menuOverlay" class="fixed inset-0 bg-sage-800/20 z-[55] backdrop-blur-sm"></div>
 
 <main class="pt-20">
 
@@ -106,7 +113,7 @@ tailwind.config = {
       <p class="text-lg md:text-xl font-light leading-relaxed text-sage-600/80 max-w-2xl mb-12">
         Czy Twój system obsługi klienta rośnie tak szybko, jak Twój biznes?
       </p>
-      <a class="inline-block bg-sage-500 hover:bg-sage-600 text-cream-50 px-10 py-5 rounded-lg text-sm font-semibold tracking-[0.15em] uppercase transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
+      <a class="inline-block bg-sage-500 hover:bg-sage-600 text-cream-50 px-10 py-5 rounded-lg text-sm font-semibold tracking-[0.15em] uppercase transition-all duration-300 hover:shadow-xl hover:shadow-sage-500/25 hover:-translate-y-0.5" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
         Umów się na bezpłatną rozmowę wstępną
       </a>
     </div>
@@ -139,24 +146,24 @@ tailwind.config = {
     </p>
   </div>
   <div class="max-w-3xl mx-auto space-y-6 mb-16 relative z-10">
-    <div class="fade-in bg-cream-50 p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:shadow-md transition-all duration-500">
-      <span class="material-symbols-outlined text-2xl text-sage-400 group-hover:text-sage-600 transition-colors mt-1 shrink-0">mail_outline</span>
+    <div class="fade-in bg-cream-50 p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:shadow-md hover:bg-sage-300/15 transition-all duration-500">
+      <span class="material-symbols-outlined text-2xl text-sage-400 group-hover:text-sage-600 group-hover:scale-110 transition-all duration-500 mt-1 shrink-0">mail_outline</span>
       <p class="text-lg font-light text-sage-700 leading-relaxed">Wpadają zapytania od klientów, ale nie zawsze masz przestrzeń, żeby odpisać na czas?</p>
     </div>
-    <div class="fade-in bg-cream-50 p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:shadow-md transition-all duration-500">
-      <span class="material-symbols-outlined text-2xl text-sage-400 group-hover:text-sage-600 transition-colors mt-1 shrink-0">trending_down</span>
+    <div class="fade-in bg-cream-50 p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:shadow-md hover:bg-sage-300/15 transition-all duration-500">
+      <span class="material-symbols-outlined text-2xl text-sage-400 group-hover:text-sage-600 group-hover:scale-110 transition-all duration-500 mt-1 shrink-0">trending_down</span>
       <p class="text-lg font-light text-sage-700 leading-relaxed">Odkładasz follow-upy i czujesz, że przez to uciekają Ci klientki, tracisz sprzedaż i tym samym pieniądze?</p>
     </div>
-    <div class="fade-in bg-cream-50 p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:shadow-md transition-all duration-500">
-      <span class="material-symbols-outlined text-2xl text-sage-400 group-hover:text-sage-600 transition-colors mt-1 shrink-0">help_outline</span>
+    <div class="fade-in bg-cream-50 p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:shadow-md hover:bg-sage-300/15 transition-all duration-500">
+      <span class="material-symbols-outlined text-2xl text-sage-400 group-hover:text-sage-600 group-hover:scale-110 transition-all duration-500 mt-1 shrink-0">help_outline</span>
       <p class="text-lg font-light text-sage-700 leading-relaxed">Zastanawiasz się, czy na pewno odpisałaś na każdą wiadomość i czy wszystko jest dopięte na ostatni guzik?</p>
     </div>
-    <div class="fade-in bg-cream-50 p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:shadow-md transition-all duration-500">
-      <span class="material-symbols-outlined text-2xl text-sage-400 group-hover:text-sage-600 transition-colors mt-1 shrink-0">shuffle</span>
+    <div class="fade-in bg-cream-50 p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:shadow-md hover:bg-sage-300/15 transition-all duration-500">
+      <span class="material-symbols-outlined text-2xl text-sage-400 group-hover:text-sage-600 group-hover:scale-110 transition-all duration-500 mt-1 shrink-0">shuffle</span>
       <p class="text-lg font-light text-sage-700 leading-relaxed">Twoja sprzedaż dzieje się „przy okazji", a nie w uporządkowanym, powtarzalnym procesie?</p>
     </div>
-    <div class="fade-in bg-cream-50 p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:shadow-md transition-all duration-500">
-      <span class="material-symbols-outlined text-2xl text-sage-400 group-hover:text-sage-600 transition-colors mt-1 shrink-0">hourglass_top</span>
+    <div class="fade-in bg-cream-50 p-8 md:p-10 rounded-2xl flex items-start gap-6 group hover:shadow-md hover:bg-sage-300/15 transition-all duration-500">
+      <span class="material-symbols-outlined text-2xl text-sage-400 group-hover:text-sage-600 group-hover:scale-110 transition-all duration-500 mt-1 shrink-0">hourglass_top</span>
       <p class="text-lg font-light text-sage-700 leading-relaxed">Masz poczucie, że więcej czasu spędzasz na ogarnianiu bieżących tematów w DM i mailach, niż na strategicznym rozwijaniu biznesu?</p>
     </div>
   </div>
@@ -217,8 +224,8 @@ tailwind.config = {
       </p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-      <div class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md transition-shadow duration-500">
-        <span class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-2xl text-sage-500">diamond</span></span>
+      <div class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+        <span class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span class="material-symbols-outlined text-2xl text-sage-500">diamond</span></span>
         <h3 class="font-display text-2xl mb-4 text-sage-800">Kwalifikacja i umawianie konsultacji</h3>
         <p class="text-base font-light leading-relaxed text-sage-600 mb-8">
           Przejmuję pełną opiekę nad Twoimi zapytaniami (DM na Instagramie, e-maile, formularze). Weryfikuję, czy potencjalny klient pasuje do Twojej oferty i jest gotowy na inwestycję. Zapełniam Twój kalendarz osobami „ogrzanymi".
@@ -230,8 +237,8 @@ tailwind.config = {
           </p>
         </div>
       </div>
-      <div class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md transition-shadow duration-500">
-        <span class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-2xl text-sage-500">autorenew</span></span>
+      <div class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+        <span class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span class="material-symbols-outlined text-2xl text-sage-500">autorenew</span></span>
         <h3 class="font-display text-2xl mb-4 text-sage-800">Systematyczny Follow-up i Opieka</h3>
         <p class="text-base font-light leading-relaxed text-sage-600 mb-8">
           Wprowadzam procedury kontaktu (wiadomości, przypomnienia, struktura zadań), dzięki którym domykamy sprzedaż tam, gdzie klient potrzebował chwili na zastanowienie. Pilnuję, by każdy czuł się zaopiekowany od pierwszej sekundy.
@@ -243,8 +250,8 @@ tailwind.config = {
           </p>
         </div>
       </div>
-      <div class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md transition-shadow duration-500">
-        <span class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-2xl text-sage-500">tune</span></span>
+      <div class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+        <span class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span class="material-symbols-outlined text-2xl text-sage-500">tune</span></span>
         <h3 class="font-display text-2xl mb-4 text-sage-800">Optymalizacja Procesów i Baza Wiedzy</h3>
         <p class="text-base font-light leading-relaxed text-sage-600 mb-8">
           Porządkuję sposób pracy: notatki, zadania dla zespołu, komunikację. Zbieram i analizuję powtarzające się obiekcje, blokady i pytania Twojej grupy docelowej.
@@ -256,8 +263,8 @@ tailwind.config = {
           </p>
         </div>
       </div>
-      <div class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md transition-shadow duration-500">
-        <span class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-2xl text-sage-500">campaign</span></span>
+      <div class="fade-in bg-cream-50 p-10 md:p-12 rounded-2xl shadow-sm flex flex-col hover:shadow-md hover:bg-sage-300/20 transition-all duration-500 group relative overflow-hidden">
+        <span class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-500"><span class="material-symbols-outlined text-2xl text-sage-500">campaign</span></span>
         <h3 class="font-display text-2xl mb-4 text-sage-800">Wsparcie Kampanii i Sprzedaży Po-Webinarowej</h3>
         <p class="text-base font-light leading-relaxed text-sage-600 mb-8">
           Webinar świetnie buduje zaufanie, ale przy usługach high-ticket to człowiek domyka sprzedaż! Obsługuję pytania podczas okienek sprzedażowych, usuwam bariery decyzyjne w DM-ach i odzyskuję „porzucone koszyki".
@@ -291,29 +298,29 @@ tailwind.config = {
         Wiesz, że to ten moment. Nie chcesz już dłużej dźwigać wszystkiego na swoich barkach. Czujesz, że by iść naprzód i rozwijać potencjał swojego biznesu, potrzebujesz „prawej ręki" – kogoś, kto zna psychologię klienta, ale także doskonale wie, jak od środka naoliwić tryby Twojej marki online.
       </p>
       <h3 class="font-display text-2xl mb-8 text-sage-800">Jako Twoja Online Business Manager (OBM) przejmę:</h3>
-      <div class="space-y-6">
-        <div class="flex items-start gap-5">
+      <div class="space-y-5">
+        <div class="flex items-start gap-5 rounded-xl p-5 border border-sage-300/20 bg-cream-50/50 hover:bg-sage-300/15 transition-all duration-300">
           <span class="material-symbols-outlined text-xl text-sage-500 mt-1 shrink-0">account_tree</span>
           <div>
             <p class="text-lg font-medium text-sage-800 mb-1">Projektowanie i porządkowanie procesów</p>
             <p class="text-base font-light text-sage-600">Abyś przestała gasić pożary, a zaczęła zarządzać swoim imperium i z sukcesem je skalować.</p>
           </div>
         </div>
-        <div class="flex items-start gap-5">
+        <div class="flex items-start gap-5 rounded-xl p-5 border border-sage-300/20 bg-cream-50/50 hover:bg-sage-300/15 transition-all duration-300">
           <span class="material-symbols-outlined text-xl text-sage-500 mt-1 shrink-0">calendar_month</span>
           <div>
             <p class="text-lg font-medium text-sage-800 mb-1">Kompleksowa koordynacja projektów</p>
             <p class="text-base font-light text-sage-600">Od harmonogramu premier, po opiekę nad Twoimi programami high-ticket.</p>
           </div>
         </div>
-        <div class="flex items-start gap-5">
+        <div class="flex items-start gap-5 rounded-xl p-5 border border-sage-300/20 bg-cream-50/50 hover:bg-sage-300/15 transition-all duration-300">
           <span class="material-symbols-outlined text-xl text-sage-500 mt-1 shrink-0">task_alt</span>
           <div>
             <p class="text-lg font-medium text-sage-800 mb-1">Zarządzanie realizacją zadań</p>
             <p class="text-base font-light text-sage-600">Pilnuję terminów i dbam o idealny przepływ informacji w zespole.</p>
           </div>
         </div>
-        <div class="flex items-start gap-5">
+        <div class="flex items-start gap-5 rounded-xl p-5 border border-sage-300/20 bg-cream-50/50 hover:bg-sage-300/15 transition-all duration-300">
           <span class="material-symbols-outlined text-xl text-sage-500 mt-1 shrink-0">workspace_premium</span>
           <div>
             <p class="text-lg font-medium text-sage-800 mb-1">Organizacja opieki nad klientem</p>
@@ -371,14 +378,14 @@ tailwind.config = {
     <div class="max-w-5xl mx-auto mb-16 fade-in">
       <p class="text-xs font-medium uppercase tracking-widest text-sage-500 mb-8 text-center">Wsparcie SDR / Obsługa Klienta Premium</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="border border-sage-300/30 p-10 rounded-2xl flex flex-col justify-between hover:border-sage-500/50 transition-colors">
+        <div class="border border-sage-300/30 p-10 rounded-2xl flex flex-col justify-between hover:border-sage-500/50 hover:bg-sage-300/10 transition-all duration-300">
           <div>
             <h4 class="font-medium text-lg mb-4 text-sage-800">Pakiet 10 godzin</h4>
             <p class="font-display text-4xl mb-2 text-sage-800">950 zł</p>
             <p class="text-sm text-sage-600/60 font-light">netto</p>
           </div>
         </div>
-        <div class="bg-sage-500/10 p-10 rounded-2xl flex flex-col justify-between border-2 border-sage-500 relative">
+        <div class="bg-sage-500/10 p-10 rounded-2xl flex flex-col justify-between border-2 border-sage-500 relative hover:bg-sage-500/15 transition-all duration-300">
           <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-sage-500 text-cream-50 text-[10px] px-3 py-1 rounded-full uppercase tracking-widest">Bestseller</span>
           <div>
             <h4 class="font-medium text-lg mb-4 text-sage-800">Pakiet 20 godzin</h4>
@@ -386,7 +393,7 @@ tailwind.config = {
             <p class="text-sm text-sage-600/60 font-light">netto</p>
           </div>
         </div>
-        <div class="border border-sage-300/30 p-10 rounded-2xl flex flex-col justify-between hover:border-sage-500/50 transition-colors">
+        <div class="border border-sage-300/30 p-10 rounded-2xl flex flex-col justify-between hover:border-sage-500/50 hover:bg-sage-300/10 transition-all duration-300">
           <div>
             <h4 class="font-medium text-lg mb-4 text-sage-800">Pakiet 40 godzin</h4>
             <p class="font-display text-4xl mb-2 text-sage-800">3 400 zł</p>
@@ -398,7 +405,7 @@ tailwind.config = {
     <div class="max-w-5xl mx-auto fade-in">
       <p class="text-xs font-medium uppercase tracking-widest text-sage-500 mb-8 text-center">Wsparcie Online Business Manager (OBM)</p>
       <div class="max-w-md mx-auto">
-        <div class="bg-sage-300/15 p-10 rounded-2xl text-center">
+        <div class="bg-sage-300/15 p-10 rounded-2xl text-center hover:bg-sage-300/25 transition-all duration-300">
           <h4 class="font-medium text-lg mb-4 text-sage-800">Indywidualna wycena</h4>
           <p class="font-display text-3xl mb-2 text-sage-800">od 1 500 zł</p>
           <p class="text-sm text-sage-600/60 font-light">netto / w zależności od zakresu projektów</p>
@@ -419,21 +426,21 @@ tailwind.config = {
     <p class="text-lg font-light text-sage-600/80 mb-16 max-w-2xl mx-auto">
       Jeśli czujesz, że to jest to, czego od dawna potrzebujesz w swoim biznesie – nie odkładaj tego na później.
     </p>
-    <div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-left">
-      <div class="flex flex-col items-center text-center">
-        <span class="w-12 h-12 rounded-full bg-sage-500 text-cream-50 flex items-center justify-center font-semibold text-lg mb-4">1</span>
+    <div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 text-left">
+      <div class="group flex flex-col items-center text-center rounded-2xl border border-sage-300/20 bg-cream-50/80 p-6 hover:bg-sage-300/10 transition-all duration-300">
+        <span class="w-12 h-12 rounded-full bg-sage-500 text-cream-50 flex items-center justify-center font-semibold text-lg mb-4 transition-transform duration-300 group-hover:scale-105">1</span>
         <p class="text-base font-light text-sage-700 leading-relaxed">Umów się na krótką, niezobowiązującą rozmowę wideo.</p>
       </div>
-      <div class="flex flex-col items-center text-center">
-        <span class="w-12 h-12 rounded-full bg-sage-500 text-cream-50 flex items-center justify-center font-semibold text-lg mb-4">2</span>
+      <div class="group flex flex-col items-center text-center rounded-2xl border border-sage-300/20 bg-cream-50/80 p-6 hover:bg-sage-300/10 transition-all duration-300">
+        <span class="w-12 h-12 rounded-full bg-sage-500 text-cream-50 flex items-center justify-center font-semibold text-lg mb-4 transition-transform duration-300 group-hover:scale-105">2</span>
         <p class="text-base font-light text-sage-700 leading-relaxed">Poznajmy się. Sprawdzimy, czy nadajemy na tych samych falach i czy to dobry moment na współpracę.</p>
       </div>
-      <div class="flex flex-col items-center text-center">
-        <span class="w-12 h-12 rounded-full bg-sage-500 text-cream-50 flex items-center justify-center font-semibold text-lg mb-4">3</span>
+      <div class="group flex flex-col items-center text-center rounded-2xl border border-sage-300/20 bg-cream-50/80 p-6 hover:bg-sage-300/10 transition-all duration-300">
+        <span class="w-12 h-12 rounded-full bg-sage-500 text-cream-50 flex items-center justify-center font-semibold text-lg mb-4 transition-transform duration-300 group-hover:scale-105">3</span>
         <p class="text-base font-light text-sage-700 leading-relaxed">Stwórzmy plan, jak mogę uwolnić Twój czas i wesprzeć Twój biznes.</p>
       </div>
     </div>
-    <a class="inline-flex items-center gap-4 bg-sage-500 hover:bg-sage-600 text-cream-50 px-14 py-6 rounded-lg text-lg font-medium tracking-widest uppercase transition-all duration-500 hover:shadow-2xl hover:-translate-y-0.5" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
+    <a class="inline-flex items-center gap-4 bg-sage-500 hover:bg-sage-600 text-cream-50 px-14 py-6 rounded-lg text-lg font-medium tracking-widest uppercase transition-all duration-500 hover:shadow-2xl hover:shadow-sage-500/30 hover:-translate-y-0.5" href="https://calendar.app.google/SgwkkR6YrpGz9JnGA">
       Umów się na bezpłatną rozmowę wstępną
       <span class="material-symbols-outlined">calendar_today</span>
     </a>
@@ -469,25 +476,23 @@ const menuOverlay = document.getElementById('menuOverlay');
 const closeMenu = document.getElementById('closeMenu');
 
 function openMobileMenu() {
-  mobileMenu.classList.remove('translate-x-full');
-  menuOverlay.classList.remove('hidden');
+  mobileMenu.classList.add('open');
+  menuOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 function closeMobileMenu() {
-  mobileMenu.classList.add('translate-x-full');
-  menuOverlay.classList.add('hidden');
+  mobileMenu.classList.remove('open');
+  menuOverlay.classList.remove('open');
+  document.body.style.overflow = '';
 }
 menuBtn.addEventListener('click', openMobileMenu);
 closeMenu.addEventListener('click', closeMobileMenu);
+menuOverlay.addEventListener('click', closeMobileMenu);
 
-// Fade-in on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
+// Fade-in on scroll (same observer options as v06-greenhouse)
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
