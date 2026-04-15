@@ -6,6 +6,23 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Kinga Maryniak | OBM & SDR</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <!-- Google Analytics (GA4) — prepared integration (set your Measurement ID to enable) -->
+  <script>
+    // Set your GA4 Measurement ID, e.g. 'G-XXXXXXXXXX'. When left empty, GA won't load.
+    window.GA_MEASUREMENT_ID = window.GA_MEASUREMENT_ID || '';
+    (function initGA4(measurementId) {
+      if (!measurementId || typeof measurementId !== 'string' || !/^G-[A-Z0-9]+$/i.test(measurementId)) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = window.gtag || gtag;
+      gtag('js', new Date());
+      gtag('config', measurementId);
+    })(window.GA_MEASUREMENT_ID);
+  </script>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
