@@ -130,6 +130,117 @@
       transform: rotate(180deg);
       z-index: 0;
     }
+
+    /* Testimonial carousel */
+    .tcar-viewport {
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    .tcar-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    .tcar-slide {
+      flex: 0 0 100%;
+      min-width: 0;
+    }
+
+    .tcar-card {
+      position: relative;
+      background: #476150;
+      border-radius: 24px;
+      padding: 44px;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .tcar-card {
+        padding: 56px;
+      }
+    }
+
+    .tcar-avatar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 142px;
+      height: 148px;
+      object-fit: cover;
+      object-position: center 22%;
+      border-radius: 0 24px 0 80px;
+      z-index: 2;
+    }
+
+    .tcar-quote-icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    /* Transparent spacer so the quote text wraps around the corner avatar */
+    .tcar-avatar-spacer {
+      float: right;
+      width: 130px;
+      height: 96px;
+      shape-outside: margin-box;
+      margin: 0 0 6px 18px;
+    }
+
+    @media (min-width: 768px) {
+      .tcar-avatar-spacer {
+        width: 150px;
+        height: 110px;
+      }
+    }
+
+    /* Highlighted key phrases inside the quote */
+    .thl {
+      background: rgba(168, 197, 160, 0.30);
+      color: #FFFDF7;
+      font-weight: 500;
+      padding: 0.05em 0.28em;
+      border-radius: 5px;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    /* Active-slide entrance animation */
+    .tcar-slide .tcar-anim {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .tcar-slide.is-active .tcar-anim {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
+    }
+
+    .tcar-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 9999px;
+      background: rgba(95, 125, 101, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .tcar-dot.is-active {
+      width: 28px;
+      background: #7C9A82;
+    }
+
+    .tcar-arrow {
+      width: 48px;
+      height: 48px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
   </style>
 </head>
 
@@ -275,7 +386,7 @@
           miejscu.
         </p>
         <p class="font-display text-3xl md:text-4xl italic text-sage-500">
-          Odetchnij, pomogę CI i przejmę to, co Cię dziś przytłacza.
+          Odetchnij, pomogę Ci i przejmę to, co Cię dziś przytłacza.
         </p>
       </div>
     </section>
@@ -521,26 +632,91 @@
           </p>
         </div>
       </div>
-      <div class="max-w-4xl mx-auto fade-in relative z-10">
+      <div class="max-w-5xl mx-auto fade-in relative z-10">
         <p class="font-display text-2xl text-center mb-12 text-sage-800">Sprawdź, co mówią moje klientki:</p>
-        <div class="bg-cream-50 p-10 md:p-14 rounded-2xl relative shadow-sm">
-          <span class="material-symbols-outlined text-6xl text-sage-400/20 absolute -top-6 left-8">format_quote</span>
-          <div class="space-y-6 text-lg font-light leading-relaxed text-sage-600">
-            <p>Współpraca z Kingą od samego początku była naprawdę świetna. Kinga dołączyła do mojego zespołu jako osoba
-              odpowiedzialna za obsługę klienta (...) od początku zależało mi na bardzo wysokiej jakości kontaktu.</p>
-            <p class="bg-sage-300/15 border-l-4 border-sage-500 p-6 rounded-r-lg text-xl font-normal text-sage-800">
-              Dzięki niej jako osoba prowadząca biznes mam ogromne poczucie zaufania i spokoju, wiedząc, że moi klienci
-              są w naprawdę dobrych rękach.
-            </p>
-            <p>To, co szczególnie cenię we współpracy z Kingą, to jej wysoka empatia połączona z dużą zadaniowością i
-              odpowiedzialnością. Zawsze jest uważna na potrzeby klientów, a jednocześnie bardzo konkretna i skuteczna w
-              działaniu.</p>
-            <p>Z pełnym przekonaniem polecam współpracę z Kingą każdemu, kto chce mieć poczucie, że jego biznes, a
-              przede wszystkim klienci, są otoczeni profesjonalną i troskliwą opieką.</p>
+
+        <div id="tcar" class="relative">
+          <div class="tcar-viewport">
+            <div class="tcar-track" id="tcarTrack">
+
+              <!-- Slide: Kamila Surma -->
+              <div class="tcar-slide is-active">
+                <div class="tcar-card">
+                  <img class="tcar-avatar" src="kamila-surma.jpeg" alt="Kamila Surma" />
+                  <svg class="tcar-quote-icon tcar-anim mb-6" viewBox="0 0 42 42" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="quoteGrad" x1="0" y1="0" x2="42" y2="42" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#A8C5A0" />
+                        <stop offset="0.89" stop-color="#FFFDF7" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M3 24c0-8 5-14 13-16l1.6 3.4C13 16 11 19 11 22h6v12H3V24zm22 0c0-8 5-14 13-16l1.6 3.4C35 16 33 19 33 22h6v12H25V24z" fill="url(#quoteGrad)" />
+                  </svg>
+                  <div class="tcar-anim space-y-5 font-display text-xl md:text-2xl leading-relaxed text-cream-50/95">
+                    <div class="tcar-avatar-spacer" aria-hidden="true"></div>
+                    <p>Współpraca z Kingą od samego początku była naprawdę świetna. Kinga dołączyła do mojego zespołu jako
+                      osoba odpowiedzialna za obsługę klienta (...) od początku zależało mi na
+                      <span class="thl">bardzo wysokiej jakości kontaktu</span>.</p>
+                    <p>Dzięki niej jako osoba prowadząca biznes mam <span class="thl">ogromne poczucie zaufania i
+                        spokoju</span>, wiedząc, że <span class="thl">moi klienci są w naprawdę dobrych rękach</span>.</p>
+                    <p>To, co szczególnie cenię we współpracy z Kingą, to jej <span class="thl">wysoka empatia połączona z
+                        dużą zadaniowością i odpowiedzialnością</span>. Zawsze jest uważna na potrzeby klientów, a
+                      jednocześnie bardzo konkretna i skuteczna w działaniu.</p>
+                    <p>Z pełnym przekonaniem polecam współpracę z Kingą każdemu, kto chce mieć poczucie, że jego biznes, a
+                      przede wszystkim klienci, są otoczeni <span class="thl">profesjonalną i troskliwą opieką</span>.</p>
+                  </div>
+                  <div class="tcar-anim mt-8 pt-6 border-t border-cream-50/20">
+                    <p class="font-body text-lg font-semibold text-cream-50 leading-tight">Kamila Surma</p>
+                    <p class="font-body text-sm font-light text-cream-50/70 leading-tight">@kamilasurma</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide: Magda Kołucka -->
+              <div class="tcar-slide">
+                <div class="tcar-card">
+                  <img class="tcar-avatar" src="magda-kolucka.jpeg" alt="Magda Kołucka" />
+                  <svg class="tcar-quote-icon tcar-anim mb-6" viewBox="0 0 42 42" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 24c0-8 5-14 13-16l1.6 3.4C13 16 11 19 11 22h6v12H3V24zm22 0c0-8 5-14 13-16l1.6 3.4C35 16 33 19 33 22h6v12H25V24z" fill="url(#quoteGrad)" />
+                  </svg>
+                  <div class="tcar-anim space-y-5 font-display text-xl md:text-2xl leading-relaxed text-cream-50/95">
+                    <div class="tcar-avatar-spacer" aria-hidden="true"></div>
+                    <p>Z pełnym przekonaniem mogę polecić współpracę z Kingą. To osoba, która w moim biznesie nie tylko
+                      umawia spotkania, ale <span class="thl">realnie wspiera proces sprzedaży</span> i dba o
+                      doświadczenie klienta od pierwszego kontaktu.</p>
+                    <p>Wyróżnia ją <span class="thl">ogromne zaangażowanie, samodzielność i umiejętność budowania
+                        relacji</span>. Potrafi słuchać, wyczuć potrzeby rozmówcy i prowadzić rozmowę w sposób naturalny,
+                      bez nachalnej sprzedaży.</p>
+                    <p>Bardzo cenię w niej <span class="thl">odpowiedzialność za wyniki</span> – pilnuje follow-upów,
+                      <span class="thl">dba o porządek w procesach i nie zostawia tematów niedomkniętych</span>. Dzięki
+                      temu klienci czują się zaopiekowani, a cały proces sprzedaży przebiega sprawnie i profesjonalnie.
+                    </p>
+                    <p>To osoba, której <span class="thl">można zaufać i spokojnie powierzyć kontakt</span> z
+                      potencjalnymi klientami marki. Zdecydowanie polecam współpracę.</p>
+                  </div>
+                  <div class="tcar-anim mt-8 pt-6 border-t border-cream-50/20">
+                    <p class="font-body text-lg font-semibold text-cream-50 leading-tight">Magda Kołucka</p>
+                    <p class="font-body text-sm font-light text-cream-50/70 leading-tight">@magdakolucka</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <div class="mt-8 pt-8 border-t border-sage-300/20">
-            <p class="font-medium text-sage-800 text-lg">Kamila Surma</p>
-            <p class="text-sage-600/60 font-light">@kamilasurma</p>
+
+          <!-- Controls -->
+          <div class="flex items-center justify-center gap-6 mt-8">
+            <button id="tcarPrev" aria-label="Poprzednia opinia" data-ga-label="opinie_prev"
+              class="tcar-arrow bg-cream-50 text-sage-700 shadow-sm hover:bg-sage-500 hover:text-cream-50">
+              <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <div id="tcarDots" class="flex items-center gap-2.5"></div>
+            <button id="tcarNext" aria-label="Następna opinia" data-ga-label="opinie_next"
+              class="tcar-arrow bg-cream-50 text-sage-700 shadow-sm hover:bg-sage-500 hover:text-cream-50">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
           </div>
         </div>
       </div>
@@ -769,6 +945,60 @@
           section_id: closestSectionId(el),
         });
       }, { capture: true });
+    })();
+
+    // Testimonial carousel
+    (function testimonialCarousel() {
+      const root = document.getElementById('tcar');
+      const track = document.getElementById('tcarTrack');
+      const dotsWrap = document.getElementById('tcarDots');
+      if (!root || !track || !dotsWrap) return;
+
+      const slides = Array.from(track.children);
+      const total = slides.length;
+      if (!total) return;
+
+      let index = 0;
+
+      // Build dots
+      const dots = slides.map((_, i) => {
+        const b = document.createElement('button');
+        b.className = 'tcar-dot' + (i === 0 ? ' is-active' : '');
+        b.setAttribute('aria-label', 'Opinia ' + (i + 1));
+        b.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(b);
+        return b;
+      });
+
+      function render() {
+        track.style.transform = 'translateX(' + (-index * 100) + '%)';
+        slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+      }
+
+      function goTo(i) {
+        index = (i + total) % total;
+        render();
+      }
+      function next() { goTo(index + 1); }
+      function prev() { goTo(index - 1); }
+
+      const nextBtn = document.getElementById('tcarNext');
+      const prevBtn = document.getElementById('tcarPrev');
+      if (nextBtn) nextBtn.addEventListener('click', next);
+      if (prevBtn) prevBtn.addEventListener('click', prev);
+
+      // Swipe support (touch)
+      let startX = null;
+      track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', (e) => {
+        if (startX === null) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
+        startX = null;
+      }, { passive: true });
+
+      render();
     })();
   </script>
 </body>
